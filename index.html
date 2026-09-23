@@ -1,211 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Kabe.world is under construction</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
 
     <style>
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         html {
-            background: #000;
             scroll-behavior: smooth;
         }
 
         body {
             min-height: 100vh;
-            overflow-x: hidden;
-
-            display: flex;
-            justify-content: center;
-
             background: #000;
-
             color: #fff;
-
             font-family: "Nunito", sans-serif;
-
-            padding: 70px 18px 55px;
+            overflow-x: hidden;
         }
 
         /* =========================
            STAR BACKGROUND
         ========================= */
 
-        .stars,
-        .stars::before,
-        .stars::after {
+        body::before {
+            content: "";
             position: fixed;
             inset: 0;
-
-            content: "";
-
             pointer-events: none;
-        }
 
-        .stars {
             background-image:
-                radial-gradient(2px 2px at 8% 15%, #fff, transparent),
-                radial-gradient(2px 2px at 20% 70%, #ff9ddd, transparent),
-                radial-gradient(1px 1px at 35% 25%, #fff, transparent),
-                radial-gradient(2px 2px at 48% 85%, #ffc9ec, transparent),
-                radial-gradient(1px 1px at 63% 18%, #fff, transparent),
-                radial-gradient(2px 2px at 78% 55%, #ff8fd4, transparent),
-                radial-gradient(1px 1px at 91% 25%, #fff, transparent),
-                radial-gradient(2px 2px at 15% 92%, #ffb6e9, transparent),
-                radial-gradient(1px 1px at 57% 48%, #fff, transparent),
-                radial-gradient(2px 2px at 86% 82%, #ffc8ee, transparent);
-
-            opacity: 0.9;
-        }
-
-        .stars::before {
-            background-image:
-                radial-gradient(1px 1px at 5% 45%, #fff, transparent),
-                radial-gradient(2px 2px at 30% 15%, #ff9ddd, transparent),
-                radial-gradient(1px 1px at 50% 65%, #fff, transparent),
-                radial-gradient(2px 2px at 78% 35%, #ffc8ee, transparent),
-                radial-gradient(1px 1px at 95% 85%, #fff, transparent);
-
-            opacity: 0.75;
-
-            animation: twinkle 3s ease-in-out infinite alternate;
-        }
-
-        .stars::after {
-            background:
                 radial-gradient(
-                    circle at 50% 35%,
-                    rgba(255, 65, 185, 0.12),
-                    transparent 38%
+                    circle,
+                    rgba(255, 180, 230, 0.8) 1px,
+                    transparent 1px
+                ),
+                radial-gradient(
+                    circle,
+                    rgba(255, 255, 255, 0.55) 1px,
+                    transparent 1px
                 );
+
+            background-size:
+                95px 95px,
+                150px 150px;
+
+            background-position:
+                10px 20px,
+                70px 80px;
+
+            opacity: 0.25;
+            z-index: 0;
         }
 
         /* =========================
-           MAIN CONTENT
+           MAIN
         ========================= */
 
-        .content {
+        .page {
             position: relative;
-            z-index: 2;
+            z-index: 1;
 
             width: 100%;
-            max-width: 650px;
+            max-width: 720px;
+
+            margin: 0 auto;
+            padding: 70px 22px 60px;
 
             text-align: center;
-
-            opacity: 0;
-
-            transform: translateY(15px);
-
-            animation: fadeIn 1.5s ease forwards;
         }
 
         /* =========================
-           HEADER
+           KABE TITLE
         ========================= */
 
-        .small-text {
+        .logo {
             font-family: "Fredoka", sans-serif;
-
-            font-size: 11px;
-
-            font-weight: 500;
-
-            letter-spacing: 3px;
-
-            text-transform: uppercase;
-
-            color: #ffb9e8;
-
-            margin-bottom: 10px;
-
-            text-shadow:
-                0 0 12px rgba(255, 120, 210, 0.35);
-        }
-
-        h1 {
-            font-family: "Fredoka", sans-serif;
-
-            font-size: clamp(65px, 22vw, 150px);
-
-            font-weight: 700;
-
+            font-size: clamp(58px, 16vw, 105px);
+            font-weight: 600;
             letter-spacing: -4px;
 
-            background: linear-gradient(
-                135deg,
-                #ffffff 5%,
-                #ffd5f2 40%,
-                #ff8fd4 75%,
-                #ff6fc6 100%
-            );
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff 0%,
+                    #ffd4ef 35%,
+                    #ff86d2 65%,
+                    #ff5fbd 100%
+                );
 
             -webkit-background-clip: text;
             background-clip: text;
-
             color: transparent;
 
-            text-shadow:
-                0 0 25px rgba(255, 100, 200, 0.3),
-                0 0 60px rgba(255, 100, 200, 0.12);
+            filter:
+                drop-shadow(
+                    0 0 20px rgba(255, 100, 200, 0.25)
+                );
 
-            animation: glow 4s ease-in-out infinite alternate;
-        }
+            line-height: 0.9;
 
-        .world {
-            margin-top: -3px;
-
-            font-family: "Fredoka", sans-serif;
-
-            font-size: 12px;
-
-            font-weight: 500;
-
-            letter-spacing: 7px;
-
-            color: #ffc9ed;
-
-            text-shadow:
-                0 0 12px rgba(255, 130, 210, 0.25);
+            margin-bottom: 22px;
         }
 
         .divider {
-            width: 65px;
-
+            width: 75px;
             height: 2px;
 
-            margin: 25px auto;
+            margin: 0 auto 25px;
 
             border-radius: 999px;
 
-            background: linear-gradient(
-                90deg,
-                transparent,
-                #ff83ce,
-                #ffd1ef,
-                #ff83ce,
-                transparent
-            );
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #ff91d5,
+                    transparent
+                );
 
             box-shadow:
-                0 0 12px rgba(255, 120, 210, 0.35);
+                0 0 15px rgba(255, 100, 200, 0.5);
         }
 
         /* =========================
@@ -213,95 +147,90 @@
         ========================= */
 
         .message {
+            max-width: 550px;
+            margin: 0 auto;
+
             font-family: "Nunito", sans-serif;
-
             font-size: 15px;
+            line-height: 1.7;
 
-            font-weight: 600;
+            color: #ffe4f4;
+        }
 
-            line-height: 1.8;
-
-            color: #ffe6f6;
-
-            margin-bottom: 20px;
-
-            text-shadow:
-                0 0 12px rgba(255, 150, 220, 0.12);
+        .message strong {
+            color: #ff9ddd;
+            font-weight: 800;
         }
 
         /* =========================
            FOLDED BUTTON
         ========================= */
 
-        .link {
-            display: inline-block;
+        .folded-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
 
-            color: #ffd8f1;
+            margin-top: 27px;
+
+            padding: 13px 24px;
+
+            border-radius: 999px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff91d4,
+                    #ff69c4
+                );
+
+            color: #17000f;
 
             text-decoration: none;
 
             font-family: "Nunito", sans-serif;
-
             font-size: 11px;
-
             font-weight: 800;
 
-            letter-spacing: 1.5px;
-
-            padding: 11px 19px;
-
-            border: 1px solid rgba(255, 150, 220, 0.45);
-
-            border-radius: 999px;
-
-            background: rgba(255, 100, 200, 0.06);
+            letter-spacing: 1.2px;
 
             box-shadow:
-                0 0 20px rgba(255, 100, 200, 0.06);
+                0 0 25px rgba(255, 100, 200, 0.12);
 
             transition: 0.3s ease;
         }
 
-        .link:hover {
-            color: #fff;
-
-            background: rgba(255, 100, 200, 0.14);
-
-            border-color: #ff9ddd;
+        .folded-button:hover {
+            transform: translateY(-3px);
 
             box-shadow:
-                0 0 25px rgba(255, 100, 200, 0.2);
+                0 0 35px rgba(255, 100, 200, 0.25);
 
-            transform: translateY(-2px);
+            filter: brightness(1.08);
         }
 
-        .link:active {
-            transform: scale(0.96);
+        .folded-button:active {
+            transform: scale(0.97);
         }
 
         /* =========================
-           KABE NEWS
+           NEWS
         ========================= */
 
-        .news-area {
-            margin: 40px auto 0;
-
+        .news {
             width: 100%;
+            margin: 45px auto 0;
         }
 
         .news-button {
             display: inline-flex;
-
             align-items: center;
-
             justify-content: center;
-
             gap: 8px;
 
-            padding: 12px 20px;
+            padding: 12px 21px;
 
             border: 1px solid rgba(255, 150, 220, 0.35);
-
             border-radius: 999px;
 
             background: rgba(255, 100, 200, 0.05);
@@ -309,9 +238,7 @@
             color: #ffd5ef;
 
             font-family: "Fredoka", sans-serif;
-
             font-size: 13px;
-
             font-weight: 500;
 
             letter-spacing: 1px;
@@ -324,7 +251,8 @@
         .news-button:hover {
             background: rgba(255, 100, 200, 0.11);
 
-            border-color: rgba(255, 157, 221, 0.65);
+            border-color:
+                rgba(255, 157, 221, 0.65);
 
             box-shadow:
                 0 0 25px rgba(255, 100, 200, 0.12);
@@ -340,180 +268,17 @@
             color: #ff9ddd;
         }
 
-        /* =========================
-           NEWS CARD
-        ========================= */
-
         .news-card {
             display: none;
 
-            margin: 18px auto 0;
-
-            width: 100%;
-
-            text-align: left;
-
-            padding: 23px;
-
-            border: 1px solid rgba(255, 150, 220, 0.28);
-
-            border-radius: 22px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255, 80, 180, 0.08),
-                    rgba(0, 0, 0, 0.94)
-                );
-
-            box-shadow:
-                0 0 35px rgba(255, 80, 190, 0.08);
-
-            backdrop-filter: blur(14px);
-
-            -webkit-backdrop-filter: blur(14px);
-
-            animation: newsOpen 0.35s ease forwards;
-        }
-
-        .news-card.show {
-            display: block;
-        }
-
-        .news-header {
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            gap: 15px;
-
-            margin-bottom: 17px;
-        }
-
-        .news-title {
-            font-family: "Fredoka", sans-serif;
-
-            font-size: 19px;
-
-            font-weight: 600;
-
-            color: #ffd0ef;
-        }
-
-        .news-label {
-            font-size: 8px;
-
-            font-weight: 800;
-
-            letter-spacing: 1.5px;
-
-            text-transform: uppercase;
-
-            color: #ff91d4;
-
-            padding: 5px 9px;
-
-            border-radius: 999px;
-
-            border: 1px solid rgba(255, 145, 212, 0.25);
-
-            background: rgba(255, 100, 200, 0.06);
-
-            white-space: nowrap;
-        }
-
-        .news-date {
-            font-size: 9px;
-
-            font-weight: 800;
-
-            letter-spacing: 1.2px;
-
-            text-transform: uppercase;
-
-            color: #ff91d4;
-
-            margin-bottom: 12px;
-        }
-
-        .news-heading {
-            font-family: "Fredoka", sans-serif;
-
-            font-size: 16px;
-
-            font-weight: 500;
-
-            color: #fff;
-
-            margin-bottom: 9px;
-        }
-
-        .news-text {
-            font-size: 14px;
-
-            font-weight: 500;
-
-            line-height: 1.85;
-
-            color: #ffe3f3;
-        }
-
-        .news-text strong {
-            color: #fff;
-
-            font-weight: 800;
-        }
-
-        .hide-news {
-            display: block;
-
-            margin: 19px auto 0;
-
-            padding: 8px 15px;
-
-            border: 1px solid rgba(255, 150, 220, 0.22);
-
-            border-radius: 999px;
-
-            background: transparent;
-
-            color: #ffb7e5;
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            letter-spacing: 1px;
-
-            cursor: pointer;
-
-            transition: 0.25s ease;
-        }
-
-        .hide-news:hover {
-            color: #fff;
-
-            border-color: rgba(255, 150, 220, 0.5);
-
-            background: rgba(255, 100, 200, 0.07);
-        }
-
-        /* =========================
-           CAREERS
-        ========================= */
-
-        .careers {
-            margin: 42px auto 0;
-
-            width: 100%;
-
-            text-align: left;
+            margin-top: 18px;
 
             padding: 25px;
 
-            border: 1px solid rgba(255, 150, 220, 0.25);
+            text-align: left;
+
+            border: 1px solid
+                rgba(255, 150, 220, 0.25);
 
             border-radius: 24px;
 
@@ -525,12 +290,219 @@
                 );
 
             box-shadow:
-                0 0 30px rgba(255, 80, 190, 0.06),
-                inset 0 0 25px rgba(255, 120, 200, 0.02);
+                0 0 30px rgba(255, 80, 190, 0.06);
 
             backdrop-filter: blur(12px);
-
             -webkit-backdrop-filter: blur(12px);
+
+            animation:
+                dropdownOpen 0.35s ease forwards;
+        }
+
+        .news-card.show {
+            display: block;
+        }
+
+        .news-top {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .news-title {
+            font-family: "Fredoka", sans-serif;
+            font-size: 21px;
+            font-weight: 600;
+
+            color: #ffd0ef;
+
+            margin-bottom: 8px;
+        }
+
+        .news-badge {
+            display: inline-block;
+
+            padding: 5px 10px;
+
+            border-radius: 999px;
+
+            background:
+                rgba(255, 100, 200, 0.1);
+
+            color: #ff9ddd;
+
+            font-size: 9px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .news-date {
+            margin-top: 9px;
+
+            font-size: 10px;
+
+            color: #e9bfd8;
+        }
+
+        .news-heading {
+            font-family: "Fredoka", sans-serif;
+
+            font-size: 17px;
+            font-weight: 600;
+
+            color: #fff;
+
+            margin-bottom: 9px;
+        }
+
+        .news-text {
+            font-family: "Nunito", sans-serif;
+
+            font-size: 13px;
+            line-height: 1.75;
+
+            color: #ffdfee;
+        }
+
+        .hide-news {
+            display: block;
+
+            width: 100%;
+
+            margin-top: 18px;
+
+            padding: 10px;
+
+            border: 1px solid
+                rgba(255, 150, 220, 0.2);
+
+            border-radius: 999px;
+
+            background: transparent;
+
+            color: #ffcde9;
+
+            font-family: "Nunito", sans-serif;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+        .hide-news:hover {
+            background:
+                rgba(255, 100, 200, 0.07);
+        }
+
+        /* =========================
+           CAREERS
+        ========================= */
+
+        .careers {
+            margin: 42px auto 0;
+
+            width: 100%;
+
+            text-align: center;
+        }
+
+        .careers-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            padding: 12px 21px;
+
+            border: 1px solid
+                rgba(255, 150, 220, 0.35);
+
+            border-radius: 999px;
+
+            background:
+                rgba(255, 100, 200, 0.05);
+
+            color: #ffd5ef;
+
+            font-family: "Fredoka", sans-serif;
+
+            font-size: 13px;
+            font-weight: 500;
+
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+        .careers-button:hover {
+            background:
+                rgba(255, 100, 200, 0.11);
+
+            border-color:
+                rgba(255, 157, 221, 0.65);
+
+            box-shadow:
+                0 0 25px rgba(255, 100, 200, 0.12);
+
+            transform: translateY(-2px);
+        }
+
+        .careers-button:active {
+            transform: scale(0.97);
+        }
+
+        .careers-icon {
+            color: #ff9ddd;
+
+            transition: 0.3s ease;
+        }
+
+        .careers-button.open .careers-icon {
+            transform: rotate(45deg);
+        }
+
+        .careers-content {
+            display: none;
+
+            margin: 18px auto 0;
+
+            width: 100%;
+
+            text-align: left;
+
+            padding: 25px;
+
+            border: 1px solid
+                rgba(255, 150, 220, 0.25);
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 80, 180, 0.07),
+                    rgba(0, 0, 0, 0.92)
+                );
+
+            box-shadow:
+                0 0 30px rgba(255, 80, 190, 0.06);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            animation:
+                dropdownOpen 0.35s ease forwards;
+        }
+
+        .careers-content.show {
+            display: block;
         }
 
         .careers-top {
@@ -543,7 +515,6 @@
             font-family: "Fredoka", sans-serif;
 
             font-size: 21px;
-
             font-weight: 600;
 
             color: #ffd0ef;
@@ -552,8 +523,9 @@
         }
 
         .careers-subtitle {
-            font-size: 13px;
+            font-family: "Nunito", sans-serif;
 
+            font-size: 13px;
             line-height: 1.7;
 
             color: #ffe2f3;
@@ -564,7 +536,8 @@
 
             border-radius: 18px;
 
-            border: 1px solid rgba(255, 150, 220, 0.18);
+            border: 1px solid
+                rgba(255, 150, 220, 0.18);
 
             background:
                 rgba(255, 100, 200, 0.035);
@@ -576,7 +549,6 @@
             font-family: "Fredoka", sans-serif;
 
             font-size: 17px;
-
             font-weight: 600;
 
             color: #fff;
@@ -585,8 +557,9 @@
         }
 
         .career-role-text {
-            font-size: 13px;
+            font-family: "Nunito", sans-serif;
 
+            font-size: 13px;
             line-height: 1.75;
 
             color: #ffdfee;
@@ -595,13 +568,10 @@
         }
 
         .apply-button {
-            display: inline-flex;
+            display: flex;
 
             align-items: center;
-
             justify-content: center;
-
-            gap: 7px;
 
             width: 100%;
 
@@ -609,33 +579,33 @@
 
             border-radius: 999px;
 
-            background: linear-gradient(
-                135deg,
-                #ff91d4,
-                #ff6fc6
-            );
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff91d4,
+                    #ff6fc6
+                );
 
             color: #16000e;
 
             text-decoration: none;
 
-            font-size: 11px;
+            font-family: "Nunito", sans-serif;
 
+            font-size: 11px;
             font-weight: 800;
 
             letter-spacing: 1.3px;
 
             transition: 0.3s ease;
-
-            box-shadow:
-                0 0 20px rgba(255, 100, 200, 0.12);
         }
 
         .apply-button:hover {
             transform: translateY(-2px);
 
             box-shadow:
-                0 0 28px rgba(255, 100, 200, 0.22);
+                0 0 28px
+                rgba(255, 100, 200, 0.22);
 
             filter: brightness(1.08);
         }
@@ -647,8 +617,9 @@
         .careers-note {
             text-align: center;
 
-            font-size: 10px;
+            font-family: "Nunito", sans-serif;
 
+            font-size: 10px;
             line-height: 1.6;
 
             color: #cfaec3;
@@ -659,23 +630,18 @@
         ========================= */
 
         .socials {
-            margin: 38px auto 0;
-
-            text-align: center;
+            margin-top: 48px;
         }
 
         .social-title {
             font-family: "Fredoka", sans-serif;
 
-            font-size: 15px;
-
+            font-size: 18px;
             font-weight: 500;
 
-            letter-spacing: 2px;
+            color: #ffd2ed;
 
-            color: #ffd0ef;
-
-            margin-bottom: 16px;
+            margin-bottom: 15px;
         }
 
         .social-links {
@@ -684,106 +650,92 @@
             justify-content: center;
 
             gap: 10px;
+
+            flex-wrap: wrap;
         }
 
-        .social-links a {
-            display: flex;
-
-            flex-direction: column;
+        .social-link {
+            display: inline-flex;
 
             align-items: center;
+            justify-content: center;
 
-            min-width: 145px;
+            min-width: 110px;
 
-            padding: 14px 16px;
+            padding: 10px 16px;
 
-            border: 1px solid rgba(255, 150, 220, 0.2);
+            border-radius: 999px;
 
-            border-radius: 18px;
+            border: 1px solid
+                rgba(255, 150, 220, 0.2);
 
             background:
                 rgba(255, 100, 200, 0.035);
 
+            color: #ffdff1;
+
             text-decoration: none;
+
+            font-family: "Nunito", sans-serif;
+
+            font-size: 11px;
+            font-weight: 700;
 
             transition: 0.3s ease;
         }
 
-        .social-links a:hover {
-            border-color: rgba(255, 157, 221, 0.5);
-
+        .social-link:hover {
             background:
-                rgba(255, 100, 200, 0.09);
+                rgba(255, 100, 200, 0.08);
+
+            border-color:
+                rgba(255, 150, 220, 0.5);
 
             transform: translateY(-2px);
 
             box-shadow:
-                0 0 20px rgba(255, 100, 200, 0.1);
-        }
-
-        .social-links span {
-            font-size: 10px;
-
-            font-weight: 800;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1.5px;
-
-            color: #ff91d4;
-
-            margin-bottom: 5px;
-        }
-
-        .social-links strong {
-            font-size: 12px;
-
-            font-weight: 600;
-
-            color: #ffe5f5;
+                0 0 20px
+                rgba(255, 100, 200, 0.1);
         }
 
         /* =========================
-           ANIMATIONS
+           FOOTER
         ========================= */
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .footer {
+            margin-top: 55px;
+
+            font-family: "Nunito", sans-serif;
+
+            font-size: 10px;
+
+            color: #d6aeca;
         }
 
-        @keyframes glow {
-            from {
-                filter: brightness(0.95);
-            }
-
-            to {
-                filter: brightness(1.08);
-            }
+        .footer span {
+            color: #ff91d4;
         }
 
-        @keyframes twinkle {
-            from {
-                opacity: 0.3;
-            }
+        /* =========================
+           ANIMATION
+        ========================= */
 
-            to {
-                opacity: 1;
-            }
-        }
+        @keyframes dropdownOpen {
 
-        @keyframes newsOpen {
             from {
                 opacity: 0;
-                transform: translateY(-8px) scale(0.98);
+                transform:
+                    translateY(-8px)
+                    scale(0.98);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform:
+                    translateY(0)
+                    scale(1);
             }
+
         }
 
         /* =========================
@@ -792,126 +744,64 @@
 
         @media (max-width: 600px) {
 
-            body {
-                padding: 60px 17px 40px;
+            .page {
+                padding:
+                    55px 18px 45px;
             }
 
-            h1 {
-                font-size: 76px;
-                letter-spacing: -4px;
-            }
-
-            .world {
-                font-size: 10px;
-                letter-spacing: 5px;
+            .logo {
+                font-size: 70px;
             }
 
             .message {
                 font-size: 14px;
             }
 
-            .news-card {
-                padding: 19px;
-            }
-
-            .news-title {
-                font-size: 17px;
-            }
-
-            .news-text {
-                font-size: 13px;
-            }
-
-            .careers {
-                padding: 19px;
+            .news-card,
+            .careers-content {
+                padding: 20px;
             }
 
             .career-role {
                 padding: 17px;
             }
 
-            .careers-subtitle {
-                font-size: 12px;
-            }
-
-            .career-role-text {
-                font-size: 12px;
-            }
-
-            .social-links {
-                gap: 8px;
-            }
-
-            .social-links a {
-                min-width: 0;
-                flex: 1;
-                padding: 12px 8px;
-            }
-
-            .social-links strong {
-                font-size: 11px;
-            }
-        }
-
-        /* =========================
-           SMALL PHONES
-        ========================= */
-
-        @media (max-width: 380px) {
-
-            body {
-                padding-top: 50px;
-            }
-
-            h1 {
-                font-size: 68px;
-            }
-
-            .careers {
-                padding: 17px;
-            }
-
-            .social-links strong {
-                font-size: 10px;
-            }
         }
 
     </style>
+
 </head>
+
 
 <body>
 
-    <div class="stars"></div>
-
-    <main class="content">
+    <main class="page">
 
         <!-- =========================
-             HEADER
+             KABE
         ========================= -->
 
-        <div class="small-text">
-            Welcome to
-        </div>
-
-        <h1>KABE</h1>
-
-        <div class="world">
-            WORLD
+        <div class="logo">
+            KABE
         </div>
 
         <div class="divider"></div>
 
-        <!-- =========================
-             UNDER CONSTRUCTION
-        ========================= -->
-
         <p class="message">
-            Kabe.world is currently under construction.<br>
+
+            <strong>Kabe.world</strong>
+            is currently under construction.
             Something special is coming soon. ♡
+
         </p>
 
+
+        <!-- =========================
+             FOLDED.WORLD
+        ========================= -->
+
         <a
-            class="link"
+            class="folded-button"
             href="https://folded.world"
             target="_blank"
             rel="noopener noreferrer"
@@ -919,57 +809,70 @@
             VISIT FOLDED.WORLD
         </a>
 
+
         <!-- =========================
-             KABE NEWS
+             NEWS
         ========================= -->
 
-        <section class="news-area">
+        <section class="news">
 
             <button
                 class="news-button"
                 id="newsButton"
                 type="button"
             >
-                <span class="news-icon">𐙚</span>
+
+                <span class="news-icon">
+                    𐙚
+                </span>
+
                 KABE NEWS
+
             </button>
 
-            <article
+
+            <div
                 class="news-card"
                 id="newsCard"
             >
 
-                <div class="news-header">
+                <div class="news-top">
 
                     <div class="news-title">
                         KABE News 𐙚
                     </div>
 
-                    <div class="news-label">
+                    <div class="news-badge">
                         Official Update
+                    </div>
+
+                    <div class="news-date">
+                        September 22, 2026 · 9:43 PM CT
                     </div>
 
                 </div>
 
-                <div class="news-date">
-                    September 22, 2026 · 9:43 PM CT
-                </div>
 
                 <div class="news-heading">
                     An update regarding Blossom
                 </div>
 
+
                 <p class="news-text">
-                    KABE would like to share that
-                    <strong>B, Blossom</strong> will be taking an official
-                    hiatus from KABE-related activities due to limited
+
+                    KABE would like to share that B, Blossom,
+                    will be taking an official hiatus from
+                    KABE-related activities due to limited
                     availability online.
-                    <br><br>
+
                     There is currently no confirmed return date.
-                    We appreciate everyone's understanding and support
-                    during this time, and we look forward to welcoming
-                    Blossom back when she is ready. ♡
+
+                    We appreciate everyone's understanding and
+                    support during this time, and we look forward
+                    to welcoming Blossom back when she is ready. ♡
+
                 </p>
+
 
                 <button
                     class="hide-news"
@@ -979,9 +882,10 @@
                     Hide announcement
                 </button>
 
-            </article>
+            </div>
 
         </section>
+
 
         <!-- =========================
              CAREERS
@@ -989,57 +893,93 @@
 
         <section class="careers">
 
-            <div class="careers-top">
+            <button
+                class="careers-button"
+                id="careersButton"
+                type="button"
+            >
 
-                <div class="careers-title">
-                    careers 𐙚
+                <span class="careers-icon">
+                    𐙚
+                </span>
+
+                CAREERS
+
+            </button>
+
+
+            <div
+                class="careers-content"
+                id="careersContent"
+            >
+
+                <div class="careers-top">
+
+                    <div class="careers-title">
+                        careers 𐙚
+                    </div>
+
+                    <p class="careers-subtitle">
+
+                        Want to help shape the future of KABE?
+                        We're looking for creative people to
+                        join our team.
+
+                    </p>
+
                 </div>
 
-                <p class="careers-subtitle">
-                    Want to help shape the future of KABE?
-                    We're looking for creative people to join our team.
+
+                <div class="career-role">
+
+                    <div class="career-role-title">
+                        Logo Designer
+                    </div>
+
+
+                    <p class="career-role-text">
+
+                        KABE is looking for a creative logo
+                        designer to help develop and maintain
+                        visual designs for the group, including
+                        logos, graphics, announcements, and
+                        other official materials.
+
+                    </p>
+
+
+                    <!--
+                        REPLACE THIS URL WITH YOUR
+                        GOOGLE FORM LINK
+                    -->
+
+                    <a
+                        class="apply-button"
+                        href="YOUR_GOOGLE_FORM_URL_HERE"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        APPLY AS A LOGO DESIGNER →
+                    </a>
+
+                </div>
+
+
+                <p class="careers-note">
+
+                    Applications are reviewed by the KABE team.
+                    Please provide accurate information and a
+                    portfolio showing your previous work.
+
                 </p>
 
             </div>
-
-            <div class="career-role">
-
-                <div class="career-role-title">
-                    Logo Designer
-                </div>
-
-                <p class="career-role-text">
-                    KABE is looking for a creative logo designer to help
-                    develop and maintain visual designs for the group,
-                    including logos, graphics, announcements, and other
-                    official materials.
-                </p>
-
-                <!--
-                    REPLACE THE URL BELOW WITH YOUR GOOGLE FORM LINK
-                -->
-
-                <a
-                    class="apply-button"
-                    href="YOUR_GOOGLE_FORM_URL_HERE"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    APPLY AS A LOGO DESIGNER →
-                </a>
-
-            </div>
-
-            <p class="careers-note">
-                Applications are reviewed by the KABE team.
-                Please provide accurate information and a portfolio
-                showing your previous work.
-            </p>
 
         </section>
 
+
         <!-- =========================
-             FIND KABE
+             SOCIALS
         ========================= -->
 
         <section class="socials">
@@ -1048,37 +988,57 @@
                 find KABE 𐙚
             </div>
 
+
             <div class="social-links">
 
                 <a
-                    href="https://instagram.com/kabeworldofficial"
+                    class="social-link"
+                    href="#"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <span>Instagram</span>
-                    <strong>@kabeworldofficial</strong>
+                    Instagram
                 </a>
 
+
                 <a
-                    href="https://tiktok.com/@kabeworld"
+                    class="social-link"
+                    href="#"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <span>TikTok</span>
-                    <strong>@kabeworld</strong>
+                    TikTok
                 </a>
 
             </div>
 
         </section>
 
+
+        <!-- =========================
+             FOOTER
+        ========================= -->
+
+        <footer class="footer">
+
+            made with
+            <span>♡</span>
+            for KABE
+
+        </footer>
+
     </main>
+
 
     <!-- =========================
          JAVASCRIPT
     ========================= -->
 
     <script>
+
+        /* =========================
+           NEWS DROPDOWN
+        ========================= */
 
         const newsButton =
             document.getElementById("newsButton");
@@ -1090,36 +1050,85 @@
             document.getElementById("hideNews");
 
 
-        newsButton.addEventListener("click", function () {
+        newsButton.addEventListener(
+            "click",
+            function () {
 
-            const isOpen =
-                newsCard.classList.toggle("show");
+                const isOpen =
+                    newsCard.classList.toggle("show");
 
-            if (isOpen) {
 
-                newsButton.innerHTML =
-                    '<span class="news-icon">×</span> CLOSE NEWS';
+                if (isOpen) {
 
-            } else {
+                    newsButton.innerHTML =
+                        '<span class="news-icon">×</span> CLOSE NEWS';
+
+                } else {
+
+                    newsButton.innerHTML =
+                        '<span class="news-icon">𐙚</span> KABE NEWS';
+
+                }
+
+            }
+        );
+
+
+        hideNews.addEventListener(
+            "click",
+            function () {
+
+                newsCard.classList.remove("show");
 
                 newsButton.innerHTML =
                     '<span class="news-icon">𐙚</span> KABE NEWS';
 
             }
+        );
 
-        });
+
+        /* =========================
+           CAREERS DROPDOWN
+        ========================= */
+
+        const careersButton =
+            document.getElementById("careersButton");
+
+        const careersContent =
+            document.getElementById("careersContent");
 
 
-        hideNews.addEventListener("click", function () {
+        careersButton.addEventListener(
+            "click",
+            function () {
 
-            newsCard.classList.remove("show");
+                const isOpen =
+                    careersContent.classList.toggle("show");
 
-            newsButton.innerHTML =
-                '<span class="news-icon">𐙚</span> KABE NEWS';
 
-        });
+                careersButton.classList.toggle(
+                    "open",
+                    isOpen
+                );
+
+
+                if (isOpen) {
+
+                    careersButton.innerHTML =
+                        '<span class="careers-icon">×</span> CLOSE CAREERS';
+
+                } else {
+
+                    careersButton.innerHTML =
+                        '<span class="careers-icon">𐙚</span> CAREERS';
+
+                }
+
+            }
+        );
 
     </script>
 
 </body>
+
 </html>
