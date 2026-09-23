@@ -6,7 +6,7 @@
 
     <title>Kabe.world is under construction</title>
 
-    <!-- Cute Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -45,7 +45,7 @@
         }
 
         /* =========================
-           STARS
+           STAR BACKGROUND
         ========================= */
 
         .stars,
@@ -98,7 +98,7 @@
         }
 
         /* =========================
-           CONTENT
+           MAIN CONTENT
         ========================= */
 
         .content {
@@ -116,6 +116,10 @@
 
             animation: fadeIn 1.8s ease forwards;
         }
+
+        /* =========================
+           HEADERS
+        ========================= */
 
         .small-text {
             font-family: "Fredoka", sans-serif;
@@ -135,10 +139,6 @@
             text-shadow:
                 0 0 12px rgba(255, 120, 210, 0.35);
         }
-
-        /* =========================
-           KABE
-        ========================= */
 
         h1 {
             font-family: "Fredoka", sans-serif;
@@ -209,7 +209,7 @@
         }
 
         /* =========================
-           BODY TEXT
+           MESSAGE
         ========================= */
 
         .message {
@@ -280,44 +280,128 @@
         }
 
         /* =========================
-           QUICK UPDATES
+           NEWS BUTTON
         ========================= */
 
-        .updates {
-            margin: 42px auto 0;
+        .news-area {
+            margin: 40px auto 0;
+
+            width: 100%;
+        }
+
+        .news-button {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            padding: 12px 20px;
+
+            border: 1px solid rgba(255, 150, 220, 0.35);
+
+            border-radius: 999px;
+
+            background: rgba(255, 100, 200, 0.05);
+
+            color: #ffd5ef;
+
+            font-family: "Fredoka", sans-serif;
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+
+            box-shadow:
+                0 0 20px rgba(255, 100, 200, 0.05);
+        }
+
+        .news-button:hover {
+            background: rgba(255, 100, 200, 0.11);
+
+            border-color: rgba(255, 157, 221, 0.65);
+
+            box-shadow:
+                0 0 25px rgba(255, 100, 200, 0.12);
+
+            transform: translateY(-2px);
+        }
+
+        .news-button:active {
+            transform: scale(0.97);
+        }
+
+        .news-icon {
+            font-size: 13px;
+
+            color: #ff9ddd;
+        }
+
+        /* =========================
+           NEWS CARD
+        ========================= */
+
+        .news-card {
+            display: none;
+
+            margin: 18px auto 0;
 
             width: 100%;
 
             text-align: left;
 
-            padding: 22px;
+            padding: 23px;
 
-            border: 1px solid rgba(255, 150, 220, 0.25);
+            border: 1px solid rgba(255, 150, 220, 0.28);
 
             border-radius: 22px;
 
             background:
                 linear-gradient(
                     145deg,
-                    rgba(255, 80, 180, 0.07),
-                    rgba(0, 0, 0, 0.9)
+                    rgba(255, 80, 180, 0.08),
+                    rgba(0, 0, 0, 0.94)
                 );
 
             box-shadow:
-                0 0 30px rgba(255, 80, 190, 0.07),
+                0 0 35px rgba(255, 80, 190, 0.08),
                 inset 0 0 25px rgba(255, 120, 200, 0.025);
 
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(14px);
 
-            -webkit-backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(14px);
+
+            animation: newsOpen 0.35s ease forwards;
         }
 
-        .updates-title {
-            text-align: center;
+        .news-card.show {
+            display: block;
+        }
 
+        .news-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 17px;
+        }
+
+        .news-title {
             font-family: "Fredoka", sans-serif;
 
-            font-size: 18px;
+            font-size: 19px;
 
             font-weight: 600;
 
@@ -325,11 +409,33 @@
 
             text-shadow:
                 0 0 12px rgba(255, 120, 210, 0.2);
-
-            margin-bottom: 17px;
         }
 
-        .update-date {
+        .news-label {
+            font-family: "Nunito", sans-serif;
+
+            font-size: 8px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            color: #ff91d4;
+
+            padding: 5px 9px;
+
+            border-radius: 999px;
+
+            border: 1px solid rgba(255, 145, 212, 0.25);
+
+            background: rgba(255, 100, 200, 0.06);
+
+            white-space: nowrap;
+        }
+
+        .news-date {
             font-family: "Nunito", sans-serif;
 
             font-size: 9px;
@@ -345,7 +451,19 @@
             margin-bottom: 12px;
         }
 
-        .update-text {
+        .news-heading {
+            font-family: "Fredoka", sans-serif;
+
+            font-size: 16px;
+
+            font-weight: 500;
+
+            color: #fff;
+
+            margin-bottom: 9px;
+        }
+
+        .news-text {
             font-family: "Nunito", sans-serif;
 
             font-size: 14px;
@@ -357,17 +475,50 @@
             color: #ffe3f3;
         }
 
-        .update-text strong {
-            color: #ffffff;
+        .news-text strong {
+            color: #fff;
+
+            font-weight: 800;
+        }
+
+        .hide-news {
+            display: block;
+
+            margin: 19px auto 0;
+
+            padding: 8px 15px;
+
+            border: 1px solid rgba(255, 150, 220, 0.22);
+
+            border-radius: 999px;
+
+            background: transparent;
+
+            color: #ffb7e5;
+
+            font-family: "Nunito", sans-serif;
+
+            font-size: 10px;
 
             font-weight: 800;
 
-            text-shadow:
-                0 0 8px rgba(255, 140, 210, 0.25);
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+            transition: 0.25s ease;
+        }
+
+        .hide-news:hover {
+            color: #fff;
+
+            border-color: rgba(255, 150, 220, 0.5);
+
+            background: rgba(255, 100, 200, 0.07);
         }
 
         /* =========================
-           FIND KABE
+           SOCIALS
         ========================= */
 
         .socials {
@@ -495,6 +646,20 @@
             }
         }
 
+        @keyframes newsOpen {
+            from {
+                opacity: 0;
+
+                transform: translateY(-8px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+
+                transform: translateY(0) scale(1);
+            }
+        }
+
         /* =========================
            MOBILE
         ========================= */
@@ -531,18 +696,32 @@
                 color: #ffe8f7;
             }
 
-            .updates {
-                margin-top: 38px;
+            .news-area {
+                margin-top: 35px;
+            }
 
+            .news-card {
                 padding: 19px;
             }
 
-            .update-text {
+            .news-title {
+                font-size: 17px;
+            }
+
+            .news-text {
                 font-size: 13px;
 
                 line-height: 1.85;
 
                 color: #ffe6f5;
+            }
+
+            .news-header {
+                align-items: flex-start;
+            }
+
+            .news-label {
+                font-size: 7px;
             }
 
             .socials {
@@ -580,7 +759,7 @@
                 font-size: 68px;
             }
 
-            .updates {
+            .news-card {
                 padding: 17px;
             }
 
@@ -630,27 +809,63 @@
             VISIT FOLDED.WORLD
         </a>
 
-        <!-- QUICK UPDATES -->
+        <!-- NEWS -->
 
-        <section class="updates">
+        <section class="news-area">
 
-            <div class="updates-title">
-                quick updates 𐙚
-            </div>
+            <button
+                class="news-button"
+                id="newsButton"
+                onclick="toggleNews()"
+            >
+                <span class="news-icon">𐙚</span>
+                KABE NEWS
+            </button>
 
-            <div class="update-date">
-                Tuesday, September 22 at 9:43 PM CT
-            </div>
+            <article
+                class="news-card"
+                id="newsCard"
+            >
 
-            <p class="update-text">
-                It is with broken hearts we announce, earlier this week,
-                our loving member <strong>B, Blossom</strong> has announced
-                her official hiatus from all KABE-related activities due to
-                not being able to be active online.
-                <br><br>
-                It is unknown the date she will return, but we hope to see
-                her back soon. ♡
-            </p>
+                <div class="news-header">
+
+                    <div class="news-title">
+                        KABE News 𐙚
+                    </div>
+
+                    <div class="news-label">
+                        Official Update
+                    </div>
+
+                </div>
+
+                <div class="news-date">
+                    September 22, 2026 · 9:43 PM CT
+                </div>
+
+                <div class="news-heading">
+                    An update regarding Blossom
+                </div>
+
+                <p class="news-text">
+                    KABE would like to share that <strong>B, Blossom</strong>
+                    will be taking an official hiatus from KABE-related
+                    activities due to limited availability online.
+                    <br><br>
+                    There is currently no confirmed return date.
+                    We appreciate everyone's understanding and support
+                    during this time, and we look forward to welcoming
+                    Blossom back when she is ready. ♡
+                </p>
+
+                <button
+                    class="hide-news"
+                    onclick="hideNews()"
+                >
+                    Hide announcement
+                </button>
+
+            </article>
 
         </section>
 
@@ -687,6 +902,43 @@
         </section>
 
     </main>
+
+    <script>
+
+        function toggleNews() {
+
+            const newsCard = document.getElementById("newsCard");
+            const newsButton = document.getElementById("newsButton");
+
+            newsCard.classList.toggle("show");
+
+            if (newsCard.classList.contains("show")) {
+
+                newsButton.innerHTML =
+                    '<span class="news-icon">×</span> CLOSE NEWS';
+
+            } else {
+
+                newsButton.innerHTML =
+                    '<span class="news-icon">𐙚</span> KABE NEWS';
+
+            }
+
+        }
+
+        function hideNews() {
+
+            const newsCard = document.getElementById("newsCard");
+            const newsButton = document.getElementById("newsButton");
+
+            newsCard.classList.remove("show");
+
+            newsButton.innerHTML =
+                '<span class="news-icon">𐙚</span> KABE NEWS';
+
+        }
+
+    </script>
 
 </body>
 </html>
