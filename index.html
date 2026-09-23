@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kabe.world is under construction</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                radial-gradient(circle at 50% 40%, #3a1637 0%, #160c1d 35%, #07050b 75%);
+            
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* STAR BACKGROUND */
+        .stars,
+        .stars::before,
+        .stars::after {
+            position: absolute;
+            inset: 0;
+            content: "";
+            pointer-events: none;
+        }
+
+        .stars {
+            background-image:
+                radial-gradient(2px 2px at 10% 20%, white, transparent),
+                radial-gradient(1.5px 1.5px at 25% 70%, #ffb6e9, transparent),
+                radial-gradient(2px 2px at 40% 30%, white, transparent),
+                radial-gradient(1px 1px at 55% 80%, #ffd6f4, transparent),
+                radial-gradient(2px 2px at 70% 20%, white, transparent),
+                radial-gradient(1.5px 1.5px at 85% 60%, #ff9ddd, transparent),
+                radial-gradient(1px 1px at 90% 15%, white, transparent),
+                radial-gradient(2px 2px at 15% 90%, #ffb6e9, transparent),
+                radial-gradient(1px 1px at 65% 50%, white, transparent),
+                radial-gradient(1.5px 1.5px at 45% 10%, #ffc8ee, transparent);
+
+            animation: starsMove 8s ease-in-out infinite alternate;
+        }
+
+        .stars::before {
+            background-image:
+                radial-gradient(1px 1px at 5% 45%, white, transparent),
+                radial-gradient(2px 2px at 30% 15%, #ff9ddd, transparent),
+                radial-gradient(1px 1px at 50% 65%, white, transparent),
+                radial-gradient(2px 2px at 78% 35%, #ffc8ee, transparent),
+                radial-gradient(1px 1px at 95% 85%, white, transparent);
+            opacity: 0.7;
+            animation: twinkle 3s ease-in-out infinite alternate;
+        }
+
+        .stars::after {
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(255, 105, 196, 0.16),
+                    transparent 45%
+                );
+        }
+
+        /* MAIN CONTENT */
+        .content {
+            position: relative;
+            z-index: 2;
+
+            text-align: center;
+            padding: 30px;
+
+            opacity: 0;
+            transform: translateY(15px);
+
+            animation: fadeIn 2s ease forwards;
+        }
+
+        .small-text {
+            font-size: 12px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+
+            color: #ffb8e8;
+
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: clamp(65px, 15vw, 150px);
+
+            font-weight: 800;
+            letter-spacing: -7px;
+
+            background: linear-gradient(
+                135deg,
+                #ffffff,
+                #ffd1f1,
+                #ff8fd4
+            );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+
+            text-shadow:
+                0 0 25px rgba(255, 120, 210, 0.35),
+                0 0 70px rgba(255, 120, 210, 0.15);
+
+            animation: glow 4s ease-in-out infinite alternate;
+        }
+
+        .world {
+            margin-top: -8px;
+
+            font-size: 15px;
+            letter-spacing: 8px;
+
+            color: #ffd7f1;
+            opacity: 0.8;
+        }
+
+        .divider {
+            width: 70px;
+            height: 1px;
+
+            margin: 28px auto;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                #ff9ddd,
+                transparent
+            );
+        }
+
+        .message {
+            font-size: 16px;
+            line-height: 1.7;
+
+            color: #e8d9e5;
+
+            margin-bottom: 20px;
+        }
+
+        .link {
+            display: inline-block;
+
+            color: #ffb3e4;
+
+            text-decoration: none;
+
+            font-size: 14px;
+            letter-spacing: 2px;
+
+            padding: 10px 18px;
+
+            border: 1px solid rgba(255, 160, 220, 0.35);
+            border-radius: 999px;
+
+            background: rgba(255, 150, 215, 0.06);
+
+            transition: 0.3s ease;
+        }
+
+        .link:hover {
+            background: rgba(255, 150, 215, 0.15);
+            border-color: #ff9ddd;
+
+            box-shadow:
+                0 0 20px rgba(255, 120, 210, 0.25);
+
+            transform: translateY(-2px);
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                filter: brightness(0.95);
+            }
+
+            to {
+                filter: brightness(1.12);
+            }
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: 0.3;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes starsMove {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.04);
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+            h1 {
+                letter-spacing: -4px;
+            }
+
+            .world {
+                letter-spacing: 5px;
+            }
+
+            .message {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="stars"></div>
+
+    <main class="content">
+
+        <div class="small-text">
+            Welcome to
+        </div>
+
+        <h1>KABE</h1>
+
+        <div class="world">
+            WORLD
+        </div>
+
+        <div class="divider"></div>
+
+        <p class="message">
+            Kabe.world is currently under construction.<br>
+            Something special is coming soon.
+        </p>
+
+        <a
+            class="link"
+            href="https://folded.world"
+            target="_blank"
+        >
+            VISIT FOLDED.WORLD
+        </a>
+
+    </main>
+
+</body>
+</html>
