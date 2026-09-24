@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>404 · Kabe.world</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    font-family: "Nunito", sans-serif;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Starry background */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(circle, rgba(255,180,230,.8) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,.55) 1px, transparent 1px);
+
+    background-size:
+        95px 95px,
+        150px 150px;
+
+    background-position:
+        10px 20px,
+        70px 80px;
+
+    opacity: .25;
+    z-index: 0;
+}
+
+.page {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 650px;
+
+    padding: 40px 22px;
+
+    text-align: center;
+}
+
+/* 404 */
+.error-code {
+    font-family: "DynaPuff", sans-serif;
+    font-size: clamp(95px, 25vw, 170px);
+    font-weight: 600;
+    line-height: .9;
+    letter-spacing: -7px;
+
+    background: linear-gradient(
+        135deg,
+        #fff 0%,
+        #ffd4ef 30%,
+        #ff86d2 65%,
+        #ff5fbd 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    filter:
+        drop-shadow(0 0 20px rgba(255,100,200,.25));
+
+    margin-bottom: 18px;
+}
+
+.divider {
+    width: 75px;
+    height: 2px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff91d5,
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px rgba(255,100,200,.5);
+}
+
+.title {
+    font-family: "DynaPuff", sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+
+    color: #ffd0ef;
+
+    margin-bottom: 12px;
+}
+
+.message {
+    max-width: 500px;
+    margin: 0 auto;
+
+    font-size: 14px;
+    line-height: 1.7;
+
+    color: #ffe4f4;
+}
+
+.message strong {
+    color: #ff9ddd;
+    font-weight: 800;
+}
+
+/* Home button */
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 28px;
+
+    padding: 13px 24px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff91d4,
+            #ff69c4
+        );
+
+    color: #17000f;
+
+    text-decoration: none;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    box-shadow:
+        0 0 25px rgba(255,100,200,.12);
+
+    transition: .3s ease;
+}
+
+.home-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 35px rgba(255,100,200,.25);
+
+    filter: brightness(1.08);
+}
+
+.home-button:active {
+    transform: scale(.97);
+}
+
+/* Footer */
+.footer {
+    margin-top: 55px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 10px;
+
+    color: #d6aeca;
+}
+
+.footer span {
+    color: #ff91d4;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .page {
+        padding: 35px 18px;
+    }
+
+    .error-code {
+        font-size: 115px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .message {
+        font-size: 14px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<main class="page">
+
+```
+<div class="error-code">404</div>
+
+<div class="divider"></div>
+
+<h1 class="title">
+    oopsie 𐙚
+</h1>
+
+<p class="message">
+    Looks like this page wandered off somewhere.
+    <br>
+    The page you're looking for doesn't exist on
+    <strong>Kabe.world</strong>.
+</p>
+
+<a class="home-button" href="/">
+    TAKE ME HOME →
+</a>
+
+<footer class="footer">
+    made with <span>♡</span> for KABE
+</footer>
+```
+
+</main>
+
+</body>
+</html>
