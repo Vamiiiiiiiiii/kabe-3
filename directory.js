@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             <a
                 class="directory-social"
-                href="https://instagram.com/kabeworldofficial"
+                href="https://instagram.com/kabe.world"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="KABE on Instagram"
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </svg>
 
                 <span class="directory-username">
-                    @kabeworldofficial
+                    @kabe.world
                 </span>
 
             </a>
