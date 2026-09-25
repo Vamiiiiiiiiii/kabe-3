@@ -1,5 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    /* Remove any old directory */
+    const oldDirectory = document.querySelector(".website-directory");
+
+    if (oldDirectory) {
+        oldDirectory.remove();
+    }
+
+
     const style = document.createElement("style");
 
     style.textContent = `
@@ -154,11 +162,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         </nav>
 
+
         <div class="directory-social-title">
             find KABE 𐙚
         </div>
 
+
         <div class="directory-socials">
+
+            <!-- INSTAGRAM -->
 
             <a
                 class="directory-social"
@@ -179,6 +191,8 @@ document.addEventListener("DOMContentLoaded", function () {
             </a>
 
 
+            <!-- TIKTOK -->
+
             <a
                 class="directory-social"
                 href="https://tiktok.com/@kabeworld"
@@ -198,6 +212,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </a>
 
         </div>
+
 
         <div class="directory-copy">
             made with <span>♡</span> for KABE
