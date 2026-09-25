@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KABE Credits</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    font-family: "Nunito", sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* STARFIELD */
+
+#stars {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* PAGE */
+
+.page {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 65px 22px 40px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: pageFadeIn 1.1s ease forwards;
+}
+
+
+@keyframes pageFadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* BACK BUTTON */
+
+.back {
+    display: inline-block;
+    margin-bottom: 35px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,150,220,.2);
+    background: rgba(255,100,200,.035);
+    color: #ffdff1;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    transition: .3s ease;
+}
+
+
+.back:hover {
+    color: #ff91d4;
+    border-color: rgba(255,150,220,.5);
+    background: rgba(255,100,200,.08);
+    transform: translateY(-2px);
+}
+
+
+/* LOGO */
+
+.logo {
+    font-family: "DynaPuff", sans-serif;
+    font-size: clamp(58px, 16vw, 95px);
+    font-weight: 600;
+    letter-spacing: -3px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff 0%,
+            #ffd4ef 35%,
+            #ff86d2 65%,
+            #ff5fbd 100%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    filter:
+        drop-shadow(0 0 20px rgba(255,100,200,.25));
+
+    line-height: .9;
+    margin-bottom: 18px;
+}
+
+
+/* DIVIDER */
+
+.divider {
+    width: 75px;
+    height: 2px;
+    margin: 0 auto 25px;
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff91d5,
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px rgba(255,100,200,.5);
+}
+
+
+/* TITLE */
+
+.title {
+    font-family: "DynaPuff", sans-serif;
+    font-size: 27px;
+    font-weight: 500;
+    color: #ffd2ed;
+    margin-bottom: 10px;
+}
+
+
+.subtitle {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #d6aeca;
+    max-width: 520px;
+    margin: 0 auto 35px;
+}
+
+
+/* CREDIT CARD */
+
+.credit-card {
+    text-align: left;
+    padding: 23px;
+    margin-bottom: 16px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,150,220,.15);
+    background: rgba(255,100,200,.035);
+    transition: .3s ease;
+}
+
+
+.credit-card:hover {
+    border-color: rgba(255,150,220,.3);
+    background: rgba(255,100,200,.05);
+    transform: translateY(-2px);
+}
+
+
+.credit-title {
+    font-family: "DynaPuff", sans-serif;
+    font-size: 18px;
+    color: #ffd2ed;
+    margin-bottom: 12px;
+}
+
+
+.credit-name {
+    font-size: 14px;
+    font-weight: 800;
+    color: #ff9ddd;
+    margin-bottom: 5px;
+}
+
+
+.credit-role {
+    font-size: 11px;
+    color: #d6aeca;
+    line-height: 1.6;
+}
+
+
+.credit-description {
+    font-size: 12px;
+    line-height: 1.7;
+    color: #ffe4f4;
+    margin-top: 12px;
+}
+
+
+/* MEMBER LIST */
+
+.member-list {
+    display: grid;
+    gap: 12px;
+}
+
+
+.member {
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,150,220,.12);
+    background: rgba(255,100,200,.025);
+    transition: .3s ease;
+}
+
+
+.member:hover {
+    border-color: rgba(255,150,220,.28);
+    background: rgba(255,100,200,.05);
+    transform: translateX(3px);
+}
+
+
+.member-name {
+    font-size: 14px;
+    font-weight: 800;
+    color: #ff9ddd;
+}
+
+
+/* FOOTER */
+
+.footer {
+    margin-top: 40px;
+    font-size: 10px;
+    color: #d6aeca;
+}
+
+
+.footer span {
+    color: #ff91d4;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .page {
+        padding: 45px 18px 35px;
+    }
+
+    .logo {
+        font-size: 70px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .credit-card {
+        padding: 20px 18px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<canvas id="stars"></canvas>
+
+
+<main class="page">
+
+
+    <a class="back" href="/">
+        ← Back Home
+    </a>
+
+
+    <div class="logo">
+        KABE
+    </div>
+
+
+    <div class="divider"></div>
+
+
+    <h1 class="title">
+        KABE Credits 𐙚
+    </h1>
+
+
+    <p class="subtitle">
+
+        A little thank you to everyone who helps
+        make KABE what it is. ♡
+
+    </p>
+
+
+    <!-- MEMBERS -->
+
+    <section class="credit-card">
+
+        <h2 class="credit-title">
+            Members 𐙚
+        </h2>
+
+        <div class="member-list">
+
+            <div class="member">
+                <div class="member-name">
+                    Kalon
+                </div>
+            </div>
+
+            <div class="member">
+                <div class="member-name">
+                    Abloom
+                </div>
+            </div>
+
+            <div class="member">
+                <div class="member-name">
+                    Blossom
+                </div>
+            </div>
+
+            <div class="member">
+                <div class="member-name">
+                    Euphoria
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- KABE -->
+
+    <section class="credit-card">
+
+        <h2 class="credit-title">
+            KABE
+        </h2>
+
+        <div class="credit-name">
+            KABE
+        </div>
+
+        <div class="credit-role">
+            Group & Creative Directors
+        </div>
+
+        <p class="credit-description">
+
+            The group behind the ideas, projects,
+            designs, and everything KABE.
+
+        </p>
+
+    </section>
+
+
+    <!-- WEBSITE -->
+
+    <section class="credit-card">
+
+        <h2 class="credit-title">
+            Website 𐙚
+        </h2>
+
+        <div class="credit-name">
+            KABE
+        </div>
+
+        <div class="credit-role">
+            Website Design & Development
+        </div>
+
+        <p class="credit-description">
+
+            KABE.world was designed and developed
+            by KABE, including the website layout,
+            styling, animations, and interactive features.
+
+        </p>
+
+    </section>
+
+
+    <!-- SPECIAL THANKS -->
+
+    <section class="credit-card">
+
+        <h2 class="credit-title">
+            Special Thanks
+        </h2>
+
+        <div class="credit-name">
+            BLOOMBOWS
+        </div>
+
+        <div class="credit-role">
+            KABE Fandom
+        </div>
+
+        <p class="credit-description">
+
+            Thank you for supporting KABE and
+            being part of the journey. Join BLOOMBOWS
+            by signing up for the phone/mail list. ♡
+
+        </p>
+
+    </section>
+
+
+    <footer class="footer">
+
+        made with <span>♡</span> for KABE
+
+    </footer>
+
+
+</main>
+
+
+<script src="/directory.js"></script>
+
+
+<script>
+
+/* =========================
+   INTERACTIVE STARFIELD
+========================= */
+
+const canvas = document.getElementById("stars");
+
+const ctx = canvas.getContext("2d");
+
+let stars = [];
+
+
+let mouse = {
+    x: -1000,
+    y: -1000
+};
+
+
+function resizeCanvas() {
+
+    canvas.width = window.innerWidth;
+
+    canvas.height = window.innerHeight;
+
+    createStars();
+
+}
+
+
+function createStars() {
+
+    stars = [];
+
+
+    const amount = Math.floor(
+        (window.innerWidth * window.innerHeight) / 9000
+    );
+
+
+    for (let i = 0; i < amount; i++) {
+
+        stars.push({
+
+            x: Math.random() * canvas.width,
+
+            y: Math.random() * canvas.height,
+
+            size: Math.random() * 1.5 + 0.3,
+
+            baseOpacity:
+                Math.random() * 0.45 + 0.2,
+
+            twinkle:
+                Math.random() * Math.PI * 2,
+
+            speed:
+                Math.random() * 0.025 + 0.008
+
+        });
+
+    }
+
+}
+
+
+function drawStars() {
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    const isTouchDevice =
+        window.matchMedia("(hover: none)").matches;
+
+
+    for (const star of stars) {
+
+        star.twinkle += star.speed;
+
+
+        const pulse =
+            Math.sin(star.twinkle) * 0.12;
+
+
+        let opacity =
+            star.baseOpacity + pulse;
+
+
+        if (!isTouchDevice) {
+
+            const dx =
+                star.x - mouse.x;
+
+            const dy =
+                star.y - mouse.y;
+
+
+            const distance =
+                Math.sqrt(dx * dx + dy * dy);
+
+
+            const glowRadius = 150;
+
+
+            if (distance < glowRadius) {
+
+                const glow =
+                    1 - distance / glowRadius;
+
+
+                opacity += glow * 0.75;
+
+
+                const glowSize =
+                    star.size + glow * 2.2;
+
+
+                ctx.beginPath();
+
+
+                ctx.arc(
+                    star.x,
+                    star.y,
+                    glowSize,
+                    0,
+                    Math.PI * 2
+                );
+
+
+                ctx.fillStyle =
+                    `rgba(255,255,255,${Math.min(opacity * .18, .3)})`;
+
+
+                ctx.fill();
+
+            }
+
+        }
+
+
+        opacity = Math.min(
+            Math.max(opacity, 0.05),
+            1
+        );
+
+
+        ctx.beginPath();
+
+
+        ctx.arc(
+            star.x,
+            star.y,
+            star.size,
+            0,
+            Math.PI * 2
+        );
+
+
+        ctx.fillStyle =
+            `rgba(255,255,255,${opacity})`;
+
+
+        ctx.fill();
+
+    }
+
+
+    requestAnimationFrame(drawStars);
+
+}
+
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+window.addEventListener(
+    "mousemove",
+    function (event) {
+
+        mouse.x = event.clientX;
+
+        mouse.y = event.clientY;
+
+    }
+);
+
+
+window.addEventListener(
+    "mouseleave",
+    function () {
+
+        mouse.x = -1000;
+
+        mouse.y = -1000;
+
+    }
+);
+
+
+resizeCanvas();
+
+drawStars();
+
+</script>
+
+
+</body>
+
+</html>
