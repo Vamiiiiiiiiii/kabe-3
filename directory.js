@@ -176,6 +176,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 Home
             </a>
 
+            <a href="/shop">
+                Shop
+            </a>
+
             <a href="/news">
                 News
             </a>
