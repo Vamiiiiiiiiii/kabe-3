@@ -264,7 +264,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         <div class="directory-copy">
-            made with <span>♡</span> for KABE
+            made with <span>♡</span> for KABE · © 2026 KABE
         </div>
 
     `;
