@@ -149,10 +149,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     directory.className = "website-directory";
 
+
+    /*
+        Detect if this is the Home page.
+        Home = /
+        Home can also appear as /index or /index.html
+    */
+
+    const path = window.location.pathname;
+
+    const isHome =
+        path === "/" ||
+        path === "/index" ||
+        path === "/index.html";
+
+
     directory.innerHTML = `
+
         <div class="directory-title">
             KABE 𐙚
         </div>
+
 
         <nav class="directory-links" aria-label="Website Directory">
 
@@ -163,61 +180,68 @@ document.addEventListener("DOMContentLoaded", function () {
         </nav>
 
 
-        <div class="directory-social-title">
-            find KABE 𐙚
-        </div>
+        ${
+            isHome
+                ? ""
+                : `
+                    <div class="directory-social-title">
+                        find KABE 𐙚
+                    </div>
+
+                    <div class="directory-socials">
+
+                        <!-- INSTAGRAM -->
+
+                        <a
+                            class="directory-social"
+                            href="https://instagram.com/kabe.world"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="KABE on Instagram"
+                        >
+
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0-3-3Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
+                            </svg>
+
+                            <span class="directory-username">
+                                @kabe.world
+                            </span>
+
+                        </a>
 
 
-        <div class="directory-socials">
+                        <!-- TIKTOK -->
 
-            <!-- INSTAGRAM -->
+                        <a
+                            class="directory-social"
+                            href="https://tiktok.com/@kabeworld"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="KABE on TikTok"
+                        >
 
-            <a
-                class="directory-social"
-                href="https://instagram.com/kabe.world"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="KABE on Instagram"
-            >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M16.6 2h3.05c.28 1.72 1.25 3.22 2.65 4.2v3.08a8.15 8.15 0 0 1-2.65-.78v6.75A6.75 6.75 0 1 1 13 8.5v3.18a3.65 3.65 0 1 0 1.55 2.97V2h2.05Z"/>
+                            </svg>
 
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
-                </svg>
+                            <span class="directory-username">
+                                @kabeworld
+                            </span>
 
-                <span class="directory-username">
-                    @kabe.world
-                </span>
+                        </a>
 
-            </a>
-
-
-            <!-- TIKTOK -->
-
-            <a
-                class="directory-social"
-                href="https://tiktok.com/@kabeworld"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="KABE on TikTok"
-            >
-
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M16.6 2h3.05c.28 1.72 1.25 3.22 2.65 4.2v3.08a8.15 8.15 0 0 1-2.65-.78v6.75A6.75 6.75 0 1 1 13 8.5v3.18a3.65 3.65 0 1 0 1.55 2.97V2h2.05Z"/>
-                </svg>
-
-                <span class="directory-username">
-                    @kabeworld
-                </span>
-
-            </a>
-
-        </div>
+                    </div>
+                `
+        }
 
 
         <div class="directory-copy">
             made with <span>♡</span> for KABE
         </div>
+
     `;
+
 
     document.body.appendChild(directory);
 
