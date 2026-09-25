@@ -179,6 +179,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             <a href="/careers">Careers</a>
 
+            <a href="/credits">Credits</a>
+
         </nav>
 
 
