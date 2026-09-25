@@ -159,9 +159,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const path = window.location.pathname;
 
     const isHome =
-        path === "/" ||
-        path === "/index" ||
-        path === "/index.html";
+        path === "/construct" ||
+        path === "/construct.html";
 
 
     directory.innerHTML = `
