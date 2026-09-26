@@ -265,11 +265,10 @@ body {
         oopsie 𐙚
     </h1>
 
-    <p class="message">
-        Looks like this page wandered off somewhere.
-        <br>
-        The page you're looking for doesn't exist on
-        <strong>Kabe.world</strong>.
+    <p
+        class="message"
+        id="random-message"
+    >
     </p>
 
     <a
@@ -289,7 +288,74 @@ body {
 
 </main>
 
+
 <script>
+
+/* =========================
+   RANDOM 404 JOKES
+========================= */
+
+const jokes = [
+
+    "This page went on a little adventure without telling us.",
+
+    "404. The page said bye-bye. 𐙚",
+
+    "Oopsie. Someone misplaced the internet.",
+
+    "This page is currently hiding from KABE.",
+
+    "We looked everywhere. Even under the couch.",
+
+    "The page you wanted has left the group chat.",
+
+    "This page is not having a KABE moment right now.",
+
+    "404. Nothing to see here... unless you like stars.",
+
+    "The page took a vacation. No ETA.",
+
+    "KABE tried looking. KABE found nothing. ♡",
+
+    "This page got lost somewhere between here and nowhere.",
+
+    "The page is currently experiencing a tiny identity crisis.",
+
+    "Oops! This page forgot where it lives.",
+
+    "This isn't the page you're looking for. It's shy.",
+
+    "The page has disappeared into the KABE void. 𐙚",
+
+    "We asked the page where it went. It did not respond.",
+
+    "404. The vibes are here. The page is not.",
+
+    "This page is currently unavailable for being iconic.",
+
+    "Somebody tell the page to come home.",
+
+    "The internet looked at this page and said 'girl, no.'"
+
+];
+
+
+const randomMessage =
+    jokes[
+        Math.floor(
+            Math.random() *
+            jokes.length
+        )
+    ];
+
+
+document.getElementById(
+    "random-message"
+).innerHTML =
+    randomMessage +
+    "<br>The page you're looking for doesn't exist on <strong>Kabe.world</strong>.";
+
+
 /* =========================
    INTERACTIVE STARFIELD
 ========================= */
@@ -495,8 +561,8 @@ window.addEventListener(
 
 resizeCanvas();
 drawStars();
+
 </script>
 
 </body>
 </html>
-
