@@ -180,6 +180,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 Shop
             </a>
 
+            <a href="/music">
+                Music
+            </a>
+
             <a href="/news">
                 News
             </a>

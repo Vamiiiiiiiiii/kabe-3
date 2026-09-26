@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Music · KABE</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600&family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            min-height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+
+            background: #000;
+
+            color: #fff;
+
+            font-family: "Nunito", sans-serif;
+
+            overflow-x: hidden;
+        }
+
+        #stars {
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+        .page {
+            position: relative;
+
+            z-index: 1;
+
+            width: 100%;
+
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            padding: 65px 22px 80px;
+
+            text-align: center;
+
+            opacity: 0;
+
+            transform: translateY(12px);
+
+            animation:
+                pageFadeIn 1s ease forwards;
+        }
+
+        @keyframes pageFadeIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .logo {
+            font-family: "DynaPuff", sans-serif;
+
+            font-size: 48px;
+
+            font-weight: 600;
+
+            letter-spacing: 2px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    #ffd2ed,
+                    #ff91d4
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+
+            margin-bottom: 8px;
+
+            filter:
+                drop-shadow(
+                    0 0 15px
+                    rgba(255,100,200,.18)
+                );
+        }
+
+        .page-title {
+            font-family: "DynaPuff", sans-serif;
+
+            font-size: 24px;
+
+            font-weight: 500;
+
+            color: #ffd2ed;
+
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            max-width: 520px;
+
+            margin: 0 auto 45px;
+
+            color: #d6aeca;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           ALBUMS
+        ========================= */
+
+        .albums {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(260px, 1fr)
+                );
+
+            gap: 22px;
+
+            text-align: left;
+        }
+
+
+        /* =========================
+           ALBUM CARD
+        ========================= */
+
+        .album-card {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 25px;
+
+            min-height: 330px;
+
+            border:
+                1px solid
+                rgba(255,150,220,.14);
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,100,200,.07),
+                    rgba(255,255,255,.025)
+                );
+
+            box-shadow:
+                0 10px 40px
+                rgba(0,0,0,.25);
+
+            transition:
+                .35s ease;
+        }
+
+        .album-card:hover {
+            transform:
+                translateY(-5px);
+
+            border-color:
+                rgba(255,150,220,.3);
+
+            box-shadow:
+                0 15px 45px
+                rgba(255,80,190,.08);
+        }
+
+
+        /* Decorative glow */
+
+        .album-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            top: -80px;
+            right: -70px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,120,210,.08);
+
+            filter: blur(25px);
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           COVER
+        ========================= */
+
+        .album-cover {
+            width: 100%;
+
+            aspect-ratio: 1 / 1;
+
+            border-radius: 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #14000d,
+                    #2b001d,
+                    #100008
+                );
+
+            border:
+                1px solid
+                rgba(255,150,220,.13);
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .album-cover::after {
+            content: "𐙚";
+
+            position: absolute;
+
+            font-size: 75px;
+
+            color:
+                rgba(255,145,212,.15);
+        }
+
+        .cover-text {
+            position: relative;
+
+            z-index: 1;
+
+            font-family:
+                "DynaPuff",
+                sans-serif;
+
+            font-size: 22px;
+
+            color: #ffdff1;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================
+           ALBUM INFO
+        ========================= */
+
+        .album-label {
+            display: inline-block;
+
+            padding: 5px 10px;
+
+            border-radius: 999px;
+
+            background:
+                rgba(255,100,200,.08);
+
+            color: #ff91d4;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 9px;
+        }
+
+        .album-title {
+            font-family:
+                "DynaPuff",
+                sans-serif;
+
+            font-size: 21px;
+
+            font-weight: 500;
+
+            color: #ffd2ed;
+
+            margin-bottom: 4px;
+        }
+
+        .album-meta {
+            color: #d6aeca;
+
+            font-size: 11px;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           TRACKLIST
+        ========================= */
+
+        .tracklist-title {
+            font-family:
+                "DynaPuff",
+                sans-serif;
+
+            font-size: 13px;
+
+            color: #ffdff1;
+
+            margin-bottom: 10px;
+        }
+
+        .tracklist {
+            list-style: none;
+        }
+
+        .track {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 9px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.06);
+
+            color: #d6aeca;
+
+            font-size: 11px;
+        }
+
+        .track:last-child {
+            border-bottom: none;
+        }
+
+        .track-number {
+            width: 20px;
+
+            color: #ff91d4;
+
+            font-weight: 800;
+
+            font-size: 10px;
+        }
+
+        .track-name {
+            flex: 1;
+        }
+
+
+        /* =========================
+           COMING SOON
+        ========================= */
+
+        .redacted {
+            color: #ff91d4;
+
+            text-decoration:
+                line-through;
+
+            text-decoration-thickness: 2px;
+
+            opacity: .75;
+        }
+
+        .debut {
+            color: #d6aeca;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .page {
+                padding:
+                    45px 17px 65px;
+            }
+
+            .logo {
+                font-size: 40px;
+            }
+
+            .page-title {
+                font-size: 21px;
+            }
+
+            .intro {
+                font-size: 12px;
+
+                margin-bottom: 35px;
+            }
+
+            .albums {
+                grid-template-columns: 1fr;
+            }
+
+            .album-card {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<canvas id="stars"></canvas>
+
+
+<main class="page">
+
+
+    <div class="logo">
+        KABE
+    </div>
+
+
+    <h1 class="page-title">
+        Music 𐙚
+    </h1>
+
+
+    <p class="intro">
+        Explore KABE's music, albums, and tracklists.
+        More music will be added as it is released. ♡
+    </p>
+
+
+    <section class="albums">
+
+
+        <!-- =========================
+             KABE DEBUT
+        ========================= -->
+
+        <article class="album-card">
+
+
+            <div class="album-cover">
+
+                <div class="cover-text">
+                    KABE
+                </div>
+
+            </div>
+
+
+            <span class="album-label">
+                COMING SOON
+            </span>
+
+
+            <h2 class="album-title">
+                KABE Debut
+            </h2>
+
+
+            <p class="album-meta">
+                Debut Single · 2026
+            </p>
+
+
+            <h3 class="tracklist-title">
+                Tracklist
+            </h3>
+
+
+            <ol class="tracklist">
+
+                <li class="track">
+
+                    <span class="track-number">
+                        01
+                    </span>
+
+                    <span class="track-name redacted">
+                        ███████████
+                    </span>
+
+                    <span class="debut">
+                        DEBUT
+                    </span>
+
+                </li>
+
+            </ol>
+
+
+        </article>
+
+
+        <!--
+            FUTURE ALBUMS GO HERE
+
+            Example:
+
+            <article class="album-card">
+
+                <div class="album-cover">
+                    <div class="cover-text">
+                        ALBUM NAME
+                    </div>
+                </div>
+
+                <span class="album-label">
+                    ALBUM
+                </span>
+
+                <h2 class="album-title">
+                    Album Name
+                </h2>
+
+                <p class="album-meta">
+                    Album · 2027
+                </p>
+
+                <h3 class="tracklist-title">
+                    Tracklist
+                </h3>
+
+                <ol class="tracklist">
+
+                    <li class="track">
+                        <span class="track-number">
+                            01
+                        </span>
+
+                        <span class="track-name">
+                            Song Name
+                        </span>
+                    </li>
+
+                </ol>
+
+            </article>
+        -->
+
+
+    </section>
+
+
+</main>
+
+
+<script src="/directory.js"></script>
+
+
+<script>
+
+    /* =========================
+       INTERACTIVE STARFIELD
+    ========================= */
+
+    const canvas =
+        document.getElementById("stars");
+
+    const ctx =
+        canvas.getContext("2d");
+
+    let stars = [];
+
+    let mouse = {
+        x: -1000,
+        y: -1000
+    };
+
+
+    function resizeCanvas() {
+
+        canvas.width =
+            window.innerWidth;
+
+        canvas.height =
+            window.innerHeight;
+
+        createStars();
+
+    }
+
+
+    function createStars() {
+
+        stars = [];
+
+        const amount =
+            Math.floor(
+                (
+                    window.innerWidth *
+                    window.innerHeight
+                ) / 8500
+            );
+
+
+        for (
+            let i = 0;
+            i < amount;
+            i++
+        ) {
+
+            stars.push({
+
+                x:
+                    Math.random() *
+                    canvas.width,
+
+                y:
+                    Math.random() *
+                    canvas.height,
+
+                size:
+                    Math.random() *
+                    1.5 + .3,
+
+                baseOpacity:
+                    Math.random() *
+                    .45 + .2,
+
+                twinkle:
+                    Math.random() *
+                    Math.PI * 2,
+
+                speed:
+                    Math.random() *
+                    .025 + .008
+
+            });
+
+        }
+
+    }
+
+
+    function drawStars() {
+
+        ctx.clearRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+        const isTouchDevice =
+            window.matchMedia(
+                "(hover: none)"
+            ).matches;
+
+
+        for (const star of stars) {
+
+            star.twinkle +=
+                star.speed;
+
+
+            const pulse =
+                Math.sin(
+                    star.twinkle
+                ) * .12;
+
+
+            let opacity =
+                star.baseOpacity +
+                pulse;
+
+
+            if (!isTouchDevice) {
+
+                const dx =
+                    star.x -
+                    mouse.x;
+
+                const dy =
+                    star.y -
+                    mouse.y;
+
+                const distance =
+                    Math.sqrt(
+                        dx * dx +
+                        dy * dy
+                    );
+
+
+                const glowRadius =
+                    150;
+
+
+                if (
+                    distance <
+                    glowRadius
+                ) {
+
+                    const glow =
+                        1 -
+                        distance /
+                        glowRadius;
+
+
+                    opacity +=
+                        glow * .75;
+
+
+                    const glowSize =
+                        star.size +
+                        glow * 2.2;
+
+
+                    ctx.beginPath();
+
+
+                    ctx.arc(
+                        star.x,
+                        star.y,
+                        glowSize,
+                        0,
+                        Math.PI * 2
+                    );
+
+
+                    ctx.fillStyle =
+                        `rgba(
+                            255,
+                            255,
+                            255,
+                            ${Math.min(
+                                opacity * .18,
+                                .3
+                            )}
+                        )`;
+
+
+                    ctx.fill();
+
+                }
+
+            }
+
+
+            opacity =
+                Math.min(
+                    Math.max(
+                        opacity,
+                        .05
+                    ),
+                    1
+                );
+
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+                star.x,
+                star.y,
+                star.size,
+                0,
+                Math.PI * 2
+            );
+
+
+            ctx.fillStyle =
+                `rgba(
+                    255,
+                    255,
+                    255,
+                    ${opacity}
+                )`;
+
+
+            ctx.fill();
+
+        }
+
+
+        requestAnimationFrame(
+            drawStars
+        );
+
+    }
+
+
+    window.addEventListener(
+        "resize",
+        resizeCanvas
+    );
+
+
+    window.addEventListener(
+        "mousemove",
+        function(event) {
+
+            mouse.x =
+                event.clientX;
+
+            mouse.y =
+                event.clientY;
+
+        }
+    );
+
+
+    window.addEventListener(
+        "mouseleave",
+        function() {
+
+            mouse.x = -1000;
+
+            mouse.y = -1000;
+
+        }
+    );
+
+
+    resizeCanvas();
+
+    drawStars();
+
+</script>
+
+
+</body>
+
+</html>
