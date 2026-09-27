@@ -2,16 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="KABE — Official Website"
+    >
 
     <title>KABE 𐙚 Official Website</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
     <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -23,6 +41,8 @@
         }
 
         body {
+            min-height: 100vh;
+
             background:
                 radial-gradient(
                     circle at 50% -10%,
@@ -30,10 +50,36 @@
                     transparent 40%
                 ),
                 #000;
+
             color: #fff;
+
             font-family: "Nunito", sans-serif;
-            min-height: 100vh;
+
             overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(255, 105, 190, 0.025),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(255, 105, 190, 0.02),
+                    transparent 30%
+                );
+
+            z-index: 0;
         }
 
         a {
@@ -41,45 +87,92 @@
             text-decoration: none;
         }
 
-        .page {
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 22px 45px;
-            position: relative;
-            z-index: 2;
+        img {
+            max-width: 100%;
         }
 
-        /* =========================
-           HERO / BANNER
-        ========================= */
+
+        /* =========================================================
+           PAGE
+        ========================================================= */
+
+        .page {
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            padding:
+                0
+                22px
+                35px;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
 
         .hero {
             position: relative;
+
             width: 100%;
+
             height: 255px;
+
             margin-top: 8px;
-            border-radius: 30px;
+
             overflow: hidden;
-            border: 1px solid rgba(255, 145, 220, 0.35);
-            background: #080008;
+
+            border-radius: 30px;
+
+            border:
+                1px solid
+                rgba(255, 145, 220, 0.35);
+
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    rgba(255, 105, 190, 0.16),
+                    transparent 45%
+                ),
+                radial-gradient(
+                    circle at 0% 100%,
+                    rgba(255, 0, 160, 0.08),
+                    transparent 40%
+                ),
+                #080008;
+
             box-shadow:
-                0 0 30px rgba(255, 75, 190, 0.08),
-                inset 0 0 35px rgba(255, 75, 190, 0.05);
+                0 0 30px
+                rgba(255, 75, 190, 0.08),
+
+                inset 0 0 35px
+                rgba(255, 75, 190, 0.05);
         }
 
         .hero-slides {
-            width: 100%;
-            height: 100%;
             position: relative;
+
+            width: 100%;
+
+            height: 100%;
         }
 
         .hero-slide {
             position: absolute;
+
             inset: 0;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             padding: 30px;
@@ -87,94 +180,118 @@
             text-align: center;
 
             opacity: 0;
+
             pointer-events: none;
+
+            transform: scale(1.015);
 
             transition:
                 opacity 0.7s ease,
                 transform 0.7s ease;
-
-            transform: scale(1.015);
         }
 
         .hero-slide.active {
             opacity: 1;
+
             pointer-events: auto;
+
             transform: scale(1);
-        }
-
-        .hero-slide::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-
-            background:
-                radial-gradient(
-                    circle at 50% 35%,
-                    rgba(255, 105, 190, 0.17),
-                    transparent 42%
-                ),
-                radial-gradient(
-                    circle at 10% 90%,
-                    rgba(255, 0, 160, 0.08),
-                    transparent 35%
-                );
-
-            pointer-events: none;
         }
 
         .hero-content {
             position: relative;
+
             z-index: 2;
+
             max-width: 760px;
         }
 
         .hero-kicker {
-            color: #ff9cdb;
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
             margin-bottom: 8px;
+
+            color: #ff9cdb;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
         }
 
         .hero h1 {
-            font-family: "DynaPuff", cursive;
-            font-size: clamp(28px, 5vw, 48px);
-            line-height: 1.05;
             margin-bottom: 12px;
 
-            background: linear-gradient(
-                90deg,
-                #fff,
-                #ffb9e5,
-                #fff
-            );
+            font-family: "DynaPuff", cursive;
+
+            font-size:
+                clamp(
+                    28px,
+                    5vw,
+                    48px
+                );
+
+            line-height: 1.05;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #fff,
+                    #ffb9e5,
+                    #fff
+                );
 
             -webkit-background-clip: text;
+
             background-clip: text;
+
             color: transparent;
         }
 
         .hero p {
-            color: rgba(255, 255, 255, 0.75);
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.75
+                );
+
             font-size: 15px;
         }
 
         .hero-button {
             display: inline-flex;
+
             align-items: center;
+
             justify-content: center;
 
             margin-top: 18px;
-            padding: 9px 17px;
 
-            border: 1px solid rgba(255, 140, 215, 0.45);
+            padding:
+                9px
+                17px;
+
+            border:
+                1px solid
+                rgba(255, 140, 215, 0.45);
+
             border-radius: 999px;
 
             color: #ffb4e2;
-            background: rgba(255, 90, 190, 0.06);
+
+            background:
+                rgba(
+                    255,
+                    90,
+                    190,
+                    0.06
+                );
 
             font-size: 12px;
+
             font-weight: 800;
 
             transition:
@@ -184,71 +301,137 @@
         }
 
         .hero-button:hover {
-            background: rgba(255, 90, 190, 0.13);
-            border-color: rgba(255, 140, 215, 0.8);
-            transform: translateY(-2px);
+            background:
+                rgba(
+                    255,
+                    90,
+                    190,
+                    0.13
+                );
+
+            border-color:
+                rgba(
+                    255,
+                    140,
+                    215,
+                    0.8
+                );
+
+            transform:
+                translateY(-2px);
         }
 
-        /* =========================
-           EVENT BANNER
-        ========================= */
+
+        /* =========================================================
+           NEW YEARS EVENT
+        ========================================================= */
 
         .event-banner {
             width: 100%;
+
             margin-top: 22px;
 
             text-align: center;
+        }
+
+        .event-image-wrapper {
+            width: 100%;
+
+            overflow: hidden;
+
+            border-radius: 24px;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    145,
+                    220,
+                    0.3
+                );
+
+            background: #080008;
+
+            box-shadow:
+                0 0 30px
+                rgba(
+                    255,
+                    75,
+                    190,
+                    0.07
+                );
         }
 
         .event-banner-image {
             display: block;
 
             width: 100%;
+
             height: auto;
 
-            border-radius: 24px;
-            border: 1px solid rgba(255, 145, 220, 0.3);
+            border: 0;
 
-            box-shadow:
-                0 0 30px rgba(255, 75, 190, 0.07);
-
-            object-fit: cover;
+            outline: none;
         }
 
         .event-subtext {
             margin-top: 15px;
-            padding: 0 10px;
 
-            color: rgba(255, 255, 255, 0.78);
+            padding:
+                0
+                10px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.72
+                );
 
             font-size: 14px;
+
             line-height: 1.65;
         }
 
-        .event-subtext strong {
+        .event-title {
             display: block;
+
+            margin-bottom: 4px;
 
             color: #ff9ddd;
 
-            font-family: "DynaPuff", cursive;
-            font-size: 16px;
-            font-weight: 500;
+            font-family:
+                "DynaPuff",
+                cursive;
 
-            margin-bottom: 3px;
+            font-size: 16px;
+
+            font-weight: 500;
         }
 
-        .event-date {
-            color: rgba(255, 255, 255, 0.65);
+        .event-details {
+            display: block;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.62
+                );
         }
 
         .event-link {
             color: #ffb5e4;
+
             font-weight: 800;
         }
 
-        /* =========================
+
+        /* =========================================================
            GENERAL SECTIONS
-        ========================= */
+        ========================================================= */
 
         .section {
             margin-top: 58px;
@@ -259,35 +442,58 @@
         }
 
         .section-label {
-            color: #ff9ddd;
-            font-family: "DynaPuff", cursive;
-            font-size: 20px;
             margin-bottom: 5px;
+
+            color: #ff9ddd;
+
+            font-family:
+                "DynaPuff",
+                cursive;
+
+            font-size: 20px;
         }
 
         .section-title {
             color: #fff;
-            font-family: "DynaPuff", cursive;
+
+            font-family:
+                "DynaPuff",
+                cursive;
+
             font-size: 27px;
+
             line-height: 1.1;
         }
 
         .section-description {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-            line-height: 1.7;
             max-width: 650px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.6
+                );
+
+            font-size: 14px;
+
+            line-height: 1.7;
         }
 
-        /* =========================
+
+        /* =========================================================
            WELCOME
-        ========================= */
+        ========================================================= */
 
         .welcome {
-            text-align: center;
             max-width: 720px;
+
             margin-left: auto;
+
             margin-right: auto;
+
+            text-align: center;
         }
 
         .welcome .section-label {
@@ -295,38 +501,80 @@
         }
 
         .welcome h2 {
-            font-family: "DynaPuff", cursive;
-            font-size: clamp(27px, 5vw, 38px);
             margin-bottom: 12px;
+
+            font-family:
+                "DynaPuff",
+                cursive;
+
+            font-size:
+                clamp(
+                    27px,
+                    5vw,
+                    38px
+                );
         }
 
         .welcome p {
-            color: rgba(255, 255, 255, 0.66);
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.66
+                );
+
             font-size: 15px;
+
             line-height: 1.8;
         }
 
-        /* =========================
-           UPDATE CARDS
-        ========================= */
+
+        /* =========================================================
+           UPDATES
+        ========================================================= */
 
         .updates {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+
             gap: 14px;
         }
 
         .update-card {
             padding: 22px;
 
-            border: 1px solid rgba(255, 145, 220, 0.18);
+            border:
+                1px solid
+                rgba(
+                    255,
+                    145,
+                    220,
+                    0.18
+                );
+
             border-radius: 22px;
 
             background:
                 linear-gradient(
                     145deg,
-                    rgba(255, 105, 190, 0.06),
-                    rgba(255, 255, 255, 0.015)
+                    rgba(
+                        255,
+                        105,
+                        190,
+                        0.06
+                    ),
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0.015
+                    )
                 );
 
             transition:
@@ -336,82 +584,195 @@
         }
 
         .update-card:hover {
-            border-color: rgba(255, 145, 220, 0.38);
+            border-color:
+                rgba(
+                    255,
+                    145,
+                    220,
+                    0.38
+                );
+
             background:
                 linear-gradient(
                     145deg,
-                    rgba(255, 105, 190, 0.09),
-                    rgba(255, 255, 255, 0.02)
+                    rgba(
+                        255,
+                        105,
+                        190,
+                        0.09
+                    ),
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0.02
+                    )
                 );
-            transform: translateY(-2px);
+
+            transform:
+                translateY(-2px);
         }
 
         .update-date {
-            color: rgba(255, 255, 255, 0.42);
-            font-size: 11px;
             margin-bottom: 9px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.42
+                );
+
+            font-size: 11px;
         }
 
         .update-card h3 {
-            font-family: "DynaPuff", cursive;
-            font-size: 19px;
-            line-height: 1.25;
             margin-bottom: 9px;
+
+            font-family:
+                "DynaPuff",
+                cursive;
+
+            font-size: 19px;
+
+            line-height: 1.25;
         }
 
         .update-card p {
-            color: rgba(255, 255, 255, 0.62);
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.62
+                );
+
             font-size: 13px;
+
             line-height: 1.65;
         }
 
         .tags {
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 6px;
+
             margin-top: 15px;
         }
 
         .tag {
-            padding: 5px 9px;
+            padding:
+                5px
+                9px;
+
             border-radius: 999px;
 
             font-size: 9px;
+
             font-weight: 800;
-            letter-spacing: 0.2px;
         }
 
         .tag-green {
             color: #b9ffd1;
-            background: rgba(90, 255, 140, 0.08);
-            border: 1px solid rgba(90, 255, 140, 0.18);
+
+            background:
+                rgba(
+                    90,
+                    255,
+                    140,
+                    0.08
+                );
+
+            border:
+                1px solid
+                rgba(
+                    90,
+                    255,
+                    140,
+                    0.18
+                );
         }
 
         .tag-blue {
             color: #b9dcff;
-            background: rgba(90, 160, 255, 0.08);
-            border: 1px solid rgba(90, 160, 255, 0.18);
+
+            background:
+                rgba(
+                    90,
+                    160,
+                    255,
+                    0.08
+                );
+
+            border:
+                1px solid
+                rgba(
+                    90,
+                    160,
+                    255,
+                    0.18
+                );
         }
 
         .tag-pink {
             color: #ffb9e6;
-            background: rgba(255, 105, 190, 0.08);
-            border: 1px solid rgba(255, 105, 190, 0.18);
+
+            background:
+                rgba(
+                    255,
+                    105,
+                    190,
+                    0.08
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    105,
+                    190,
+                    0.18
+                );
         }
 
         .tag-yellow {
             color: #ffe7a7;
-            background: rgba(255, 205, 90, 0.08);
-            border: 1px solid rgba(255, 205, 90, 0.18);
+
+            background:
+                rgba(
+                    255,
+                    205,
+                    90,
+                    0.08
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    205,
+                    90,
+                    0.18
+                );
         }
 
-        /* =========================
+
+        /* =========================================================
            MEMBERS
-        ========================= */
+        ========================================================= */
 
         .members {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    minmax(0, 1fr)
+                );
+
             gap: 12px;
         }
 
@@ -419,16 +780,33 @@
             min-height: 130px;
 
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
             justify-content: center;
 
             padding: 20px;
 
-            border-radius: 20px;
-            border: 1px solid rgba(255, 145, 220, 0.16);
+            border:
+                1px solid
+                rgba(
+                    255,
+                    145,
+                    220,
+                    0.16
+                );
 
-            background: rgba(255, 255, 255, 0.015);
+            border-radius: 20px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.015
+                );
 
             text-align: center;
 
@@ -438,113 +816,201 @@
         }
 
         .member-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(255, 145, 220, 0.4);
+            transform:
+                translateY(-3px);
+
+            border-color:
+                rgba(
+                    255,
+                    145,
+                    220,
+                    0.4
+                );
         }
 
         .member-symbol {
-            color: #ff9ddd;
-            font-size: 18px;
             margin-bottom: 9px;
+
+            color: #ff9ddd;
+
+            font-size: 18px;
         }
 
         .member-card h3 {
-            font-family: "DynaPuff", cursive;
+            font-family:
+                "DynaPuff",
+                cursive;
+
             font-size: 18px;
         }
 
         .member-card p {
-            color: rgba(255, 255, 255, 0.45);
-            font-size: 11px;
             margin-top: 4px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.45
+                );
+
+            font-size: 11px;
         }
 
-        /* =========================
+
+        /* =========================================================
            MUSIC
-        ========================= */
+        ========================================================= */
 
         .music-card {
             position: relative;
+
             overflow: hidden;
 
             padding: 28px;
 
+            border:
+                1px solid
+                rgba(
+                    255,
+                    145,
+                    220,
+                    0.2
+                );
+
             border-radius: 25px;
-            border: 1px solid rgba(255, 145, 220, 0.2);
 
             background:
                 radial-gradient(
                     circle at 85% 20%,
-                    rgba(255, 105, 190, 0.13),
+                    rgba(
+                        255,
+                        105,
+                        190,
+                        0.13
+                    ),
                     transparent 35%
                 ),
-                rgba(255, 255, 255, 0.015);
-        }
-
-        .music-card::after {
-            content: "𐙚";
-
-            position: absolute;
-            right: 25px;
-            bottom: -10px;
-
-            color: rgba(255, 130, 205, 0.08);
-            font-family: "DynaPuff", cursive;
-            font-size: 100px;
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.015
+                );
         }
 
         .music-status {
-            color: #ff9ddd;
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
             margin-bottom: 8px;
+
+            color: #ff9ddd;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
         }
 
         .music-card h3 {
-            font-family: "DynaPuff", cursive;
-            font-size: 29px;
             margin-bottom: 5px;
+
+            font-family:
+                "DynaPuff",
+                cursive;
+
+            font-size: 29px;
         }
 
         .music-card p {
-            color: rgba(255, 255, 255, 0.55);
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.55
+                );
+
             font-size: 13px;
         }
 
         .track {
             margin-top: 22px;
 
-            padding: 13px 15px;
+            padding:
+                13px
+                15px;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    145,
+                    220,
+                    0.12
+                );
 
             border-radius: 14px;
-            border: 1px solid rgba(255, 145, 220, 0.12);
 
-            background: rgba(0, 0, 0, 0.25);
+            background:
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.25
+                );
 
-            color: rgba(255, 255, 255, 0.58);
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.58
+                );
 
             font-size: 12px;
+
             font-weight: 700;
         }
 
-        /* =========================
+
+        /* =========================================================
            EXPLORE
-        ========================= */
+        ========================================================= */
 
         .explore {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(0, 1fr)
+                );
+
             gap: 12px;
         }
 
         .explore-card {
             padding: 22px;
 
-            border-radius: 20px;
-            border: 1px solid rgba(255, 145, 220, 0.16);
+            border:
+                1px solid
+                rgba(
+                    255,
+                    145,
+                    220,
+                    0.16
+                );
 
-            background: rgba(255, 255, 255, 0.015);
+            border-radius: 20px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.015
+                );
 
             transition:
                 transform 0.2s ease,
@@ -552,69 +1018,116 @@
         }
 
         .explore-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(255, 145, 220, 0.38);
+            transform:
+                translateY(-3px);
+
+            border-color:
+                rgba(
+                    255,
+                    145,
+                    220,
+                    0.38
+                );
         }
 
         .explore-icon {
-            color: #ff9ddd;
-            font-size: 18px;
             margin-bottom: 9px;
+
+            color: #ff9ddd;
+
+            font-size: 18px;
         }
 
         .explore-card h3 {
-            font-family: "DynaPuff", cursive;
-            font-size: 17px;
             margin-bottom: 5px;
+
+            font-family:
+                "DynaPuff",
+                cursive;
+
+            font-size: 17px;
         }
 
         .explore-card p {
-            color: rgba(255, 255, 255, 0.48);
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.48
+                );
+
             font-size: 12px;
+
             line-height: 1.55;
         }
 
-        /* =========================
-           MADE WITH LOVE
-        ========================= */
+
+        /* =========================================================
+           FINAL MESSAGE
+        ========================================================= */
 
         .final-message {
+            margin:
+                55px
+                auto
+                5px;
+
+            padding:
+                10px
+                20px
+                0;
+
             text-align: center;
-            margin: 55px auto 5px;
-            padding: 10px 20px 0;
         }
 
         .final-message .flower {
-            color: #ff9ddd;
-            font-size: 18px;
             margin-bottom: 8px;
+
+            color: #ff9ddd;
+
+            font-size: 18px;
         }
 
         .final-message h2 {
-            font-family: "DynaPuff", cursive;
-            font-size: 23px;
             margin-bottom: 5px;
+
+            font-family:
+                "DynaPuff",
+                cursive;
+
+            font-size: 23px;
         }
 
         .final-message p {
-            color: rgba(255, 255, 255, 0.45);
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.45
+                );
+
             font-size: 12px;
         }
 
-        /* =========================
+
+        /* =========================================================
            MOBILE
-        ========================= */
+        ========================================================= */
 
         @media (max-width: 700px) {
 
             .page {
-                padding-left: 15px;
-                padding-right: 15px;
-                padding-bottom: 30px;
+                padding:
+                    0
+                    15px
+                    30px;
             }
 
             .hero {
                 height: 205px;
+
                 border-radius: 24px;
             }
 
@@ -634,16 +1147,17 @@
                 margin-top: 17px;
             }
 
-            .event-banner-image {
+            .event-image-wrapper {
                 border-radius: 19px;
             }
 
             .event-subtext {
+                margin-top: 12px;
+
                 font-size: 12px;
-                line-height: 1.6;
             }
 
-            .event-subtext strong {
+            .event-title {
                 font-size: 14px;
             }
 
@@ -656,7 +1170,11 @@
             }
 
             .members {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
             }
 
             .explore {
@@ -667,73 +1185,205 @@
                 margin-top: 45px;
             }
         }
+
+
+        /* =========================================================
+           VERY SMALL PHONES
+        ========================================================= */
+
+        @media (max-width: 400px) {
+
+            .page {
+                padding-left: 12px;
+
+                padding-right: 12px;
+            }
+
+            .hero {
+                height: 195px;
+            }
+
+            .hero h1 {
+                font-size: 27px;
+            }
+
+            .hero p {
+                font-size: 12px;
+            }
+
+            .event-subtext {
+                padding:
+                    0
+                    5px;
+
+                font-size: 11px;
+            }
+
+            .event-title {
+                font-size: 13px;
+            }
+
+            .members {
+                gap: 8px;
+            }
+
+            .member-card {
+                min-height: 115px;
+
+                padding: 15px;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
+    <!-- =========================================================
+         MAIN PAGE
+    ========================================================= -->
+
     <main class="page">
 
-        <!-- HERO -->
+
+        <!-- =====================================================
+             HERO
+        ===================================================== -->
+
         <section class="hero">
 
             <div class="hero-slides">
 
+
+                <!-- SLIDE 1 -->
+
                 <div class="hero-slide active">
+
                     <div class="hero-content">
-                        <div class="hero-kicker">𐙚 Official Website</div>
-                        <h1>KABE</h1>
-                        <p>Welcome to the garden. 𐙚</p>
+
+                        <div class="hero-kicker">
+                            𐙚 Official Website
+                        </div>
+
+                        <h1>
+                            KABE
+                        </h1>
+
+                        <p>
+                            Welcome to the garden. 𐙚
+                        </p>
+
                     </div>
+
                 </div>
 
-                <div class="hero-slide">
-                    <div class="hero-content">
-                        <div class="hero-kicker">KABE News</div>
-                        <h1>What's growing?</h1>
-                        <p>Keep up with everything happening in the KABE garden.</p>
 
-                        <a class="hero-button" href="/news">
+                <!-- SLIDE 2 -->
+
+                <div class="hero-slide">
+
+                    <div class="hero-content">
+
+                        <div class="hero-kicker">
+                            KABE News
+                        </div>
+
+                        <h1>
+                            What's growing?
+                        </h1>
+
+                        <p>
+                            Keep up with everything happening
+                            in the KABE garden.
+                        </p>
+
+                        <a
+                            class="hero-button"
+                            href="/news"
+                        >
                             Read the news 𐙚
                         </a>
+
                     </div>
+
                 </div>
+
+
+                <!-- SLIDE 3 -->
 
                 <div class="hero-slide">
-                    <div class="hero-content">
-                        <div class="hero-kicker">KABE Music</div>
-                        <h1>Something is blooming.</h1>
-                        <p>Explore KABE's music and upcoming releases.</p>
 
-                        <a class="hero-button" href="/music">
+                    <div class="hero-content">
+
+                        <div class="hero-kicker">
+                            KABE Music
+                        </div>
+
+                        <h1>
+                            Something is blooming.
+                        </h1>
+
+                        <p>
+                            Explore KABE's music
+                            and upcoming releases.
+                        </p>
+
+                        <a
+                            class="hero-button"
+                            href="/music"
+                        >
                             Explore music 𐙚
                         </a>
+
                     </div>
+
                 </div>
+
 
             </div>
 
         </section>
 
 
-        <!-- FOLDED PRESENTS EVENT -->
+        <!-- =====================================================
+             NEW YEARS EVENT
+        ===================================================== -->
+
         <section class="event-banner">
 
-            <img
-                class="event-banner-image"
-                src="/bmedia/goose.png"
-                alt="Folded presents: KABE New Years Event"
-            >
+            <div class="event-image-wrapper">
+
+                <img
+                    class="event-banner-image"
+                    src="/bmedia/goose.png"
+                    alt="Folded presents KABE New Years Event"
+                    loading="eager"
+                    decoding="async"
+                >
+
+            </div>
+
 
             <div class="event-subtext">
 
-                <strong>Folded presents: KABE New Years Event</strong>
+                <strong class="event-title">
+                    Folded presents: KABE New Years Event
+                </strong>
 
-                <span class="event-date">
+                <span class="event-details">
+
                     Tune in on
-                    <span class="event-link">Kabe.world/broadcast</span>
+
+                    <span class="event-link">
+                        Kabe.world/broadcast
+                    </span>
+
                     on December 31st, 2026 at
-                    12 PM Pacific · 2 PM Central · 3 PM Eastern.
+
+                    12 PM Pacific ·
+                    2 PM Central ·
+                    3 PM Eastern.
+
                 </span>
 
             </div>
@@ -741,31 +1391,53 @@
         </section>
 
 
-        <!-- WELCOME -->
+        <!-- =====================================================
+             WELCOME
+        ===================================================== -->
+
         <section class="section welcome">
 
-            <div class="section-label">welcome home 𐙚</div>
+            <div class="section-label">
+                welcome home 𐙚
+            </div>
 
-            <h2>A little garden for KABE.</h2>
+            <h2>
+                A little garden for KABE.
+            </h2>
 
             <p>
-                KABE is a group built around creativity, music, friendship,
-                and self-expression. This is our little corner of the internet.
+                KABE is a group built around creativity,
+                music, friendship, and self-expression.
+                This is our little corner of the internet.
                 Stay awhile. ♡
             </p>
 
         </section>
 
 
-        <!-- LATEST UPDATES -->
+        <!-- =====================================================
+             LATEST UPDATES
+        ===================================================== -->
+
         <section class="section">
 
             <div class="section-heading">
-                <div class="section-label">𐙚 KABE NEWS</div>
-                <div class="section-title">Latest Updates</div>
+
+                <div class="section-label">
+                    𐙚 KABE NEWS
+                </div>
+
+                <div class="section-title">
+                    Latest Updates
+                </div>
+
             </div>
 
+
             <div class="updates">
+
+
+                <!-- CAREERS -->
 
                 <article class="update-card">
 
@@ -778,11 +1450,14 @@
                     </h3>
 
                     <p>
-                        KABE is currently looking for creative Logo Designers
-                        to help develop and maintain our visual identity.
+                        KABE is currently looking for
+                        creative Logo Designers to help
+                        develop and maintain our visual identity.
                     </p>
 
+
                     <div class="tags">
+
                         <span class="tag tag-green">
                             ✓ Official Announcement
                         </span>
@@ -790,10 +1465,13 @@
                         <span class="tag tag-yellow">
                             KABE Careers
                         </span>
+
                     </div>
 
                 </article>
 
+
+                <!-- BLOSSOM -->
 
                 <article class="update-card">
 
@@ -806,12 +1484,15 @@
                     </h3>
 
                     <p>
-                        B, Blossom, will be taking an official hiatus from
-                        KABE-related activities due to limited availability
-                        online. There is currently no confirmed return date.
+                        B, Blossom, will be taking an official
+                        hiatus from KABE-related activities
+                        due to limited availability online.
+                        There is currently no confirmed return date.
                     </p>
 
+
                     <div class="tags">
+
                         <span class="tag tag-green">
                             ✓ Official Announcement
                         </span>
@@ -823,61 +1504,130 @@
                         <span class="tag tag-pink">
                             Blossom
                         </span>
+
                     </div>
 
                 </article>
 
+
             </div>
 
         </section>
 
 
-        <!-- MEMBERS -->
+        <!-- =====================================================
+             MEMBERS
+        ===================================================== -->
+
         <section class="section">
 
             <div class="section-heading">
-                <div class="section-label">𐙚 THE GROUP</div>
-                <div class="section-title">Meet KABE</div>
+
+                <div class="section-label">
+                    𐙚 THE GROUP
+                </div>
+
+                <div class="section-title">
+                    Meet KABE
+                </div>
+
             </div>
+
 
             <div class="members">
 
-                <div class="member-card">
-                    <div class="member-symbol">𐙚</div>
-                    <h3>Kalon</h3>
-                    <p>KABE</p>
-                </div>
 
                 <div class="member-card">
-                    <div class="member-symbol">𐙚</div>
-                    <h3>Abloom</h3>
-                    <p>KABE</p>
+
+                    <div class="member-symbol">
+                        𐙚
+                    </div>
+
+                    <h3>
+                        Kalon
+                    </h3>
+
+                    <p>
+                        KABE
+                    </p>
+
                 </div>
 
-                <div class="member-card">
-                    <div class="member-symbol">𐙚</div>
-                    <h3>Blossom</h3>
-                    <p>KABE</p>
-                </div>
 
                 <div class="member-card">
-                    <div class="member-symbol">𐙚</div>
-                    <h3>Euphoria</h3>
-                    <p>KABE</p>
+
+                    <div class="member-symbol">
+                        𐙚
+                    </div>
+
+                    <h3>
+                        Abloom
+                    </h3>
+
+                    <p>
+                        KABE
+                    </p>
+
                 </div>
+
+
+                <div class="member-card">
+
+                    <div class="member-symbol">
+                        𐙚
+                    </div>
+
+                    <h3>
+                        Blossom
+                    </h3>
+
+                    <p>
+                        KABE
+                    </p>
+
+                </div>
+
+
+                <div class="member-card">
+
+                    <div class="member-symbol">
+                        𐙚
+                    </div>
+
+                    <h3>
+                        Euphoria
+                    </h3>
+
+                    <p>
+                        KABE
+                    </p>
+
+                </div>
+
 
             </div>
 
         </section>
 
 
-        <!-- MUSIC -->
+        <!-- =====================================================
+             MUSIC
+        ===================================================== -->
+
         <section class="section">
 
             <div class="section-heading">
-                <div class="section-label">𐙚 MUSIC</div>
-                <div class="section-title">Something is blooming.</div>
+
+                <div class="section-label">
+                    𐙚 MUSIC
+                </div>
+
+                <div class="section-title">
+                    Something is blooming.
+                </div>
+
             </div>
+
 
             <div class="music-card">
 
@@ -885,11 +1635,14 @@
                     COMING SOON
                 </div>
 
-                <h3>KABE Debut</h3>
+                <h3>
+                    KABE Debut
+                </h3>
 
                 <p>
                     Debut Single · 2026
                 </p>
+
 
                 <div class="track">
                     01 · ███████████ · DEBUT
@@ -900,65 +1653,109 @@
         </section>
 
 
-        <!-- EXPLORE -->
+        <!-- =====================================================
+             EXPLORE
+        ===================================================== -->
+
         <section class="section">
 
             <div class="section-heading">
-                <div class="section-label">𐙚 EXPLORE</div>
-                <div class="section-title">Find your way around.</div>
+
+                <div class="section-label">
+                    𐙚 EXPLORE
+                </div>
+
+                <div class="section-title">
+                    Find your way around.
+                </div>
+
             </div>
+
 
             <div class="explore">
 
-                <a class="explore-card" href="/news">
 
-                    <div class="explore-icon">𐙚</div>
+                <a
+                    class="explore-card"
+                    href="/news"
+                >
 
-                    <h3>News</h3>
+                    <div class="explore-icon">
+                        𐙚
+                    </div>
+
+                    <h3>
+                        News
+                    </h3>
 
                     <p>
-                        See the latest KABE announcements and updates.
+                        See the latest KABE
+                        announcements and updates.
                     </p>
 
                 </a>
 
 
-                <a class="explore-card" href="/music">
+                <a
+                    class="explore-card"
+                    href="/music"
+                >
 
-                    <div class="explore-icon">♫</div>
+                    <div class="explore-icon">
+                        ♫
+                    </div>
 
-                    <h3>Music</h3>
+                    <h3>
+                        Music
+                    </h3>
 
                     <p>
-                        Explore KABE's music and upcoming releases.
+                        Explore KABE's music
+                        and upcoming releases.
                     </p>
 
                 </a>
 
 
-                <a class="explore-card" href="/careers">
+                <a
+                    class="explore-card"
+                    href="/careers"
+                >
 
-                    <div class="explore-icon">✦</div>
+                    <div class="explore-icon">
+                        ✦
+                    </div>
 
-                    <h3>Careers</h3>
+                    <h3>
+                        Careers
+                    </h3>
 
                     <p>
-                        Find current opportunities to work with KABE.
+                        Find current opportunities
+                        to work with KABE.
                     </p>
 
                 </a>
+
 
             </div>
 
         </section>
 
 
-        <!-- MADE WITH LOVE -->
+        <!-- =====================================================
+             FINAL MESSAGE
+        ===================================================== -->
+
         <section class="final-message">
 
-            <div class="flower">𐙚</div>
+            <div class="flower">
+                𐙚
+            </div>
 
-            <h2>Made with love for KABE.</h2>
+            <h2>
+                Made with love for KABE.
+            </h2>
 
             <p>
                 Welcome to our little garden. ♡
@@ -966,208 +1763,379 @@
 
         </section>
 
+
     </main>
 
 
-    <!-- DIRECTORY / NAVIGATION -->
+    <!-- =========================================================
+         KABE DIRECTORY
+    ========================================================= -->
+
     <script src="/directory.js"></script>
 
 
-    <!-- HERO SLIDER -->
+    <!-- =========================================================
+         HERO SLIDER
+    ========================================================= -->
+
     <script>
 
-        const slides = document.querySelectorAll(".hero-slide");
+        (function () {
 
-        let currentSlide = 0;
+            const slides =
+                document.querySelectorAll(
+                    ".hero-slide"
+                );
 
-        function showSlide(index) {
-
-            slides.forEach((slide, i) => {
-                slide.classList.toggle("active", i === index);
-            });
-
-        }
-
-        setInterval(() => {
-
-            currentSlide++;
-
-            if (currentSlide >= slides.length) {
-                currentSlide = 0;
+            if (!slides.length) {
+                return;
             }
 
-            showSlide(currentSlide);
+            let currentSlide = 0;
 
-        }, 6000);
+            function showSlide(index) {
+
+                slides.forEach(
+                    function (slide, i) {
+
+                        slide.classList.toggle(
+                            "active",
+                            i === index
+                        );
+
+                    }
+                );
+
+            }
+
+            setInterval(
+                function () {
+
+                    currentSlide++;
+
+                    if (
+                        currentSlide >=
+                        slides.length
+                    ) {
+
+                        currentSlide = 0;
+
+                    }
+
+                    showSlide(
+                        currentSlide
+                    );
+
+                },
+                6000
+            );
+
+        })();
 
     </script>
 
 
-    <!-- INTERACTIVE STARFIELD -->
+    <!-- =========================================================
+         STARFIELD
+    ========================================================= -->
+
     <script>
 
-        const starCanvas = document.createElement("canvas");
+        (function () {
 
-        starCanvas.style.position = "fixed";
-        starCanvas.style.inset = "0";
-        starCanvas.style.width = "100%";
-        starCanvas.style.height = "100%";
-        starCanvas.style.pointerEvents = "none";
-        starCanvas.style.zIndex = "0";
+            const canvas =
+                document.createElement(
+                    "canvas"
+                );
 
-        document.body.prepend(starCanvas);
-
-        const ctx = starCanvas.getContext("2d");
-
-        let stars = [];
-
-        let mouseX = -1000;
-        let mouseY = -1000;
-
-        function resizeCanvas() {
-
-            const dpr = window.devicePixelRatio || 1;
-
-            starCanvas.width = window.innerWidth * dpr;
-            starCanvas.height = window.innerHeight * dpr;
-
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-            createStars();
-
-        }
-
-        function createStars() {
-
-            stars = [];
-
-            const amount = Math.min(
-                150,
-                Math.floor(
-                    (window.innerWidth * window.innerHeight) / 8000
-                )
+            canvas.setAttribute(
+                "aria-hidden",
+                "true"
             );
 
-            for (let i = 0; i < amount; i++) {
+            canvas.style.position =
+                "fixed";
 
-                stars.push({
-                    x: Math.random() * window.innerWidth,
-                    y: Math.random() * window.innerHeight,
-                    size: Math.random() * 1.5 + 0.3,
-                    opacity: Math.random() * 0.45 + 0.1,
-                    twinkle: Math.random() * Math.PI * 2
-                });
+            canvas.style.left = "0";
+
+            canvas.style.top = "0";
+
+            canvas.style.width = "100%";
+
+            canvas.style.height = "100%";
+
+            canvas.style.pointerEvents =
+                "none";
+
+            canvas.style.zIndex = "0";
+
+            document.body.prepend(
+                canvas
+            );
+
+
+            const ctx =
+                canvas.getContext("2d");
+
+
+            if (!ctx) {
+                return;
+            }
+
+
+            let stars = [];
+
+            let mouseX = -1000;
+
+            let mouseY = -1000;
+
+
+            function resizeCanvas() {
+
+                const dpr =
+                    Math.min(
+                        window.devicePixelRatio || 1,
+                        2
+                    );
+
+                canvas.width =
+                    window.innerWidth *
+                    dpr;
+
+                canvas.height =
+                    window.innerHeight *
+                    dpr;
+
+                ctx.setTransform(
+                    dpr,
+                    0,
+                    0,
+                    dpr,
+                    0,
+                    0
+                );
+
+                createStars();
 
             }
 
-        }
 
-        function drawStars() {
+            function createStars() {
 
-            ctx.clearRect(
-                0,
-                0,
-                window.innerWidth,
-                window.innerHeight
-            );
+                stars = [];
 
-            const time = Date.now() * 0.001;
+                const amount =
+                    Math.min(
+                        150,
+                        Math.max(
+                            40,
+                            Math.floor(
+                                (
+                                    window.innerWidth *
+                                    window.innerHeight
+                                ) /
+                                9000
+                            )
+                        )
+                    );
 
-            stars.forEach(star => {
 
-                const distance = Math.hypot(
-                    star.x - mouseX,
-                    star.y - mouseY
-                );
+                for (
+                    let i = 0;
+                    i < amount;
+                    i++
+                ) {
 
-                let brightness = star.opacity;
+                    stars.push({
 
-                if (distance < 150) {
+                        x:
+                            Math.random() *
+                            window.innerWidth,
 
-                    brightness +=
-                        (1 - distance / 150) * 0.65;
+                        y:
+                            Math.random() *
+                            window.innerHeight,
+
+                        size:
+                            Math.random() *
+                            1.5 +
+                            0.3,
+
+                        opacity:
+                            Math.random() *
+                            0.45 +
+                            0.1,
+
+                        twinkle:
+                            Math.random() *
+                            Math.PI *
+                            2
+
+                    });
 
                 }
 
-                const twinkle =
-                    Math.sin(time * 1.5 + star.twinkle) * 0.08;
+            }
 
-                brightness += twinkle;
 
-                brightness = Math.max(
-                    0.05,
-                    Math.min(1, brightness)
-                );
+            function drawStars() {
 
-                ctx.beginPath();
-
-                ctx.arc(
-                    star.x,
-                    star.y,
-                    star.size,
+                ctx.clearRect(
                     0,
-                    Math.PI * 2
+                    0,
+                    window.innerWidth,
+                    window.innerHeight
                 );
 
-                ctx.fillStyle =
-                    `rgba(255, 190, 230, ${brightness})`;
 
-                ctx.fill();
+                const time =
+                    Date.now() *
+                    0.001;
 
-            });
 
-            requestAnimationFrame(drawStars);
+                stars.forEach(
+                    function (star) {
 
-        }
+                        const distance =
+                            Math.hypot(
+                                star.x - mouseX,
+                                star.y - mouseY
+                            );
 
-        window.addEventListener(
-            "resize",
-            resizeCanvas
-        );
 
-        window.addEventListener(
-            "mousemove",
-            event => {
+                        let brightness =
+                            star.opacity;
 
-                mouseX = event.clientX;
-                mouseY = event.clientY;
+
+                        if (
+                            distance < 150
+                        ) {
+
+                            brightness +=
+                                (
+                                    1 -
+                                    distance / 150
+                                ) *
+                                0.65;
+
+                        }
+
+
+                        brightness +=
+                            Math.sin(
+                                time *
+                                1.5 +
+                                star.twinkle
+                            ) *
+                            0.08;
+
+
+                        brightness =
+                            Math.max(
+                                0.05,
+                                Math.min(
+                                    1,
+                                    brightness
+                                )
+                            );
+
+
+                        ctx.beginPath();
+
+
+                        ctx.arc(
+                            star.x,
+                            star.y,
+                            star.size,
+                            0,
+                            Math.PI * 2
+                        );
+
+
+                        ctx.fillStyle =
+                            "rgba(255, 190, 230, " +
+                            brightness +
+                            ")";
+
+
+                        ctx.fill();
+
+                    }
+                );
+
+
+                requestAnimationFrame(
+                    drawStars
+                );
 
             }
-        );
 
-        window.addEventListener(
-            "mouseleave",
-            () => {
 
-                mouseX = -1000;
-                mouseY = -1000;
+            window.addEventListener(
+                "resize",
+                resizeCanvas
+            );
 
-            }
-        );
 
-        resizeCanvas();
-        drawStars();
+            window.addEventListener(
+                "mousemove",
+                function (event) {
+
+                    mouseX =
+                        event.clientX;
+
+                    mouseY =
+                        event.clientY;
+
+                }
+            );
+
+
+            window.addEventListener(
+                "mouseleave",
+                function () {
+
+                    mouseX = -1000;
+
+                    mouseY = -1000;
+
+                }
+            );
+
+
+            resizeCanvas();
+
+            drawStars();
+
+        })();
 
     </script>
 
 
-    <!-- FADE IN -->
+    <!-- =========================================================
+         PAGE FADE-IN
+    ========================================================= -->
+
     <script>
 
         document.addEventListener(
             "DOMContentLoaded",
-            () => {
+            function () {
 
-                document.body.style.opacity = "0";
+                document.body.style.opacity =
+                    "0";
 
-                requestAnimationFrame(() => {
+                requestAnimationFrame(
+                    function () {
 
-                    document.body.style.transition =
-                        "opacity 0.6s ease";
+                        document.body.style.transition =
+                            "opacity 0.6s ease";
 
-                    document.body.style.opacity = "1";
+                        document.body.style.opacity =
+                            "1";
 
-                });
+                    }
+                );
 
             }
         );
