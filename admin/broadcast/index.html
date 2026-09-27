@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>KABE Broadcast Manager 𐙚</title>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600&family=Nunito:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,145,212,.08),
+            transparent 35%
+        ),
+        #000;
+
+    color: #fff;
+
+    font-family:
+        "Nunito",
+        sans-serif;
+
+}
+
+.page {
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: auto;
+
+    padding:
+        35px 18px 80px;
+
+}
+
+.header {
+
+    margin-bottom: 30px;
+
+}
+
+.kicker {
+
+    color: #ff91d4;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+h1 {
+
+    margin:
+        8px 0;
+
+    font-family:
+        "DynaPuff",
+        sans-serif;
+
+    color: #ffdff1;
+
+    font-weight: 500;
+
+}
+
+.header p {
+
+    color: #9e8493;
+
+    font-size: 12px;
+
+}
+
+.panel {
+
+    margin-bottom: 18px;
+
+    padding: 22px;
+
+    border-radius: 22px;
+
+    border:
+        1px solid
+        rgba(255,145,212,.11);
+
+    background:
+        rgba(255,255,255,.018);
+
+}
+
+.panel h2 {
+
+    margin:
+        0 0 17px;
+
+    font-family:
+        "DynaPuff",
+        sans-serif;
+
+    color: #ffd2ed;
+
+    font-size: 19px;
+
+    font-weight: 500;
+
+}
+
+label {
+
+    display: block;
+
+    margin-top: 13px;
+
+    margin-bottom: 6px;
+
+    color: #d6aeca;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+}
+
+input,
+textarea {
+
+    width: 100%;
+
+    border: 1px solid
+        rgba(255,145,212,.12);
+
+    border-radius: 13px;
+
+    padding: 12px;
+
+    outline: none;
+
+    background:
+        rgba(255,255,255,.025);
+
+    color: #fff;
+
+    font-family:
+        "Nunito",
+        sans-serif;
+
+    font-size: 12px;
+
+}
+
+textarea {
+
+    min-height: 100px;
+
+    resize: vertical;
+
+}
+
+input:focus,
+textarea:focus {
+
+    border-color:
+        rgba(255,145,212,.4);
+
+}
+
+.row {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 12px;
+
+}
+
+.button {
+
+    border: 0;
+
+    padding:
+        11px 16px;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    background:
+        #ff91d4;
+
+    color: #17000f;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+}
+
+.button.secondary {
+
+    background:
+        rgba(255,145,212,.08);
+
+    color: #ffdff1;
+
+    border:
+        1px solid
+        rgba(255,145,212,.12);
+
+}
+
+.buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 18px;
+
+}
+
+.guest-input {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr auto;
+
+    gap: 8px;
+
+}
+
+.guest-list {
+
+    display: grid;
+
+    gap: 8px;
+
+    margin-top: 14px;
+
+}
+
+.guest {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding:
+        11px 13px;
+
+    border-radius: 13px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    border:
+        1px solid
+        rgba(255,145,212,.08);
+
+}
+
+.guest strong {
+
+    color: #fff;
+
+    font-size: 11px;
+
+}
+
+.guest span {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: #9e8493;
+
+    font-size: 9px;
+
+}
+
+.remove {
+
+    border: 0;
+
+    background: transparent;
+
+    color: #ff91d4;
+
+    cursor: pointer;
+
+    font-weight: 800;
+
+}
+
+.broadcast-item {
+
+    padding:
+        18px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    border:
+        1px solid
+        rgba(255,145,212,.08);
+
+    margin-top: 10px;
+
+}
+
+.broadcast-item h3 {
+
+    margin: 0;
+
+    font-family:
+        "DynaPuff",
+        sans-serif;
+
+    font-size: 16px;
+
+}
+
+.broadcast-item p {
+
+    color: #9e8493;
+
+    font-size: 10px;
+
+}
+
+.room {
+
+    color: #ff91d4;
+
+    font-size: 10px;
+
+    word-break: break-all;
+
+}
+
+@media (max-width: 600px) {
+
+    .row {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .guest-input {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main class="page">
+
+<header class="header">
+
+<div class="kicker">
+KABE 𐙚 BROADCAST MANAGER
+</div>
+
+<h1>
+Broadcast Control
+</h1>
+
+<p>
+Create broadcasts and add guests from your phone or computer.
+</p>
+
+</header>
+
+
+<section class="panel">
+
+<h2>
+Create Broadcast
+</h2>
+
+
+<label for="title">
+Broadcast title
+</label>
+
+<input
+    id="title"
+    placeholder="KABE Live"
+/>
+
+
+<div class="row">
+
+<div>
+
+<label for="date">
+Date
+</label>
+
+<input
+    id="date"
+    type="date"
+/>
+
+</div>
+
+
+<div>
+
+<label for="time">
+Time
+</label>
+
+<input
+    id="time"
+    type="time"
+/>
+
+</div>
+
+</div>
+
+
+<label for="description">
+Description
+</label>
+
+<textarea
+    id="description"
+    placeholder="What will happen during this broadcast?"
+></textarea>
+
+
+<label>
+Guests
+</label>
+
+
+<div class="guest-input">
+
+<input
+    id="guestName"
+    placeholder="Guest name"
+/>
+
+<input
+    id="guestRole"
+    placeholder="Role"
+/>
+
+<button
+    class="button secondary"
+    id="addGuest"
+    type="button"
+>
+ADD
+</button>
+
+</div>
+
+
+<div
+    id="guestList"
+    class="guest-list"
+></div>
+
+
+<div class="buttons">
+
+<button
+    class="button"
+    id="create"
+    type="button"
+>
+CREATE BROADCAST
+</button>
+
+<button
+    class="button secondary"
+    id="clear"
+    type="button"
+>
+CLEAR
+</button>
+
+</div>
+
+</section>
+
+
+<section class="panel">
+
+<h2>
+Your Broadcasts
+</h2>
+
+<div id="broadcastList"></div>
+
+</section>
+
+</main>
+
+
+<script src="/broadcast.js"></script>
+
+<script>
+
+let guests = [];
+
+
+const title =
+    document.getElementById(
+        "title"
+    );
+
+const date =
+    document.getElementById(
+        "date"
+    );
+
+const time =
+    document.getElementById(
+        "time"
+    );
+
+const description =
+    document.getElementById(
+        "description"
+    );
+
+const guestName =
+    document.getElementById(
+        "guestName"
+    );
+
+const guestRole =
+    document.getElementById(
+        "guestRole"
+    );
+
+const guestList =
+    document.getElementById(
+        "guestList"
+    );
+
+const broadcastList =
+    document.getElementById(
+        "broadcastList"
+    );
+
+
+function renderGuests() {
+
+    guestList.innerHTML = "";
+
+
+    guests.forEach(
+        (guest, index) => {
+
+            const element =
+                document.createElement(
+                    "div"
+                );
+
+
+            element.className =
+                "guest";
+
+
+            element.innerHTML = `
+
+                <div>
+
+                    <strong>
+                        𐙚 ${guest.name}
+                    </strong>
+
+                    <span>
+                        ${guest.role || "Guest"}
+                    </span>
+
+                </div>
+
+                <button
+                    class="remove"
+                    type="button"
+                >
+                    REMOVE
+                </button>
+
+            `;
+
+
+            element
+                .querySelector(
+                    ".remove"
+                )
+                .addEventListener(
+                    "click",
+                    function () {
+
+                        guests.splice(
+                            index,
+                            1
+                        );
+
+                        renderGuests();
+
+                    }
+                );
+
+
+            guestList.appendChild(
+                element
+            );
+
+        }
+    );
+
+}
+
+
+document
+    .getElementById("addGuest")
+    .addEventListener(
+        "click",
+        function () {
+
+            const name =
+                guestName.value.trim();
+
+
+            if (!name) {
+
+                guestName.focus();
+
+                return;
+
+            }
+
+
+            guests.push({
+
+                name,
+
+                role:
+                    guestRole
+                        .value
+                        .trim() ||
+                    "Guest"
+
+            });
+
+
+            guestName.value = "";
+
+            guestRole.value = "";
+
+            renderGuests();
+
+        }
+    );
+
+
+document
+    .getElementById("create")
+    .addEventListener(
+        "click",
+        function () {
+
+            if (
+                !title.value.trim()
+            ) {
+
+                alert(
+                    "Please enter a broadcast title."
+                );
+
+                return;
+
+            }
+
+
+            const data =
+                KABEBroadcast.loadData();
+
+
+            let roomId =
+                KABEBroadcast
+                    .generateRoomId();
+
+
+            while (
+                data.broadcasts.some(
+                    broadcast =>
+                        broadcast.id ===
+                        roomId
+                )
+            ) {
+
+                roomId =
+                    KABEBroadcast
+                        .generateRoomId();
+
+            }
+
+
+            data.broadcasts.push({
+
+                id:
+                    roomId,
+
+                title:
+                    title.value.trim(),
+
+                date:
+                    date.value,
+
+                time:
+                    time.value,
+
+                description:
+                    description.value.trim(),
+
+                status:
+                    "scheduled",
+
+                guests:
+                    [...guests]
+
+            });
+
+
+            KABEBroadcast.saveData(
+                data
+            );
+
+
+            clearForm();
+
+            renderBroadcasts();
+
+            alert(
+                "Broadcast created. Room ID: " +
+                roomId
+            );
+
+        }
+    );
+
+
+document
+    .getElementById("clear")
+    .addEventListener(
+        "click",
+        clearForm
+    );
+
+
+function clearForm() {
+
+    title.value = "";
+
+    date.value = "";
+
+    time.value = "";
+
+    description.value = "";
+
+    guestName.value = "";
+
+    guestRole.value = "";
+
+    guests = [];
+
+    renderGuests();
+
+}
+
+
+function renderBroadcasts() {
+
+    const data =
+        KABEBroadcast.loadData();
+
+
+    broadcastList.innerHTML = "";
+
+
+    if (
+        !data.broadcasts.length
+    ) {
+
+        broadcastList.innerHTML =
+            "<p>No broadcasts yet.</p>";
+
+        return;
+
+    }
+
+
+    data.broadcasts.forEach(
+        broadcast => {
+
+            const item =
+                document.createElement(
+                    "article"
+                );
+
+
+            item.className =
+                "broadcast-item";
+
+
+            item.innerHTML = `
+
+                <h3>
+                    ${broadcast.title}
+                </h3>
+
+                <p>
+                    ${KABEBroadcast.formatDate(
+                        broadcast.date,
+                        broadcast.time
+                    )}
+                </p>
+
+                <div class="room">
+                    Room:
+                    ${broadcast.id}
+                </div>
+
+                <div class="buttons">
+
+                    <a
+                        class="button secondary"
+                        href="/broadcast/room/?room=${encodeURIComponent(
+                            broadcast.id
+                        )}"
+                    >
+                        OPEN ROOM
+                    </a>
+
+                    <button
+                        class="button secondary delete"
+                        type="button"
+                    >
+                        DELETE
+                    </button>
+
+                </div>
+
+            `;
+
+
+            item
+                .querySelector(
+                    ".delete"
+                )
+                .addEventListener(
+                    "click",
+                    function () {
+
+                        const confirmed =
+                            confirm(
+                                "Delete this broadcast?"
+                            );
+
+
+                        if (!confirmed) {
+
+                            return;
+
+                        }
+
+
+                        const updated =
+                            KABEBroadcast
+                                .loadData();
+
+
+                        updated.broadcasts =
+                            updated.broadcasts.filter(
+                                item =>
+                                    item.id !==
+                                    broadcast.id
+                            );
+
+
+                        KABEBroadcast
+                            .saveData(
+                                updated
+                            );
+
+
+                        renderBroadcasts();
+
+                    }
+                );
+
+
+            broadcastList.appendChild(
+                item
+            );
+
+        }
+    );
+
+}
+
+
+renderGuests();
+
+renderBroadcasts();
+
+</script>
+
+</body>
+
+</html>
