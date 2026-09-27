@@ -10,50 +10,127 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /*
-        CURRENT PAGE DETECTION
+        NORMALIZE CURRENT PATH
     */
 
-    let path =
-        window.location.pathname
-            .toLowerCase()
-            .replace(/\/+$/, "");
+    function normalizePath(path) {
+
+        path =
+            path
+                .toLowerCase()
+                .split("?")[0]
+                .split("#")[0];
 
 
-    /*
-        Convert /index.html to /
-    */
+        /*
+            Remove trailing slashes
+        */
 
-    if (
-        path === "/index.html" ||
-        path === "/index"
-    ) {
-        path = "";
+        path =
+            path.replace(/\/+$/, "");
+
+
+        /*
+            Root
+        */
+
+        if (
+            path === "" ||
+            path === "/"
+        ) {
+            return "";
+        }
+
+
+        /*
+            Convert /index.html
+            and /index into /
+        */
+
+        if (
+            path === "/index.html" ||
+            path === "/index"
+        ) {
+            return "";
+        }
+
+
+        /*
+            Convert:
+
+            /news/index.html
+            /news/index
+
+            into:
+
+            /news
+        */
+
+        path =
+            path.replace(
+                /\/index(?:\.html)?$/,
+                ""
+            );
+
+
+        /*
+            Convert:
+
+            /news.html
+
+            into:
+
+            /news
+        */
+
+        path =
+            path.replace(
+                /\.html$/,
+                ""
+            );
+
+
+        /*
+            Make sure trailing slash
+            is removed after conversion
+        */
+
+        path =
+            path.replace(/\/+$/, "");
+
+
+        return path || "";
+
     }
 
 
-    /*
-        Convert .html pages into clean URLs
-    */
-
-    path =
-        path.replace(
-            /\.html$/,
-            ""
+    let currentPath =
+        normalizePath(
+            window.location.pathname
         );
 
 
     /*
         404 PAGE
 
-        The 404 page keeps its own
-        top navigation bar.
-
-        Do NOT create the bottom directory.
+        404 keeps its own top bar
+        and does not receive the
+        bottom directory.
     */
 
-    if (path === "/404") {
+    if (
+        currentPath === "/404"
+    ) {
         return;
     }
+
+
+    /*
+        CONSTRUCT PAGE
+    */
+
+    const isConstruct =
+        currentPath === "/construct";
 
 
     /*
@@ -85,7 +162,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         .directory-title {
-            font-family: "DynaPuff", sans-serif;
+            font-family:
+                "DynaPuff",
+                sans-serif;
 
             font-size: 18px;
 
@@ -125,7 +204,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             border-radius: 999px;
 
-            border: 1px solid transparent;
+            border:
+                1px solid transparent;
 
             transition: .3s ease;
         }
@@ -173,7 +253,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         .directory-social-title {
-            font-family: "DynaPuff", sans-serif;
+            font-family:
+                "DynaPuff",
+                sans-serif;
 
             font-size: 15px;
 
@@ -272,7 +354,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             .directory-links a {
-                padding: 7px 9px;
+                padding:
+                    7px 9px;
 
                 font-size: 10px;
             }
@@ -283,25 +366,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     document.head.appendChild(style);
-
-
-    /*
-        CREATE DIRECTORY
-    */
-
-    const directory =
-        document.createElement("footer");
-
-    directory.className =
-        "website-directory";
-
-
-    /*
-        CONSTRUCT PAGE
-    */
-
-    const isConstruct =
-        path === "/construct";
 
 
     /*
@@ -358,23 +422,28 @@ document.addEventListener("DOMContentLoaded", function () {
             .map(page => {
 
                 const active =
-                    path === page.path
-                        ? "active"
-                        : "";
+                    currentPath === page.path;
 
 
                 return `
 
                     <a
                         href="${page.href}"
-                        class="${active}"
+                        class="${
+                            active
+                                ? "active"
+                                : ""
+                        }"
+
                         ${
                             active
                                 ? 'aria-current="page"'
                                 : ""
                         }
                     >
+
                         ${page.name}
+
                     </a>
 
                 `;
@@ -384,8 +453,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /*
-        DIRECTORY HTML
+        CREATE DIRECTORY
     */
+
+    const directory =
+        document.createElement("footer");
+
+
+    directory.className =
+        "website-directory";
+
 
     directory.innerHTML = `
 
@@ -432,7 +509,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 aria-hidden="true"
                             >
 
-                                <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
+                                <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0-3-3Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
 
                             </svg>
 
@@ -478,12 +555,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         <div class="directory-copy">
-            made with <span>♡</span> for KABE · © 2026 KABE
+            made with
+            <span>♡</span>
+            for KABE · © 2026 KABE
         </div>
 
     `;
 
 
-    document.body.appendChild(directory);
+    document.body.appendChild(
+        directory
+    );
 
 });
