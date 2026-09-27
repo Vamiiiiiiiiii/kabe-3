@@ -33,7 +33,6 @@
         rel="stylesheet"
     >
 
-
     <style>
 
         * {
@@ -61,15 +60,13 @@
 
             color: #fff;
 
-            font-family: "Nunito", sans-serif;
+            font-family:
+                "Nunito",
+                sans-serif;
 
             overflow-x: hidden;
         }
 
-
-        /* =========================
-           STARFIELD
-        ========================= */
 
         #stars {
             position: fixed;
@@ -85,10 +82,6 @@
         }
 
 
-        /* =========================
-           PAGE
-        ========================= */
-
         .page {
             position: relative;
 
@@ -100,12 +93,13 @@
 
             margin: 0 auto;
 
-            padding: 0 22px 80px;
+            padding:
+                0 22px 80px;
         }
 
 
         /* =========================
-           NAVIGATION
+           TOP NAVIGATION
         ========================= */
 
         .top-nav {
@@ -117,11 +111,14 @@
 
             width: fit-content;
 
-            max-width: calc(100% - 20px);
+            max-width:
+                calc(100% - 20px);
 
-            margin: 14px auto 28px;
+            margin:
+                14px auto 28px;
 
-            padding: 9px 10px;
+            padding:
+                9px 10px;
 
             display: flex;
 
@@ -133,18 +130,24 @@
 
             flex-wrap: wrap;
 
-            border: 1px solid rgba(255,145,212,.13);
+            border:
+                1px solid
+                rgba(255,145,212,.13);
 
             border-radius: 999px;
 
             background:
                 rgba(0,0,0,.72);
 
-            backdrop-filter: blur(18px);
+            backdrop-filter:
+                blur(18px);
 
             box-shadow:
-                0 10px 40px rgba(0,0,0,.35),
-                0 0 30px rgba(255,145,212,.04);
+                0 10px 40px
+                rgba(0,0,0,.35),
+
+                0 0 30px
+                rgba(255,145,212,.04);
         }
 
 
@@ -157,7 +160,8 @@
 
             font-weight: 800;
 
-            padding: 8px 14px;
+            padding:
+                8px 14px;
 
             border-radius: 999px;
 
@@ -169,21 +173,26 @@
         .top-nav a.active {
             color: #fff;
 
-            background: rgba(255,145,212,.11);
+            background:
+                rgba(255,145,212,.11);
 
             box-shadow:
-                inset 0 0 15px rgba(255,145,212,.04);
+                inset 0 0 15px
+                rgba(255,145,212,.04);
         }
 
 
         .nav-logo {
-            font-family: "DynaPuff", sans-serif;
+            font-family:
+                "DynaPuff",
+                sans-serif;
 
             color: #ffd2ed;
 
             font-size: 13px;
 
-            padding: 8px 14px;
+            padding:
+                8px 14px;
 
             margin-right: 2px;
         }
@@ -206,7 +215,9 @@
 
             overflow: hidden;
 
-            border: 1px solid rgba(255,145,212,.14);
+            border:
+                1px solid
+                rgba(255,145,212,.14);
 
             background:
                 radial-gradient(
@@ -214,16 +225,21 @@
                     rgba(255,145,212,.18),
                     transparent 30%
                 ),
+
                 radial-gradient(
                     circle at 85% 80%,
                     rgba(214,174,202,.09),
                     transparent 30%
                 ),
+
                 rgba(255,255,255,.018);
 
             box-shadow:
-                0 25px 80px rgba(0,0,0,.5),
-                0 0 50px rgba(255,145,212,.05);
+                0 25px 80px
+                rgba(0,0,0,.5),
+
+                0 0 50px
+                rgba(255,145,212,.05);
         }
 
 
@@ -235,7 +251,8 @@
             top: 18px;
             left: 25px;
 
-            color: rgba(255,145,212,.45);
+            color:
+                rgba(255,145,212,.45);
 
             font-size: 24px;
 
@@ -251,7 +268,8 @@
             right: 28px;
             bottom: 18px;
 
-            color: rgba(255,210,237,.4);
+            color:
+                rgba(255,210,237,.4);
 
             font-size: 20px;
 
@@ -284,7 +302,8 @@
 
             opacity: 0;
 
-            transform: scale(1.02);
+            transform:
+                scale(1.02);
 
             transition:
                 opacity .7s ease,
@@ -295,7 +314,8 @@
         .slide.active {
             opacity: 1;
 
-            transform: scale(1);
+            transform:
+                scale(1);
         }
 
 
@@ -317,59 +337,29 @@
 
             letter-spacing: 2px;
 
-            text-transform: uppercase;
-        }
-
-
-        .logo {
-            margin: 0;
-
-            font-family: "DynaPuff", sans-serif;
-
-            font-size: clamp(42px, 8vw, 72px);
-
-            line-height: .95;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #fff,
-                    #ffd2ed,
-                    #ff91d4
-                );
-
-            -webkit-background-clip: text;
-
-            background-clip: text;
-
-            color: transparent;
-
-            filter:
-                drop-shadow(0 0 18px rgba(255,145,212,.16));
+            text-transform:
+                uppercase;
         }
 
 
         .hero-title {
-            margin: 10px 0 0;
+            margin:
+                10px 0 0;
 
-            font-family: "DynaPuff", sans-serif;
+            font-family:
+                "DynaPuff",
+                sans-serif;
 
-            font-size: clamp(24px, 5vw, 42px);
+            font-size:
+                clamp(
+                    24px,
+                    5vw,
+                    42px
+                );
 
             font-weight: 500;
 
             color: #fff;
-        }
-
-
-        .hero-small {
-            margin-top: 8px;
-
-            color: #d6aeca;
-
-            font-size: 12px;
-
-            font-weight: 700;
         }
 
 
@@ -378,15 +368,19 @@
 
             margin-top: 18px;
 
-            padding: 9px 17px;
+            padding:
+                9px 17px;
 
             border-radius: 999px;
 
             color: #fff;
 
-            background: rgba(255,145,212,.11);
+            background:
+                rgba(255,145,212,.11);
 
-            border: 1px solid rgba(255,145,212,.18);
+            border:
+                1px solid
+                rgba(255,145,212,.18);
 
             text-decoration: none;
 
@@ -399,15 +393,13 @@
 
 
         .hero-button:hover {
-            background: rgba(255,145,212,.2);
+            background:
+                rgba(255,145,212,.2);
 
-            transform: translateY(-2px);
+            transform:
+                translateY(-2px);
         }
 
-
-        /* =========================
-           CAROUSEL DOTS
-        ========================= */
 
         .carousel-dots {
             position: absolute;
@@ -415,7 +407,8 @@
             left: 50%;
             bottom: 17px;
 
-            transform: translateX(-50%);
+            transform:
+                translateX(-50%);
 
             display: flex;
 
@@ -435,7 +428,8 @@
 
             border-radius: 50%;
 
-            background: rgba(255,255,255,.2);
+            background:
+                rgba(255,255,255,.2);
 
             cursor: pointer;
 
@@ -448,10 +442,12 @@
 
             border-radius: 999px;
 
-            background: #ff91d4;
+            background:
+                #ff91d4;
 
             box-shadow:
-                0 0 10px rgba(255,145,212,.5);
+                0 0 10px
+                rgba(255,145,212,.5);
         }
 
 
@@ -462,7 +458,8 @@
         .welcome {
             text-align: center;
 
-            margin: 58px auto 45px;
+            margin:
+                58px auto 45px;
 
             max-width: 650px;
         }
@@ -477,7 +474,8 @@
 
             letter-spacing: 2px;
 
-            text-transform: uppercase;
+            text-transform:
+                uppercase;
 
             margin-bottom: 10px;
         }
@@ -486,9 +484,16 @@
         .welcome h2 {
             margin: 0;
 
-            font-family: "DynaPuff", sans-serif;
+            font-family:
+                "DynaPuff",
+                sans-serif;
 
-            font-size: clamp(24px, 5vw, 36px);
+            font-size:
+                clamp(
+                    24px,
+                    5vw,
+                    36px
+                );
 
             font-weight: 500;
 
@@ -497,7 +502,8 @@
 
 
         .welcome p {
-            margin: 12px auto 0;
+            margin:
+                12px auto 0;
 
             max-width: 560px;
 
@@ -510,7 +516,7 @@
 
 
         /* =========================
-           SECTION
+           SECTIONS
         ========================= */
 
         .section {
@@ -523,7 +529,8 @@
 
             align-items: end;
 
-            justify-content: space-between;
+            justify-content:
+                space-between;
 
             gap: 15px;
 
@@ -534,7 +541,9 @@
         .section-heading h2 {
             margin: 0;
 
-            font-family: "DynaPuff", sans-serif;
+            font-family:
+                "DynaPuff",
+                sans-serif;
 
             font-size: 22px;
 
@@ -561,7 +570,10 @@
             display: grid;
 
             grid-template-columns:
-                repeat(2, minmax(0, 1fr));
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
 
             gap: 15px;
         }
@@ -572,20 +584,26 @@
 
             border-radius: 22px;
 
-            border: 1px solid rgba(255,145,212,.1);
+            border:
+                1px solid
+                rgba(255,145,212,.1);
 
-            background: rgba(255,255,255,.018);
+            background:
+                rgba(255,255,255,.018);
 
             transition: .3s ease;
         }
 
 
         .update:hover {
-            transform: translateY(-4px);
+            transform:
+                translateY(-4px);
 
-            border-color: rgba(255,145,212,.25);
+            border-color:
+                rgba(255,145,212,.25);
 
-            background: rgba(255,145,212,.025);
+            background:
+                rgba(255,145,212,.025);
         }
 
 
@@ -605,7 +623,9 @@
         .update h3 {
             margin: 0;
 
-            font-family: "DynaPuff", sans-serif;
+            font-family:
+                "DynaPuff",
+                sans-serif;
 
             color: #fff;
 
@@ -616,7 +636,8 @@
 
 
         .update p {
-            margin: 10px 0 0;
+            margin:
+                10px 0 0;
 
             color: #b99aae;
 
@@ -638,15 +659,19 @@
 
 
         .tag {
-            padding: 5px 9px;
+            padding:
+                5px 9px;
 
             border-radius: 999px;
 
             color: #d6aeca;
 
-            background: rgba(255,145,212,.06);
+            background:
+                rgba(255,145,212,.06);
 
-            border: 1px solid rgba(255,145,212,.08);
+            border:
+                1px solid
+                rgba(255,145,212,.08);
 
             font-size: 8px;
 
@@ -662,41 +687,50 @@
             display: grid;
 
             grid-template-columns:
-                repeat(4, minmax(0, 1fr));
+                repeat(
+                    4,
+                    minmax(0, 1fr)
+                );
 
             gap: 15px;
         }
 
 
         .member {
-            padding: 32px 15px;
+            padding:
+                32px 15px;
 
             text-align: center;
 
             border-radius: 22px;
 
-            border: 1px solid rgba(255,145,212,.1);
+            border:
+                1px solid
+                rgba(255,145,212,.1);
 
-            background: rgba(255,255,255,.015);
+            background:
+                rgba(255,255,255,.015);
 
             transition: .3s ease;
         }
 
 
         .member:hover {
-            transform: translateY(-5px);
+            transform:
+                translateY(-5px);
 
-            border-color: rgba(255,145,212,.3);
+            border-color:
+                rgba(255,145,212,.3);
         }
 
 
-        /* LITTLE PROFILE AREA */
-
         .member-profile {
             width: 72px;
+
             height: 72px;
 
-            margin: 0 auto 16px;
+            margin:
+                0 auto 16px;
 
             border-radius: 50%;
 
@@ -713,10 +747,13 @@
                     rgba(255,145,212,.07)
                 );
 
-            border: 1px solid rgba(255,145,212,.16);
+            border:
+                1px solid
+                rgba(255,145,212,.16);
 
             box-shadow:
-                0 0 20px rgba(255,145,212,.06);
+                0 0 20px
+                rgba(255,145,212,.06);
 
             overflow: hidden;
         }
@@ -728,12 +765,17 @@
             font-size: 28px;
 
             filter:
-                drop-shadow(0 0 8px rgba(255,145,212,.3));
+                drop-shadow(
+                    0 0 8px
+                    rgba(255,145,212,.3)
+                );
         }
 
 
         .member-name {
-            font-family: "DynaPuff", sans-serif;
+            font-family:
+                "DynaPuff",
+                sans-serif;
 
             font-size: 18px;
 
@@ -754,7 +796,9 @@
 
             overflow: hidden;
 
-            border: 1px solid rgba(255,145,212,.12);
+            border:
+                1px solid
+                rgba(255,145,212,.12);
 
             background:
                 radial-gradient(
@@ -762,6 +806,7 @@
                     rgba(255,145,212,.09),
                     transparent 30%
                 ),
+
                 rgba(255,255,255,.018);
         }
 
@@ -774,11 +819,14 @@
             top: -18px;
             right: 25px;
 
-            font-family: "DynaPuff", sans-serif;
+            font-family:
+                "DynaPuff",
+                sans-serif;
 
             font-size: 100px;
 
-            color: rgba(255,145,212,.035);
+            color:
+                rgba(255,145,212,.035);
         }
 
 
@@ -794,9 +842,12 @@
 
 
         .music-title {
-            margin: 7px 0 3px;
+            margin:
+                7px 0 3px;
 
-            font-family: "DynaPuff", sans-serif;
+            font-family:
+                "DynaPuff",
+                sans-serif;
 
             font-size: 25px;
 
@@ -814,11 +865,13 @@
         .track {
             margin-top: 22px;
 
-            padding: 12px 15px;
+            padding:
+                12px 15px;
 
             border-radius: 14px;
 
-            background: rgba(255,255,255,.025);
+            background:
+                rgba(255,255,255,.025);
 
             color: #d6aeca;
 
@@ -836,7 +889,10 @@
             display: grid;
 
             grid-template-columns:
-                repeat(3, minmax(0, 1fr));
+                repeat(
+                    3,
+                    minmax(0, 1fr)
+                );
 
             gap: 12px;
         }
@@ -847,7 +903,8 @@
 
             align-items: center;
 
-            justify-content: space-between;
+            justify-content:
+                space-between;
 
             padding: 18px;
 
@@ -857,9 +914,12 @@
 
             text-decoration: none;
 
-            border: 1px solid rgba(255,145,212,.09);
+            border:
+                1px solid
+                rgba(255,145,212,.09);
 
-            background: rgba(255,255,255,.015);
+            background:
+                rgba(255,255,255,.015);
 
             font-size: 11px;
 
@@ -877,11 +937,14 @@
 
 
         .quick-link:hover {
-            transform: translateY(-3px);
+            transform:
+                translateY(-3px);
 
-            border-color: rgba(255,145,212,.25);
+            border-color:
+                rgba(255,145,212,.25);
 
-            background: rgba(255,145,212,.035);
+            background:
+                rgba(255,145,212,.035);
         }
 
 
@@ -892,13 +955,19 @@
         .final-message {
             text-align: center;
 
-            margin: 85px auto 10px;
+            margin:
+                85px auto 10px;
 
-            padding: 45px 20px;
+            padding:
+                45px 20px;
 
-            border-top: 1px solid rgba(255,145,212,.08);
+            border-top:
+                1px solid
+                rgba(255,145,212,.08);
 
-            border-bottom: 1px solid rgba(255,145,212,.08);
+            border-bottom:
+                1px solid
+                rgba(255,145,212,.08);
         }
 
 
@@ -914,7 +983,9 @@
         .final-message h2 {
             margin: 0;
 
-            font-family: "DynaPuff", sans-serif;
+            font-family:
+                "DynaPuff",
+                sans-serif;
 
             font-size: 25px;
 
@@ -925,7 +996,8 @@
 
 
         .final-message p {
-            margin: 9px 0 0;
+            margin:
+                9px 0 0;
 
             color: #9e8493;
 
@@ -958,14 +1030,16 @@
 
 
             .top-nav a {
-                padding: 7px 9px;
+                padding:
+                    7px 9px;
 
                 font-size: 9px;
             }
 
 
             .nav-logo {
-                padding: 7px 9px;
+                padding:
+                    7px 9px;
 
                 font-size: 11px;
             }
@@ -979,17 +1053,13 @@
 
 
             .slide {
-                padding: 25px 20px;
+                padding:
+                    25px 20px;
             }
 
 
             .hero-title {
                 font-size: 25px;
-            }
-
-
-            .hero-small {
-                font-size: 10px;
             }
 
 
@@ -1000,17 +1070,22 @@
 
             .members {
                 grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
             }
 
 
             .member {
-                padding: 28px 12px;
+                padding:
+                    28px 12px;
             }
 
 
             .member-profile {
                 width: 65px;
+
                 height: 65px;
             }
 
@@ -1056,20 +1131,22 @@
 
 <body>
 
-
     <canvas id="stars"></canvas>
 
 
     <div class="page">
 
 
-        <!-- NAVIGATION -->
+        <!-- =========================
+             TOP NAVIGATION
+        ========================= -->
 
         <nav class="top-nav">
 
             <div class="nav-logo">
                 KABE 𐙚
             </div>
+
 
             <a
                 href="/"
@@ -1078,17 +1155,21 @@
                 Home
             </a>
 
+
             <a href="/news">
                 News
             </a>
+
 
             <a href="/music">
                 Music
             </a>
 
+
             <a href="/careers">
                 Careers
             </a>
+
 
             <a href="/credits">
                 Credits
@@ -1097,7 +1178,9 @@
         </nav>
 
 
-        <!-- HERO -->
+        <!-- =========================
+             HERO CAROUSEL
+        ========================= -->
 
         <section class="hero">
 
@@ -1111,6 +1194,7 @@
                         <div class="eyebrow">
                             KABE 𐙚 Official Website
                         </div>
+
 
                         <h1 class="hero-title">
                             Welcome to the garden. 𐙚
@@ -1129,9 +1213,11 @@
                             KABE News
                         </div>
 
+
                         <h1 class="hero-title">
                             What's growing?
                         </h1>
+
 
                         <a
                             class="hero-button"
@@ -1153,9 +1239,11 @@
                             KABE Music
                         </div>
 
+
                         <h1 class="hero-title">
                             Something is blooming.
                         </h1>
+
 
                         <a
                             class="hero-button"
@@ -1179,10 +1267,12 @@
                     aria-label="Slide 1"
                 ></button>
 
+
                 <button
                     class="dot"
                     aria-label="Slide 2"
                 ></button>
+
 
                 <button
                     class="dot"
@@ -1194,7 +1284,9 @@
         </section>
 
 
-        <!-- WELCOME -->
+        <!-- =========================
+             WELCOME
+        ========================= -->
 
         <section class="welcome">
 
@@ -1202,9 +1294,11 @@
                 welcome home 𐙚
             </div>
 
+
             <h2>
                 A little garden for KABE.
             </h2>
+
 
             <p>
                 Explore the latest news, music, careers,
@@ -1214,7 +1308,9 @@
         </section>
 
 
-        <!-- UPDATES -->
+        <!-- =========================
+             LATEST UPDATES
+        ========================= -->
 
         <section class="section">
 
@@ -1223,6 +1319,7 @@
                 <h2>
                     Latest updates
                 </h2>
+
 
                 <span>
                     from the garden
@@ -1240,20 +1337,24 @@
                         September 24, 2026
                     </div>
 
+
                     <h3>
                         KABE is hiring Logo Designers!
                     </h3>
+
 
                     <p>
                         KABE is looking for a creative Logo Designer
                         to help shape our visual identity and future projects.
                     </p>
 
+
                     <div class="tags">
 
                         <span class="tag">
                             ✓ Official Announcement
                         </span>
+
 
                         <span class="tag">
                             KABE Careers
@@ -1270,14 +1371,17 @@
                         September 22, 2026 · 9:43 PM CT
                     </div>
 
+
                     <h3>
                         An update regarding Blossom
                     </h3>
+
 
                     <p>
                         Blossom will be taking an official hiatus from
                         KABE-related activities due to limited availability online.
                     </p>
+
 
                     <div class="tags">
 
@@ -1285,9 +1389,11 @@
                             ✓ Official Announcement
                         </span>
 
+
                         <span class="tag">
                             Hiatus Announcement
                         </span>
+
 
                         <span class="tag">
                             Blossom
@@ -1303,7 +1409,9 @@
         </section>
 
 
-        <!-- MEMBERS -->
+        <!-- =========================
+             MEMBERS
+        ========================= -->
 
         <section class="section">
 
@@ -1312,6 +1420,7 @@
                 <h2>
                     Meet KABE
                 </h2>
+
 
                 <span>
                     four little stars
@@ -1333,6 +1442,7 @@
 
                     </div>
 
+
                     <div class="member-name">
                         Kalon
                     </div>
@@ -1349,6 +1459,7 @@
                         </div>
 
                     </div>
+
 
                     <div class="member-name">
                         Abloom
@@ -1367,6 +1478,7 @@
 
                     </div>
 
+
                     <div class="member-name">
                         Blossom
                     </div>
@@ -1384,6 +1496,7 @@
 
                     </div>
 
+
                     <div class="member-name">
                         Euphoria
                     </div>
@@ -1396,7 +1509,9 @@
         </section>
 
 
-        <!-- MUSIC -->
+        <!-- =========================
+             MUSIC
+        ========================= -->
 
         <section class="section">
 
@@ -1405,6 +1520,7 @@
                 <h2>
                     Music
                 </h2>
+
 
                 <span>
                     coming soon
@@ -1419,13 +1535,16 @@
                     COMING SOON
                 </div>
 
+
                 <div class="music-title">
                     KABE Debut
                 </div>
 
+
                 <div class="music-meta">
                     Debut Single · 2026
                 </div>
+
 
                 <div class="track">
                     01 · ███████████ · DEBUT
@@ -1436,7 +1555,9 @@
         </section>
 
 
-        <!-- QUICK LINKS -->
+        <!-- =========================
+             EXPLORE
+        ========================= -->
 
         <section class="section">
 
@@ -1445,6 +1566,7 @@
                 <h2>
                     Explore
                 </h2>
+
 
                 <span>
                     find your way around
@@ -1455,6 +1577,7 @@
 
             <div class="quick-links">
 
+
                 <a
                     href="/news"
                     class="quick-link"
@@ -1464,6 +1587,7 @@
                     <span>
                         𐙚
                     </span>
+
                 </a>
 
 
@@ -1476,6 +1600,7 @@
                     <span>
                         ♫
                     </span>
+
                 </a>
 
 
@@ -1488,14 +1613,18 @@
                     <span>
                         ✦
                     </span>
+
                 </a>
+
 
             </div>
 
         </section>
 
 
-        <!-- FINAL MESSAGE -->
+        <!-- =========================
+             FINAL MESSAGE
+        ========================= -->
 
         <section class="final-message">
 
@@ -1503,9 +1632,11 @@
                 𐙚
             </div>
 
+
             <h2>
                 Made with love for KABE.
             </h2>
+
 
             <p>
                 Welcome to our little garden. ♡
@@ -1524,72 +1655,99 @@
         ========================= */
 
         const slides =
-            document.querySelectorAll(".slide");
+            document.querySelectorAll(
+                ".slide"
+            );
+
 
         const dots =
-            document.querySelectorAll(".dot");
+            document.querySelectorAll(
+                ".dot"
+            );
+
 
         let currentSlide = 0;
 
 
         function showSlide(index) {
 
-            slides.forEach((slide, i) => {
+            slides.forEach(
+                (slide, i) => {
 
-                slide.classList.toggle(
-                    "active",
-                    i === index
-                );
+                    slide.classList.toggle(
+                        "active",
+                        i === index
+                    );
 
-            });
+                }
+            );
 
 
-            dots.forEach((dot, i) => {
+            dots.forEach(
+                (dot, i) => {
 
-                dot.classList.toggle(
-                    "active",
-                    i === index
-                );
+                    dot.classList.toggle(
+                        "active",
+                        i === index
+                    );
 
-            });
+                }
+            );
+
 
             currentSlide = index;
 
         }
 
 
-        dots.forEach((dot, index) => {
+        dots.forEach(
+            (dot, index) => {
 
-            dot.addEventListener(
-                "click",
-                () => showSlide(index)
-            );
+                dot.addEventListener(
+                    "click",
+                    () =>
+                        showSlide(index)
+                );
 
-        });
+            }
+        );
 
 
-        setInterval(() => {
+        setInterval(
+            () => {
 
-            currentSlide =
-                (currentSlide + 1) % slides.length;
+                currentSlide =
+                    (
+                        currentSlide + 1
+                    ) %
+                    slides.length;
 
-            showSlide(currentSlide);
 
-        }, 6000);
+                showSlide(
+                    currentSlide
+                );
+
+            },
+            6000
+        );
 
 
         /* =========================
-           STARFIELD
+           INTERACTIVE STARFIELD
         ========================= */
 
         const canvas =
-            document.getElementById("stars");
+            document.getElementById(
+                "stars"
+            );
+
 
         const ctx =
             canvas.getContext("2d");
 
 
         let stars = [];
+
 
         let mouse = {
             x: null,
@@ -1614,6 +1772,7 @@
 
             stars = [];
 
+
             const amount =
                 Math.min(
                     150,
@@ -1625,7 +1784,11 @@
                 );
 
 
-            for (let i = 0; i < amount; i++) {
+            for (
+                let i = 0;
+                i < amount;
+                i++
+            ) {
 
                 stars.push({
 
@@ -1638,13 +1801,16 @@
                         canvas.height,
 
                     size:
-                        Math.random() * 1.4 + .3,
+                        Math.random() *
+                        1.4 + .3,
 
                     opacity:
-                        Math.random() * .55 + .15,
+                        Math.random() *
+                        .55 + .15,
 
                     speed:
-                        Math.random() * .15 + .03
+                        Math.random() *
+                        .15 + .03
 
                 });
 
@@ -1663,70 +1829,89 @@
             );
 
 
-            stars.forEach(star => {
+            stars.forEach(
+                star => {
 
-                star.y -= star.speed;
-
-
-                if (star.y < 0) {
-
-                    star.y =
-                        canvas.height;
-
-                }
+                    star.y -=
+                        star.speed;
 
 
-                let opacity =
-                    star.opacity;
+                    if (
+                        star.y < 0
+                    ) {
 
-
-                if (
-                    mouse.x !== null &&
-                    mouse.y !== null
-                ) {
-
-                    const dx =
-                        star.x - mouse.x;
-
-                    const dy =
-                        star.y - mouse.y;
-
-                    const distance =
-                        Math.sqrt(
-                            dx * dx +
-                            dy * dy
-                        );
-
-
-                    if (distance < 100) {
-
-                        opacity = Math.min(
-                            1,
-                            opacity +
-                            (1 - distance / 100) * .65
-                        );
+                        star.y =
+                            canvas.height;
 
                     }
 
+
+                    let opacity =
+                        star.opacity;
+
+
+                    if (
+                        mouse.x !== null &&
+                        mouse.y !== null
+                    ) {
+
+                        const dx =
+                            star.x -
+                            mouse.x;
+
+
+                        const dy =
+                            star.y -
+                            mouse.y;
+
+
+                        const distance =
+                            Math.sqrt(
+                                dx * dx +
+                                dy * dy
+                            );
+
+
+                        if (
+                            distance < 100
+                        ) {
+
+                            opacity =
+                                Math.min(
+                                    1,
+                                    opacity +
+                                    (
+                                        1 -
+                                        distance /
+                                        100
+                                    ) * .65
+                                );
+
+                        }
+
+                    }
+
+
+                    ctx.beginPath();
+
+
+                    ctx.arc(
+                        star.x,
+                        star.y,
+                        star.size,
+                        0,
+                        Math.PI * 2
+                    );
+
+
+                    ctx.fillStyle =
+                        `rgba(255,210,237,${opacity})`;
+
+
+                    ctx.fill();
+
                 }
-
-
-                ctx.beginPath();
-
-                ctx.arc(
-                    star.x,
-                    star.y,
-                    star.size,
-                    0,
-                    Math.PI * 2
-                );
-
-                ctx.fillStyle =
-                    `rgba(255,210,237,${opacity})`;
-
-                ctx.fill();
-
-            });
+            );
 
 
             requestAnimationFrame(
@@ -1775,8 +1960,12 @@
     </script>
 
 
-    <script src="/directory.js"></script>
+    <!--
+        The homepage keeps the
+        bottom directory.
+    -->
 
+    <script src="/directory.js"></script>
 
 </body>
 
