@@ -1,16 +1,71 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     /* Remove any old directory */
-    const oldDirectory = document.querySelector(".website-directory");
+    const oldDirectory =
+        document.querySelector(".website-directory");
 
     if (oldDirectory) {
         oldDirectory.remove();
     }
 
 
-    const style = document.createElement("style");
+    /*
+        CURRENT PAGE DETECTION
+    */
+
+    let path =
+        window.location.pathname
+            .toLowerCase()
+            .replace(/\/+$/, "");
+
+
+    /*
+        Convert /index.html to /
+    */
+
+    if (
+        path === "/index.html" ||
+        path === "/index"
+    ) {
+        path = "";
+    }
+
+
+    /*
+        Convert .html pages into clean URLs
+    */
+
+    path =
+        path.replace(
+            /\.html$/,
+            ""
+        );
+
+
+    /*
+        404 PAGE
+
+        The 404 page keeps its own
+        top navigation bar.
+
+        Do NOT create the bottom directory.
+    */
+
+    if (path === "/404") {
+        return;
+    }
+
+
+    /*
+        DIRECTORY STYLES
+    */
+
+    const style =
+        document.createElement("style");
+
 
     style.textContent = `
+
         .website-directory {
             position: relative;
             z-index: 2;
@@ -23,12 +78,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             text-align: center;
 
-            border-top: 1px solid rgba(255,150,220,.15);
+            border-top:
+                1px solid
+                rgba(255,150,220,.15);
         }
+
 
         .directory-title {
             font-family: "DynaPuff", sans-serif;
+
             font-size: 18px;
+
             font-weight: 500;
 
             color: #ffd2ed;
@@ -36,16 +96,21 @@ document.addEventListener("DOMContentLoaded", function () {
             margin-bottom: 18px;
         }
 
+
         .directory-links {
             display: flex;
+
             justify-content: center;
+
             align-items: center;
 
             gap: 8px;
+
             flex-wrap: wrap;
 
             margin-bottom: 30px;
         }
+
 
         .directory-links a {
             color: #ffdff1;
@@ -53,26 +118,65 @@ document.addEventListener("DOMContentLoaded", function () {
             text-decoration: none;
 
             font-size: 11px;
+
             font-weight: 700;
 
             padding: 7px 12px;
 
             border-radius: 999px;
 
+            border: 1px solid transparent;
+
             transition: .3s ease;
         }
+
 
         .directory-links a:hover {
             color: #ff91d4;
 
-            background: rgba(255,100,200,.06);
+            background:
+                rgba(255,100,200,.06);
 
-            transform: translateY(-1px);
+            transform:
+                translateY(-1px);
         }
+
+
+        /*
+            ACTIVE PAGE
+        */
+
+        .directory-links a.active {
+            color: #fff;
+
+            background:
+                rgba(255,145,212,.11);
+
+            border-color:
+                rgba(255,145,212,.16);
+
+            box-shadow:
+                0 0 14px
+                rgba(255,145,212,.08);
+        }
+
+
+        .directory-links a.active::before {
+            content: "𐙚";
+
+            color: #ff91d4;
+
+            margin-right: 5px;
+
+            font-size: 9px;
+        }
+
 
         .directory-social-title {
             font-family: "DynaPuff", sans-serif;
+
             font-size: 15px;
+
             font-weight: 500;
 
             color: #ffd2ed;
@@ -80,17 +184,23 @@ document.addEventListener("DOMContentLoaded", function () {
             margin-bottom: 15px;
         }
 
+
         .directory-socials {
             display: flex;
+
             justify-content: center;
+
             align-items: center;
 
             gap: 24px;
         }
 
+
         .directory-social {
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
 
             text-decoration: none;
@@ -100,12 +210,16 @@ document.addEventListener("DOMContentLoaded", function () {
             transition: .3s ease;
         }
 
+
         .directory-social:hover {
-            transform: translateY(-3px);
+            transform:
+                translateY(-3px);
         }
+
 
         .directory-social svg {
             width: 27px;
+
             height: 27px;
 
             margin-bottom: 7px;
@@ -115,19 +229,26 @@ document.addEventListener("DOMContentLoaded", function () {
             transition: .3s ease;
         }
 
+
         .directory-social:hover svg {
             fill: #ff91d4;
 
             filter:
-                drop-shadow(0 0 8px rgba(255,100,200,.45));
+                drop-shadow(
+                    0 0 8px
+                    rgba(255,100,200,.45)
+                );
         }
+
 
         .directory-username {
             font-size: 10px;
+
             font-weight: 700;
 
             color: #d6aeca;
         }
+
 
         .directory-copy {
             margin-top: 25px;
@@ -137,31 +258,134 @@ document.addEventListener("DOMContentLoaded", function () {
             color: #d6aeca;
         }
 
+
         .directory-copy span {
             color: #ff91d4;
         }
+
+
+        @media (max-width: 500px) {
+
+            .directory-links {
+                gap: 5px;
+            }
+
+
+            .directory-links a {
+                padding: 7px 9px;
+
+                font-size: 10px;
+            }
+
+        }
+
     `;
+
 
     document.head.appendChild(style);
 
 
-    const directory = document.createElement("footer");
+    /*
+        CREATE DIRECTORY
+    */
 
-    directory.className = "website-directory";
+    const directory =
+        document.createElement("footer");
+
+    directory.className =
+        "website-directory";
 
 
     /*
-        Detect if this is the Construct page.
-        Construct = /construct
-        Construct can also appear as /construct.html
+        CONSTRUCT PAGE
     */
 
-    const path = window.location.pathname;
-
     const isConstruct =
-        path === "/construct" ||
-        path === "/construct.html";
+        path === "/construct";
 
+
+    /*
+        PAGE DEFINITIONS
+    */
+
+    const pages = [
+
+        {
+            name: "Home",
+            href: "/",
+            path: ""
+        },
+
+        {
+            name: "Shop",
+            href: "/shop",
+            path: "/shop"
+        },
+
+        {
+            name: "Music",
+            href: "/music",
+            path: "/music"
+        },
+
+        {
+            name: "News",
+            href: "/news",
+            path: "/news"
+        },
+
+        {
+            name: "Careers",
+            href: "/careers",
+            path: "/careers"
+        },
+
+        {
+            name: "Credits",
+            href: "/credits",
+            path: "/credits"
+        }
+
+    ];
+
+
+    /*
+        CREATE NAVIGATION
+    */
+
+    const navigation =
+        pages
+            .map(page => {
+
+                const active =
+                    path === page.path
+                        ? "active"
+                        : "";
+
+
+                return `
+
+                    <a
+                        href="${page.href}"
+                        class="${active}"
+                        ${
+                            active
+                                ? 'aria-current="page"'
+                                : ""
+                        }
+                    >
+                        ${page.name}
+                    </a>
+
+                `;
+
+            })
+            .join("");
+
+
+    /*
+        DIRECTORY HTML
+    */
 
     directory.innerHTML = `
 
@@ -170,31 +394,12 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 
 
-        <nav class="directory-links" aria-label="Website Directory">
+        <nav
+            class="directory-links"
+            aria-label="Website Directory"
+        >
 
-            <a href="/">
-                Home
-            </a>
-
-            <a href="/shop">
-                Shop
-            </a>
-
-            <a href="/music">
-                Music
-            </a>
-
-            <a href="/news">
-                News
-            </a>
-
-            <a href="/careers">
-                Careers
-            </a>
-
-            <a href="/credits">
-                Credits
-            </a>
+            ${navigation}
 
         </nav>
 
@@ -203,9 +408,11 @@ document.addEventListener("DOMContentLoaded", function () {
             isConstruct
                 ? ""
                 : `
+
                     <div class="directory-social-title">
                         find KABE 𐙚
                     </div>
+
 
                     <div class="directory-socials">
 
@@ -228,6 +435,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
 
                             </svg>
+
 
                             <span class="directory-username">
                                 @kabe.world
@@ -255,6 +463,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                             </svg>
 
+
                             <span class="directory-username">
                                 @kabeworld
                             </span>
@@ -263,6 +472,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                     </div>
+
                 `
         }
 
