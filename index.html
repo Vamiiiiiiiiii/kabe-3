@@ -45,48 +45,30 @@
 
         body {
             background: #000;
-
             color: #ffdff1;
-
             font-family: "Nunito", sans-serif;
-
             overflow-x: hidden;
         }
 
 
-        /* =========================
-           STARFIELD
-        ========================= */
-
         #stars {
             position: fixed;
-
             inset: 0;
-
             width: 100%;
             height: 100%;
-
             pointer-events: none;
-
             z-index: 0;
         }
 
 
-        /* =========================
-           MAIN
-        ========================= */
-
         main {
             position: relative;
-
             z-index: 1;
-
-            width: 100%;
         }
 
 
         /* =========================
-           FULL WIDTH HERO BANNER
+           BANNER
         ========================= */
 
         .hero {
@@ -94,9 +76,7 @@
 
             width: 100%;
 
-            height: 720px;
-
-            min-height: 80vh;
+            height: 300px;
 
             overflow: hidden;
 
@@ -105,136 +85,16 @@
             align-items: center;
 
             justify-content: center;
-
-            text-align: center;
         }
 
-
-        .hero-background {
-            position: absolute;
-
-            inset: 0;
-
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-
-            z-index: 0;
-
-            transform: scale(1.02);
-        }
-
-
-        .hero-overlay {
-            position: absolute;
-
-            inset: 0;
-
-            z-index: 1;
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    rgba(0,0,0,.15) 0%,
-                    rgba(0,0,0,.30) 45%,
-                    rgba(0,0,0,.92) 100%
-                );
-        }
-
-
-        .hero-overlay::after {
-            content: "";
-
-            position: absolute;
-
-            inset: 0;
-
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(255,145,212,.08),
-                    transparent 55%
-                );
-        }
-
-
-        .hero-content {
-            position: relative;
-
-            z-index: 2;
-
-            padding: 30px;
-
-            margin-top: 80px;
-        }
-
-
-        .hero-logo {
-            width: 180px;
-
-            max-width: 45vw;
-
-            margin-bottom: 35px;
-
-            filter:
-                drop-shadow(
-                    0 0 25px
-                    rgba(255,145,212,.25)
-                );
-        }
-
-
-        .hero-title {
-            font-family: "DynaPuff", sans-serif;
-
-            font-size: clamp(
-                48px,
-                8vw,
-                100px
-            );
-
-            line-height: 1.02;
-
-            font-weight: 500;
-
-            color: #fff;
-
-            text-shadow:
-                0 4px 25px
-                rgba(0,0,0,.5);
-        }
-
-
-        .hero-title span {
-            background:
-                linear-gradient(
-                    90deg,
-                    #ffd2ed,
-                    #ff91d4,
-                    #ffdff1
-                );
-
-            -webkit-background-clip: text;
-
-            -webkit-text-fill-color: transparent;
-
-            background-clip: text;
-        }
-
-
-        /* =========================
-           CAROUSEL
-        ========================= */
 
         .hero-carousel {
             position: absolute;
 
             inset: 0;
 
-            z-index: 3;
-
-            pointer-events: none;
+            width: 100%;
+            height: 100%;
         }
 
 
@@ -249,16 +109,12 @@
             opacity: 0;
 
             transition:
-                opacity .8s ease;
-
-            pointer-events: none;
+                opacity .7s ease;
         }
 
 
         .hero-slide.active {
             opacity: 1;
-
-            pointer-events: auto;
         }
 
 
@@ -282,9 +138,9 @@
             background:
                 linear-gradient(
                     90deg,
-                    rgba(0,0,0,.82),
-                    rgba(0,0,0,.30),
-                    rgba(0,0,0,.78)
+                    rgba(0,0,0,.75),
+                    rgba(0,0,0,.25),
+                    rgba(0,0,0,.70)
                 );
         }
 
@@ -292,58 +148,55 @@
         .hero-slide-content {
             position: absolute;
 
-            left: 8%;
+            left: 7%;
 
-            bottom: 110px;
+            top: 50%;
 
-            max-width: 650px;
+            transform: translateY(-50%);
+
+            max-width: 600px;
 
             text-align: left;
-
-            z-index: 2;
         }
 
 
         .hero-slide-label {
-            font-size: 11px;
+            font-size: 9px;
 
             font-weight: 800;
 
-            letter-spacing: 4px;
+            letter-spacing: 3px;
 
             color: #ff91d4;
 
-            margin-bottom: 15px;
+            margin-bottom: 8px;
         }
 
 
         .hero-slide-title {
             font-family: "DynaPuff", sans-serif;
 
-            font-size: clamp(
-                34px,
-                5vw,
-                65px
-            );
+            font-size:
+                clamp(28px, 5vw, 52px);
 
             line-height: 1.05;
 
             color: #fff;
 
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
 
         .hero-slide-text {
-            max-width: 500px;
+            max-width: 450px;
 
-            font-size: 14px;
+            font-size: 12px;
 
-            line-height: 1.7;
+            line-height: 1.5;
 
             color: #ffdff1;
 
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
 
@@ -354,7 +207,7 @@
 
             justify-content: center;
 
-            padding: 12px 22px;
+            padding: 8px 17px;
 
             border-radius: 999px;
 
@@ -364,7 +217,7 @@
 
             text-decoration: none;
 
-            font-size: 11px;
+            font-size: 9px;
 
             font-weight: 800;
 
@@ -380,7 +233,7 @@
 
 
         /* =========================
-           CAROUSEL DOTS
+           DOTS
         ========================= */
 
         .hero-dots {
@@ -388,7 +241,7 @@
 
             left: 50%;
 
-            bottom: 30px;
+            bottom: 14px;
 
             transform: translateX(-50%);
 
@@ -396,24 +249,20 @@
 
             display: flex;
 
-            align-items: center;
-
-            gap: 8px;
+            gap: 6px;
         }
 
 
         .hero-dot {
-            width: 8px;
-            height: 8px;
-
-            padding: 0;
+            width: 6px;
+            height: 6px;
 
             border: none;
 
             border-radius: 50%;
 
             background:
-                rgba(255,255,255,.35);
+                rgba(255,255,255,.4);
 
             cursor: pointer;
 
@@ -422,7 +271,7 @@
 
 
         .hero-dot.active {
-            width: 28px;
+            width: 20px;
 
             border-radius: 999px;
 
@@ -431,24 +280,81 @@
 
 
         /* =========================
-           SECTION
+           WELCOME
+        ========================= */
+
+        .welcome {
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            padding:
+                45px 20px 20px;
+
+            text-align: center;
+        }
+
+
+        .welcome h1 {
+            font-family: "DynaPuff", sans-serif;
+
+            font-size:
+                clamp(28px, 5vw, 44px);
+
+            font-weight: 500;
+
+            color: #fff;
+
+            line-height: 1.1;
+
+            margin-bottom: 7px;
+        }
+
+
+        .welcome h1 span {
+            background:
+                linear-gradient(
+                    90deg,
+                    #ffd2ed,
+                    #ff91d4,
+                    #ffdff1
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            background-clip: text;
+        }
+
+
+        .welcome p {
+            color: #d6aeca;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================
+           SECTIONS
         ========================= */
 
         .section {
             width: 100%;
 
-            max-width: 1100px;
+            max-width: 1050px;
 
             margin: 0 auto;
 
-            padding: 100px 20px;
+            padding:
+                50px 20px;
         }
 
 
         .section-heading {
             text-align: center;
 
-            margin-bottom: 45px;
+            margin-bottom: 28px;
         }
 
 
@@ -456,20 +362,20 @@
             font-family: "DynaPuff", sans-serif;
 
             font-size:
-                clamp(30px, 5vw, 44px);
+                clamp(27px, 5vw, 39px);
 
             font-weight: 500;
 
             color: #fff;
 
-            margin-bottom: 10px;
+            margin-bottom: 7px;
         }
 
 
         .section-heading p {
             color: #d6aeca;
 
-            font-size: 13px;
+            font-size: 11px;
         }
 
 
@@ -483,14 +389,14 @@
             grid-template-columns:
                 repeat(2, minmax(0, 1fr));
 
-            gap: 20px;
+            gap: 15px;
         }
 
 
         .update-card {
-            padding: 28px;
+            padding: 22px;
 
-            border-radius: 22px;
+            border-radius: 18px;
 
             border:
                 1px solid
@@ -508,7 +414,7 @@
 
 
         .update-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
 
             border-color:
                 rgba(255,145,212,.3);
@@ -516,35 +422,35 @@
 
 
         .update-date {
-            font-size: 10px;
+            font-size: 9px;
 
             font-weight: 700;
 
             color: #d6aeca;
 
-            margin-bottom: 14px;
+            margin-bottom: 10px;
         }
 
 
         .update-title {
             font-family: "DynaPuff", sans-serif;
 
-            font-size: 23px;
+            font-size: 19px;
 
             color: #fff;
 
-            margin-bottom: 14px;
+            margin-bottom: 10px;
         }
 
 
         .update-text {
-            font-size: 13px;
+            font-size: 11px;
 
-            line-height: 1.7;
+            line-height: 1.6;
 
             color: #d6aeca;
 
-            margin-bottom: 20px;
+            margin-bottom: 14px;
         }
 
 
@@ -553,12 +459,12 @@
 
             flex-wrap: wrap;
 
-            gap: 7px;
+            gap: 5px;
         }
 
 
         .tag {
-            padding: 6px 10px;
+            padding: 5px 8px;
 
             border-radius: 999px;
 
@@ -567,7 +473,7 @@
 
             color: #ffd2ed;
 
-            font-size: 9px;
+            font-size: 8px;
 
             font-weight: 800;
         }
@@ -583,16 +489,16 @@
             grid-template-columns:
                 repeat(4, minmax(0, 1fr));
 
-            gap: 15px;
+            gap: 10px;
         }
 
 
         .member {
-            padding: 32px 15px;
+            padding: 23px 10px;
 
             text-align: center;
 
-            border-radius: 22px;
+            border-radius: 17px;
 
             border:
                 1px solid
@@ -606,7 +512,7 @@
 
 
         .member:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
 
             border-color:
                 rgba(255,145,212,.3);
@@ -616,16 +522,16 @@
         .member-star {
             color: #ff91d4;
 
-            font-size: 21px;
+            font-size: 17px;
 
-            margin-bottom: 14px;
+            margin-bottom: 9px;
         }
 
 
         .member-name {
             font-family: "DynaPuff", sans-serif;
 
-            font-size: 18px;
+            font-size: 15px;
 
             color: #fff;
         }
@@ -636,24 +542,24 @@
         ========================= */
 
         .music-card {
-            max-width: 700px;
+            max-width: 650px;
 
             margin: 0 auto;
 
-            padding: 40px;
+            padding: 28px;
 
             text-align: center;
 
-            border-radius: 25px;
+            border-radius: 20px;
 
             border:
                 1px solid
-                rgba(255,145,212,.15);
+                rgba(255,145,212,.14);
 
             background:
                 radial-gradient(
                     circle at top,
-                    rgba(255,145,212,.12),
+                    rgba(255,145,212,.11),
                     transparent 60%
                 ),
                 #080808;
@@ -661,7 +567,7 @@
 
 
         .music-label {
-            font-size: 9px;
+            font-size: 8px;
 
             font-weight: 800;
 
@@ -669,34 +575,34 @@
 
             color: #ff91d4;
 
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
 
         .music-title {
             font-family: "DynaPuff", sans-serif;
 
-            font-size: 34px;
+            font-size: 28px;
 
             color: #fff;
 
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
 
         .music-meta {
-            font-size: 11px;
+            font-size: 9px;
 
             color: #d6aeca;
 
-            margin-bottom: 28px;
+            margin-bottom: 18px;
         }
 
 
         .track {
-            padding: 15px 18px;
+            padding: 11px 14px;
 
-            border-radius: 14px;
+            border-radius: 12px;
 
             background:
                 rgba(255,145,212,.05);
@@ -705,7 +611,7 @@
 
             color: #ffdff1;
 
-            font-size: 12px;
+            font-size: 10px;
         }
 
 
@@ -719,12 +625,12 @@
             grid-template-columns:
                 repeat(3, minmax(0, 1fr));
 
-            gap: 15px;
+            gap: 10px;
         }
 
 
         .quick-link {
-            min-height: 95px;
+            min-height: 70px;
 
             display: flex;
 
@@ -732,7 +638,7 @@
 
             justify-content: center;
 
-            border-radius: 20px;
+            border-radius: 16px;
 
             border:
                 1px solid
@@ -747,7 +653,7 @@
 
             font-family: "DynaPuff", sans-serif;
 
-            font-size: 16px;
+            font-size: 14px;
 
             transition: .3s ease;
         }
@@ -756,7 +662,7 @@
         .quick-link:hover {
             color: #ff91d4;
 
-            transform: translateY(-4px);
+            transform: translateY(-3px);
 
             border-color:
                 rgba(255,145,212,.3);
@@ -764,14 +670,14 @@
 
 
         /* =========================
-           ENDING
+           END
         ========================= */
 
         .ending {
             text-align: center;
 
             padding:
-                90px 20px 130px;
+                45px 20px 55px;
         }
 
 
@@ -779,18 +685,18 @@
             font-family: "DynaPuff", sans-serif;
 
             font-size:
-                clamp(28px, 5vw, 45px);
+                clamp(24px, 5vw, 36px);
 
             color: #fff;
 
-            margin-bottom: 12px;
+            margin-bottom: 7px;
         }
 
 
         .ending p {
             color: #d6aeca;
 
-            font-size: 13px;
+            font-size: 11px;
         }
 
 
@@ -801,46 +707,54 @@
         @media (max-width: 700px) {
 
             .hero {
-                height: 650px;
-
-                min-height: 650px;
-            }
-
-
-            .hero-content {
-                margin-top: 40px;
-            }
-
-
-            .hero-logo {
-                width: 125px;
-            }
-
-
-            .hero-title {
-                font-size:
-                    clamp(42px, 12vw, 65px);
+                height: 210px;
             }
 
 
             .hero-slide-content {
-                left: 25px;
+                left: 22px;
 
-                right: 25px;
+                right: 22px;
 
-                bottom: 85px;
+                top: 50%;
 
                 max-width: none;
             }
 
 
             .hero-slide-title {
-                font-size: 36px;
+                font-size: 26px;
             }
 
 
             .hero-slide-text {
-                font-size: 12px;
+                display: none;
+            }
+
+
+            .hero-slide-label {
+                font-size: 8px;
+
+                margin-bottom: 6px;
+            }
+
+
+            .hero-button {
+                padding:
+                    7px 14px;
+
+                font-size: 8px;
+            }
+
+
+            .hero-dots {
+                bottom: 9px;
+            }
+
+
+            .welcome {
+                padding:
+                    35px 20px 15px;
             }
 
 
@@ -862,36 +776,11 @@
 
             .section {
                 padding:
-                    70px 18px;
+                    42px 17px;
             }
 
         }
 
-
-        @media (max-width: 430px) {
-
-            .hero {
-                height: 600px;
-
-                min-height: 600px;
-            }
-
-
-            .hero-slide-title {
-                font-size: 31px;
-            }
-
-
-            .hero-slide-text {
-                font-size: 11px;
-            }
-
-
-            .music-card {
-                padding: 30px 20px;
-            }
-
-        }
 
     </style>
 
@@ -908,38 +797,11 @@
 
 
     <!-- =========================
-         HERO / FULL WIDTH BANNER
+         SHORT WIDE BANNER
     ========================= -->
 
     <section class="hero">
 
-
-        <!-- DEFAULT HERO -->
-
-        <div class="hero-content">
-
-            <img
-                class="hero-logo"
-                src="/images/kabe-logo.png"
-                alt="KABE"
-            >
-
-            <h1 class="hero-title">
-
-                Welcome to<br>
-
-                <span>
-                    the garden.
-                </span>
-
-                𐙚
-
-            </h1>
-
-        </div>
-
-
-        <!-- CAROUSEL -->
 
         <div class="hero-carousel">
 
@@ -957,7 +819,9 @@
                     alt="KABE"
                 >
 
+
                 <div class="hero-slide-dark"></div>
+
 
                 <div class="hero-slide-content">
 
@@ -965,14 +829,10 @@
                         KABE 𐙚
                     </div>
 
+
                     <h2 class="hero-slide-title">
                         Welcome to the garden.
                     </h2>
-
-                    <p class="hero-slide-text">
-                        A little world created by KABE.
-                        Stay tuned for everything growing here.
-                    </p>
 
                 </div>
 
@@ -988,20 +848,18 @@
 
                 <div class="hero-slide-dark"></div>
 
+
                 <div class="hero-slide-content">
 
                     <div class="hero-slide-label">
                         KABE NEWS
                     </div>
 
+
                     <h2 class="hero-slide-title">
                         What's growing?
                     </h2>
 
-                    <p class="hero-slide-text">
-                        Catch up on the latest official
-                        KABE updates and announcements.
-                    </p>
 
                     <a
                         href="/news"
@@ -1024,20 +882,18 @@
 
                 <div class="hero-slide-dark"></div>
 
+
                 <div class="hero-slide-content">
 
                     <div class="hero-slide-label">
                         KABE MUSIC
                     </div>
 
+
                     <h2 class="hero-slide-title">
                         Something is coming.
                     </h2>
 
-                    <p class="hero-slide-text">
-                        Explore the music side of KABE
-                        and stay ready for what's next.
-                    </p>
 
                     <a
                         href="/music"
@@ -1054,8 +910,6 @@
         </div>
 
 
-        <!-- DOTS -->
-
         <div class="hero-dots">
 
             <button
@@ -1064,11 +918,13 @@
                 aria-label="Slide 1"
             ></button>
 
+
             <button
                 class="hero-dot"
                 data-slide="1"
                 aria-label="Slide 2"
             ></button>
+
 
             <button
                 class="hero-dot"
@@ -1084,7 +940,30 @@
 
 
     <!-- =========================
-         LATEST UPDATES
+         WELCOME
+    ========================= -->
+
+    <section class="welcome">
+
+        <h1>
+            Welcome to
+            <span>
+                the garden.
+            </span>
+            𐙚
+        </h1>
+
+
+        <p>
+            Everything KABE, all in one place. ♡
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         UPDATES
     ========================= -->
 
     <section class="section">
@@ -1095,6 +974,7 @@
             <h2>
                 Latest updates 𐙚
             </h2>
+
 
             <p>
                 Everything happening around KABE.
@@ -1112,9 +992,11 @@
                     September 24, 2026
                 </div>
 
+
                 <h3 class="update-title">
                     KABE is hiring Logo Designers!
                 </h3>
+
 
                 <p class="update-text">
                     KABE is currently looking for a creative
@@ -1122,11 +1004,13 @@
                     our visual identity.
                 </p>
 
+
                 <div class="tags">
 
                     <span class="tag">
                         ✓ Official Announcement
                     </span>
+
 
                     <span class="tag">
                         KABE Careers
@@ -1137,15 +1021,18 @@
             </article>
 
 
+
             <article class="update-card">
 
                 <div class="update-date">
                     September 22, 2026 · 9:43 PM CT
                 </div>
 
+
                 <h3 class="update-title">
                     An update regarding Blossom
                 </h3>
+
 
                 <p class="update-text">
                     Blossom will be taking an official hiatus
@@ -1154,15 +1041,18 @@
                     no confirmed return date.
                 </p>
 
+
                 <div class="tags">
 
                     <span class="tag">
                         ✓ Official Announcement
                     </span>
 
+
                     <span class="tag">
                         Hiatus Announcement
                     </span>
+
 
                     <span class="tag">
                         Blossom
@@ -1191,6 +1081,7 @@
             <h2>
                 Meet KABE 𐙚
             </h2>
+
 
             <p>
                 Four names. One garden.
@@ -1273,6 +1164,7 @@
                 KABE Music
             </h2>
 
+
             <p>
                 Something is growing.
             </p>
@@ -1286,13 +1178,16 @@
                 COMING SOON
             </div>
 
+
             <h3 class="music-title">
                 KABE Debut
             </h3>
 
+
             <div class="music-meta">
                 Debut Single · 2026
             </div>
+
 
             <div class="track">
                 01 · ███████████ · DEBUT
@@ -1349,13 +1244,12 @@
 
         </div>
 
-
     </section>
 
 
 
     <!-- =========================
-         ENDING
+         END
     ========================= -->
 
     <section class="ending">
@@ -1363,6 +1257,7 @@
         <h2>
             Made with love for KABE. 𐙚
         </h2>
+
 
         <p>
             Welcome to our little garden. ♡
@@ -1383,11 +1278,15 @@
     ========================= */
 
     const slides =
-        document.querySelectorAll(".hero-slide");
+        document.querySelectorAll(
+            ".hero-slide"
+        );
 
 
     const dots =
-        document.querySelectorAll(".hero-dot");
+        document.querySelectorAll(
+            ".hero-dot"
+        );
 
 
     let currentSlide = 0;
@@ -1398,53 +1297,68 @@
         currentSlide = index;
 
 
-        slides.forEach((slide, i) => {
+        slides.forEach(
+            (slide, i) => {
 
-            slide.classList.toggle(
-                "active",
-                i === index
-            );
-
-        });
-
-
-        dots.forEach((dot, i) => {
-
-            dot.classList.toggle(
-                "active",
-                i === index
-            );
-
-        });
-
-    }
-
-
-    dots.forEach((dot) => {
-
-        dot.addEventListener(
-            "click",
-            () => {
-
-                showSlide(
-                    Number(dot.dataset.slide)
+                slide.classList.toggle(
+                    "active",
+                    i === index
                 );
 
             }
         );
 
-    });
+
+        dots.forEach(
+            (dot, i) => {
+
+                dot.classList.toggle(
+                    "active",
+                    i === index
+                );
+
+            }
+        );
+
+    }
 
 
-    setInterval(() => {
+    dots.forEach(
+        (dot) => {
 
-        currentSlide =
-            (currentSlide + 1) %
-            slides.length;
+            dot.addEventListener(
+                "click",
+                () => {
 
-        showSlide(currentSlide);
+                    showSlide(
+                        Number(
+                            dot.dataset.slide
+                        )
+                    );
 
-    }, 6000);
+                }
+            );
+
+        }
+    );
+
+
+    setInterval(
+        () => {
+
+            currentSlide =
+                (
+                    currentSlide + 1
+                ) % slides.length;
+
+
+            showSlide(
+                currentSlide
+            );
+
+        },
+        6000
+    );
 
 
 
@@ -1453,11 +1367,15 @@
     ========================= */
 
     const canvas =
-        document.getElementById("stars");
+        document.getElementById(
+            "stars"
+        );
 
 
     const ctx =
-        canvas.getContext("2d");
+        canvas.getContext(
+            "2d"
+        );
 
 
     let stars = [];
@@ -1488,6 +1406,7 @@
         const amount =
             Math.min(
                 180,
+
                 Math.floor(
                     window.innerWidth *
                     window.innerHeight /
@@ -1541,76 +1460,90 @@
         );
 
 
-        stars.forEach((star) => {
+        stars.forEach(
+            (star) => {
 
-            let brightness =
-                star.alpha;
-
-
-            if (
-                mouse.x !== null &&
-                mouse.y !== null
-            ) {
-
-                const dx =
-                    star.x - mouse.x;
+                let brightness =
+                    star.alpha;
 
 
-                const dy =
-                    star.y - mouse.y;
+                if (
+                    mouse.x !== null &&
+                    mouse.y !== null
+                ) {
+
+                    const dx =
+                        star.x -
+                        mouse.x;
 
 
-                const distance =
-                    Math.sqrt(
-                        dx * dx +
-                        dy * dy
-                    );
+                    const dy =
+                        star.y -
+                        mouse.y;
 
 
-                if (distance < 130) {
+                    const distance =
+                        Math.sqrt(
+                            dx * dx +
+                            dy * dy
+                        );
 
-                    brightness +=
-                        (1 - distance / 130) *
-                        .7;
+
+                    if (
+                        distance < 130
+                    ) {
+
+                        brightness +=
+                            (
+                                1 -
+                                distance /
+                                130
+                            ) * .7;
+
+                    }
+
+                }
+
+
+                ctx.beginPath();
+
+
+                ctx.arc(
+                    star.x,
+                    star.y,
+                    star.radius,
+                    0,
+                    Math.PI * 2
+                );
+
+
+                ctx.fillStyle =
+                    `rgba(
+                        255,
+                        255,
+                        255,
+                        ${brightness}
+                    )`;
+
+
+                ctx.fill();
+
+
+                star.alpha +=
+                    star.speed;
+
+
+                if (
+                    star.alpha > .9 ||
+                    star.alpha < .2
+                ) {
+
+                    star.speed *= -1;
 
                 }
 
             }
-
-
-            ctx.beginPath();
-
-
-            ctx.arc(
-                star.x,
-                star.y,
-                star.radius,
-                0,
-                Math.PI * 2
-            );
-
-
-            ctx.fillStyle =
-                `rgba(255,255,255,${brightness})`;
-
-
-            ctx.fill();
-
-
-            star.alpha +=
-                star.speed;
-
-
-            if (
-                star.alpha > .9 ||
-                star.alpha < .2
-            ) {
-
-                star.speed *= -1;
-
-            }
-
-        });
+        );
 
 
         requestAnimationFrame(
