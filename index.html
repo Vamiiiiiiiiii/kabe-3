@@ -52,12 +52,10 @@
             width: 100%;
             max-width: 1000px;
             margin: 0 auto;
-            padding: 0 22px 30px;
+            padding: 0 22px 0;
         }
 
-        /* =========================
-           HERO CAROUSEL
-        ========================= */
+        /* HERO */
 
         .hero {
             position: relative;
@@ -65,6 +63,7 @@
             height: 255px;
             margin-top: 8px;
             overflow: hidden;
+
             border: 1px solid rgba(255, 145, 212, .35);
             border-radius: 30px;
 
@@ -97,9 +96,11 @@
             flex: 0 0 100%;
             width: 100%;
             height: 100%;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             text-align: center;
         }
 
@@ -109,6 +110,7 @@
 
         .slide h1 {
             margin: 0;
+
             color: #fff;
             font-family: "DynaPuff", sans-serif;
             font-size: clamp(25px, 5vw, 42px);
@@ -118,6 +120,7 @@
 
         .slide p {
             margin: 10px auto 0;
+
             color: #c7aebe;
             font-size: 13px;
             line-height: 1.5;
@@ -127,13 +130,17 @@
             display: inline-block;
             margin-top: 18px;
             padding: 8px 18px;
+
             border: 1px solid rgba(255, 145, 212, .5);
             border-radius: 999px;
+
             background: rgba(255, 145, 212, .08);
             color: #ff91d4;
-            text-decoration: none;
+
             font-size: 11px;
             font-weight: 800;
+            text-decoration: none;
+
             transition: .2s ease;
         }
 
@@ -146,8 +153,10 @@
         .hero-decoration {
             position: absolute;
             z-index: 5;
+
             color: #ff91d4;
             font-size: 19px;
+
             pointer-events: none;
         }
 
@@ -161,9 +170,7 @@
             bottom: 15px;
         }
 
-        /* =========================
-           EVENT BANNER
-        ========================= */
+        /* EVENT SLIDE */
 
         .event-slide {
             position: relative;
@@ -173,6 +180,7 @@
 
         .event-slide::before {
             content: "";
+
             position: absolute;
             inset: 0;
             z-index: 1;
@@ -181,7 +189,7 @@
                 linear-gradient(
                     to bottom,
                     rgba(0, 0, 0, .12),
-                    rgba(0, 0, 0, .58)
+                    rgba(0, 0, 0, .62)
                 );
         }
 
@@ -192,10 +200,10 @@
             width: 100%;
             height: 100%;
 
+            display: block;
+
             object-fit: cover;
             object-position: center;
-
-            display: block;
         }
 
         .event-slide .slide-content {
@@ -241,9 +249,7 @@
             text-decoration: underline;
         }
 
-        /* =========================
-           CAROUSEL DOTS
-        ========================= */
+        /* DOTS */
 
         .dots {
             position: absolute;
@@ -266,8 +272,8 @@
             border-radius: 50%;
 
             background: rgba(255, 255, 255, .25);
-            cursor: pointer;
 
+            cursor: pointer;
             transition: .25s ease;
         }
 
@@ -277,9 +283,7 @@
             background: #ff91d4;
         }
 
-        /* =========================
-           SECTIONS
-        ========================= */
+        /* SECTIONS */
 
         section {
             margin-top: 42px;
@@ -312,9 +316,7 @@
             line-height: 1.65;
         }
 
-        /* =========================
-           WELCOME
-        ========================= */
+        /* WELCOME */
 
         .welcome {
             text-align: center;
@@ -325,19 +327,19 @@
             margin-right: auto;
         }
 
-        /* =========================
-           UPDATE CARDS
-        ========================= */
+        /* UPDATES */
 
         .updates {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 12px;
+
             margin-top: 18px;
         }
 
         .update-card {
             padding: 18px;
+
             border: 1px solid rgba(255, 145, 212, .12);
             border-radius: 18px;
 
@@ -351,6 +353,7 @@
 
         .update-card:hover {
             transform: translateY(-2px);
+
             border-color: rgba(255, 145, 212, .28);
             background: rgba(255, 145, 212, .035);
         }
@@ -361,6 +364,7 @@
             color: #8e7c87;
             font-size: 9px;
             font-weight: 700;
+
             letter-spacing: .04em;
             text-transform: uppercase;
         }
@@ -386,6 +390,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 5px;
+
             margin-top: 12px;
         }
 
@@ -402,44 +407,52 @@
             font-weight: 800;
         }
 
-        /* =========================
-           MEMBERS
-        ========================= */
+        /* MEMBERS */
 
         .members {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 10px;
+
             margin-top: 18px;
         }
 
         .member {
-            padding: 18px 10px;
+            padding: 15px 10px;
 
             border: 1px solid rgba(255, 145, 212, .12);
-            border-radius: 17px;
+            border-radius: 15px;
 
-            background: rgba(255, 255, 255, .02);
+            background: rgba(255, 255, 255, .018);
 
             text-align: center;
+
+            transition: .2s ease;
         }
 
-        .member-name {
-            color: #fff;
-            font-family: "DynaPuff", sans-serif;
-            font-size: 14px;
+        .member:hover {
+            border-color: rgba(255, 145, 212, .25);
+            background: rgba(255, 145, 212, .035);
         }
 
         .member-flower {
             display: block;
-            margin-bottom: 5px;
+
+            margin-bottom: 4px;
+
             color: #ff91d4;
-            font-size: 13px;
+            font-size: 12px;
         }
 
-        /* =========================
-           MUSIC
-        ========================= */
+        .member-name {
+            color: #fff;
+
+            font-family: "DynaPuff", sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* MUSIC */
 
         .music-card {
             margin-top: 18px;
@@ -459,6 +472,7 @@
 
         .music-status {
             color: #ff91d4;
+
             font-size: 9px;
             font-weight: 800;
             letter-spacing: .12em;
@@ -493,19 +507,19 @@
             font-size: 10px;
         }
 
-        /* =========================
-           EXPLORE
-        ========================= */
+        /* EXPLORE */
 
         .explore-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 10px;
+
             margin-top: 18px;
         }
 
         .explore-card {
             display: block;
+
             padding: 18px;
 
             border: 1px solid rgba(255, 145, 212, .12);
@@ -521,6 +535,7 @@
 
         .explore-card:hover {
             transform: translateY(-2px);
+
             border-color: rgba(255, 145, 212, .3);
             background: rgba(255, 145, 212, .04);
         }
@@ -535,19 +550,18 @@
 
         .explore-card span {
             display: block;
+
             margin-top: 4px;
 
             color: #94818c;
             font-size: 9px;
         }
 
-        /* =========================
-           FINAL MESSAGE
-        ========================= */
+        /* FINAL MESSAGE */
 
         .final-message {
-            margin-top: 40px;
-            padding: 0 10px 10px;
+            margin-top: 34px;
+            padding: 0 10px 4px;
 
             text-align: center;
         }
@@ -573,102 +587,12 @@
             font-size: 10px;
         }
 
-        /* =========================
-           DIRECTORY
-        ========================= */
-
-        .website-directory {
-            position: relative;
-            z-index: 2;
-
-            width: 100%;
-            max-width: 720px;
-
-            margin: 20px auto 0;
-            padding: 22px 22px 20px;
-
-            text-align: center;
-
-            border-top: 1px solid rgba(255, 150, 220, .15);
-        }
-
-        .directory-title {
-            margin-bottom: 10px;
-
-            color: #ff91d4;
-            font-family: "DynaPuff", sans-serif;
-            font-size: 17px;
-            font-weight: 500;
-        }
-
-        .directory-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 7px;
-
-            margin-bottom: 16px;
-        }
-
-        .directory-links a {
-            display: inline-block;
-
-            padding: 5px 10px;
-
-            border: 1px solid rgba(255, 145, 212, .14);
-            border-radius: 999px;
-
-            color: #ff91d4;
-            background: rgba(255, 145, 212, .035);
-
-            font-size: 9px;
-            font-weight: 800;
-            text-decoration: none;
-
-            transition: .2s ease;
-        }
-
-        .directory-links a:hover {
-            background: #ff91d4;
-            color: #080508;
-        }
-
-        .directory-socials {
-            display: flex;
-            justify-content: center;
-            gap: 13px;
-
-            margin-bottom: 12px;
-        }
-
-        .directory-socials a {
-            color: #887580;
-            font-size: 9px;
-            text-decoration: none;
-
-            transition: color .2s ease;
-        }
-
-        .directory-socials a:hover {
-            color: #ff91d4;
-        }
-
-        .directory-footer {
-            color: #665762;
-            font-size: 8px;
-        }
-
-        .directory-footer span {
-            color: #ff91d4;
-        }
-
-        /* =========================
-           MOBILE
-        ========================= */
+        /* MOBILE */
 
         @media (max-width: 700px) {
+
             .page {
-                padding: 0 15px 20px;
+                padding: 0 15px;
             }
 
             .hero {
@@ -715,12 +639,7 @@
             }
 
             .final-message {
-                margin-top: 32px;
-            }
-
-            .website-directory {
-                margin-top: 15px;
-                padding-top: 20px;
+                margin-top: 28px;
             }
         }
     </style>
@@ -732,9 +651,7 @@
 
     <main class="page">
 
-        <!-- =========================
-             HERO
-        ========================= -->
+        <!-- HERO -->
 
         <div class="hero">
 
@@ -743,54 +660,66 @@
 
             <div class="slides" id="slides">
 
-                <!-- SLIDE 1 -->
-
                 <div class="slide">
                     <div class="slide-content">
-                        <h1>KABE 𐙚 Official Website</h1>
+
+                        <h1>
+                            KABE 𐙚 Official Website
+                        </h1>
 
                         <p>
                             Welcome to the garden. 𐙚
                         </p>
+
                     </div>
                 </div>
 
 
-                <!-- SLIDE 2 -->
-
                 <div class="slide">
                     <div class="slide-content">
-                        <h1>KABE News</h1>
+
+                        <h1>
+                            KABE News
+                        </h1>
 
                         <p>
                             What's growing?
                         </p>
 
-                        <a class="slide-button" href="/news">
+                        <a
+                            class="slide-button"
+                            href="/news"
+                        >
                             READ NEWS
                         </a>
+
                     </div>
                 </div>
 
 
-                <!-- SLIDE 3 -->
-
                 <div class="slide">
                     <div class="slide-content">
-                        <h1>KABE Music</h1>
+
+                        <h1>
+                            KABE Music
+                        </h1>
 
                         <p>
                             Something is blooming.
                         </p>
 
-                        <a class="slide-button" href="/music">
+                        <a
+                            class="slide-button"
+                            href="/music"
+                        >
                             LISTEN
                         </a>
+
                     </div>
                 </div>
 
 
-                <!-- SLIDE 4 -->
+                <!-- EVENT BANNER -->
 
                 <div class="slide event-slide">
 
@@ -821,8 +750,6 @@
 
             </div>
 
-
-            <!-- DOTS -->
 
             <div class="dots">
 
@@ -855,9 +782,7 @@
         </div>
 
 
-        <!-- =========================
-             WELCOME
-        ========================= -->
+        <!-- WELCOME -->
 
         <section class="welcome">
 
@@ -878,9 +803,7 @@
         </section>
 
 
-        <!-- =========================
-             LATEST UPDATES
-        ========================= -->
+        <!-- LATEST UPDATES -->
 
         <section>
 
@@ -911,6 +834,7 @@
                     </p>
 
                     <div class="tags">
+
                         <span class="tag">
                             ✓ Official Announcement
                         </span>
@@ -918,6 +842,7 @@
                         <span class="tag">
                             KABE Careers
                         </span>
+
                     </div>
 
                 </article>
@@ -942,6 +867,7 @@
                     </p>
 
                     <div class="tags">
+
                         <span class="tag">
                             ✓ Official Announcement
                         </span>
@@ -953,6 +879,7 @@
                         <span class="tag">
                             Blossom
                         </span>
+
                     </div>
 
                 </article>
@@ -962,9 +889,7 @@
         </section>
 
 
-        <!-- =========================
-             MEMBERS
-        ========================= -->
+        <!-- MEMBERS -->
 
         <section>
 
@@ -1003,9 +928,7 @@
         </section>
 
 
-        <!-- =========================
-             MUSIC
-        ========================= -->
+        <!-- MUSIC -->
 
         <section>
 
@@ -1032,6 +955,7 @@
                 </div>
 
                 <div class="track">
+
                     <span>
                         01 · ███████████ · DEBUT
                     </span>
@@ -1039,6 +963,7 @@
                     <span>
                         ♡
                     </span>
+
                 </div>
 
             </div>
@@ -1046,9 +971,7 @@
         </section>
 
 
-        <!-- =========================
-             EXPLORE
-        ========================= -->
+        <!-- EXPLORE -->
 
         <section>
 
@@ -1108,9 +1031,7 @@
         </section>
 
 
-        <!-- =========================
-             FINAL MESSAGE
-        ========================= -->
+        <!-- FINAL MESSAGE -->
 
         <div class="final-message">
 
@@ -1131,14 +1052,12 @@
     </main>
 
 
-    <!-- DIRECTORY IS NOW MUCH CLOSER -->
+    <!-- DIRECTORY -->
 
     <script src="/directory.js"></script>
 
 
-    <!-- =========================
-         STARFIELD
-    ========================= -->
+    <!-- STARFIELD -->
 
     <script>
         const canvas = document.getElementById("stars");
@@ -1154,6 +1073,7 @@
         }
 
         function createStars() {
+
             stars = [];
 
             const amount = Math.min(
@@ -1164,6 +1084,7 @@
             );
 
             for (let i = 0; i < amount; i++) {
+
                 stars.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
@@ -1171,10 +1092,12 @@
                     speed: Math.random() * .12 + .025,
                     opacity: Math.random() * .45 + .15
                 });
+
             }
         }
 
         function drawStars() {
+
             ctx.clearRect(
                 0,
                 0,
@@ -1187,8 +1110,10 @@
                 star.y -= star.speed;
 
                 if (star.y < -5) {
+
                     star.y = canvas.height + 5;
                     star.x = Math.random() * canvas.width;
+
                 }
 
                 const distance = Math.hypot(
@@ -1199,7 +1124,10 @@
                 let opacity = star.opacity;
 
                 if (distance < 100) {
-                    opacity += (1 - distance / 100) * .55;
+
+                    opacity +=
+                        (1 - distance / 100) * .55;
+
                 }
 
                 ctx.beginPath();
@@ -1224,16 +1152,20 @@
         window.addEventListener(
             "resize",
             () => {
+
                 resizeCanvas();
                 createStars();
+
             }
         );
 
         window.addEventListener(
             "mousemove",
             event => {
+
                 mouseX = event.clientX;
                 mouseY = event.clientY;
+
             }
         );
 
@@ -1243,57 +1175,70 @@
     </script>
 
 
-    <!-- =========================
-         CAROUSEL
-    ========================= -->
+    <!-- CAROUSEL -->
 
     <script>
-        const slides = document.querySelector(".slides");
-        const dots = document.querySelectorAll(".dot");
+        const slides =
+            document.querySelector(".slides");
+
+        const dots =
+            document.querySelectorAll(".dot");
 
         let currentSlide = 0;
         let carouselTimer;
 
         function showSlide(index) {
+
             currentSlide = index;
 
             slides.style.transform =
                 `translateX(-${currentSlide * 100}%)`;
 
             dots.forEach((dot, i) => {
+
                 dot.classList.toggle(
                     "active",
                     i === currentSlide
                 );
+
             });
         }
 
         function nextSlide() {
+
             showSlide(
                 (currentSlide + 1) % dots.length
             );
+
         }
 
         dots.forEach(dot => {
+
             dot.addEventListener(
                 "click",
                 () => {
+
                     showSlide(
                         Number(dot.dataset.slide)
                     );
 
                     restartCarousel();
+
                 }
             );
+
         });
 
         function restartCarousel() {
+
             clearInterval(carouselTimer);
 
-            carouselTimer = setInterval(
-                nextSlide,
-                6000
-            );
+            carouselTimer =
+                setInterval(
+                    nextSlide,
+                    6000
+                );
+
         }
 
         showSlide(0);
