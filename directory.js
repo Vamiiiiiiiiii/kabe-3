@@ -520,7 +520,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             name: "Home",
             href: "/",
-            path: ""
+            path: "/"
         },
 
         {
