@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KABE 𐙚 Something is Coming</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600&family=Nunito:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            background: #000;
+            color: #ffdff1;
+
+            font-family: "Nunito", sans-serif;
+
+            overflow-x: hidden;
+        }
+
+
+        /* STARFIELD */
+
+        #stars {
+            position: fixed;
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            z-index: 0;
+
+            pointer-events: none;
+        }
+
+
+        /* PAGE */
+
+        .page {
+            position: relative;
+            z-index: 1;
+
+            width: 100%;
+            max-width: 720px;
+
+            margin: 0 auto;
+
+            padding: 75px 22px 60px;
+
+            text-align: center;
+
+            animation: fadeIn 1.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            margin: 0;
+
+            font-family: "DynaPuff", sans-serif;
+
+            font-size: clamp(58px, 15vw, 92px);
+
+            font-weight: 600;
+
+            letter-spacing: -4px;
+
+            background: linear-gradient(
+                135deg,
+                #ffffff,
+                #ffd2ed,
+                #ff91d4
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            background-clip: text;
+
+            filter:
+                drop-shadow(0 0 18px rgba(255, 145, 212, .12));
+        }
+
+
+        /* DIVIDER */
+
+        .divider {
+            width: 75px;
+            height: 1px;
+
+            margin: 25px auto 30px;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                #ff91d4,
+                transparent
+            );
+
+            opacity: .7;
+        }
+
+
+        /* MESSAGE */
+
+        .message {
+            max-width: 500px;
+
+            margin: 0 auto;
+
+            font-size: 14px;
+            line-height: 1.8;
+
+            color: #d6aeca;
+        }
+
+        .message strong {
+            color: #ffdff1;
+            font-weight: 700;
+        }
+
+
+        /* COUNTDOWN */
+
+        .countdown-section {
+            margin-top: 48px;
+        }
+
+        .countdown-title {
+            font-family: "DynaPuff", sans-serif;
+
+            font-size: clamp(20px, 5vw, 27px);
+
+            line-height: 1.4;
+
+            color: #ffd2ed;
+
+            margin-bottom: 12px;
+        }
+
+        .countdown-subtitle {
+            margin-bottom: 24px;
+
+            font-size: 12px;
+
+            color: #b992aa;
+
+            letter-spacing: .3px;
+        }
+
+
+        /* TIMER */
+
+        .countdown {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 9px;
+
+            max-width: 530px;
+
+            margin: 0 auto;
+        }
+
+        .countdown-box {
+            padding: 18px 8px 15px;
+
+            border: 1px solid rgba(255, 145, 212, .16);
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 145, 212, .055),
+                    rgba(255, 255, 255, .015)
+                );
+
+            box-shadow:
+                inset 0 0 20px rgba(255, 145, 212, .025);
+
+            transition:
+                transform .3s ease,
+                border-color .3s ease,
+                background .3s ease;
+        }
+
+        .countdown-box:hover {
+            transform: translateY(-3px);
+
+            border-color: rgba(255, 145, 212, .3);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 145, 212, .08),
+                    rgba(255, 255, 255, .02)
+                );
+        }
+
+        .countdown-number {
+            display: block;
+
+            font-family: "DynaPuff", sans-serif;
+
+            font-size: clamp(25px, 7vw, 38px);
+
+            line-height: 1;
+
+            color: #ffe4f4;
+        }
+
+        .countdown-label {
+            display: block;
+
+            margin-top: 9px;
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            color: #b992aa;
+        }
+
+
+        /* DATE */
+
+        .countdown-date {
+            margin-top: 20px;
+
+            font-size: 11px;
+
+            line-height: 1.7;
+
+            color: #a98299;
+        }
+
+        .countdown-date strong {
+            color: #ffd2ed;
+
+            font-weight: 700;
+        }
+
+
+        /* TIME ZONES */
+
+        .timezone {
+            margin-top: 8px;
+
+            font-size: 10px;
+
+            line-height: 1.7;
+
+            color: #d6aeca;
+        }
+
+        .timezone span {
+            color: #ffb9df;
+        }
+
+
+        /* REVEAL */
+
+        .reveal-message {
+            display: none;
+
+            margin-top: 35px;
+        }
+
+        .reveal-title {
+            font-family: "DynaPuff", sans-serif;
+
+            font-size: clamp(24px, 6vw, 34px);
+
+            color: #ffd2ed;
+
+            margin-bottom: 10px;
+        }
+
+        .reveal-subtitle {
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            color: #d6aeca;
+        }
+
+
+        /* SOCIALS */
+
+        .socials {
+            margin-top: 55px;
+        }
+
+        .social-title {
+            font-family: "DynaPuff", sans-serif;
+
+            font-size: 15px;
+
+            color: #ffd2ed;
+
+            margin-bottom: 18px;
+        }
+
+        .social-links {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 28px;
+        }
+
+        .social-link {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            text-decoration: none;
+
+            color: #ffdff1;
+
+            transition: .3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-link svg {
+            width: 26px;
+            height: 26px;
+
+            margin-bottom: 7px;
+
+            fill: #ffdff1;
+
+            transition: .3s ease;
+        }
+
+        .social-link:hover svg {
+            fill: #ff91d4;
+
+            filter:
+                drop-shadow(0 0 8px rgba(255, 100, 200, .45));
+        }
+
+        .social-username {
+            font-size: 10px;
+
+            font-weight: 700;
+
+            color: #d6aeca;
+        }
+
+
+        /* FOOTER */
+
+        .footer {
+            margin-top: 45px;
+
+            font-size: 10px;
+
+            color: #73596a;
+        }
+
+        .footer span {
+            color: #ff91d4;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 500px) {
+
+            .page {
+                padding-top: 60px;
+            }
+
+            .countdown {
+                gap: 6px;
+            }
+
+            .countdown-box {
+                padding: 16px 5px 13px;
+
+                border-radius: 15px;
+            }
+
+            .countdown-label {
+                font-size: 7px;
+
+                letter-spacing: 1px;
+            }
+
+            .timezone {
+                max-width: 300px;
+
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <canvas id="stars"></canvas>
+
+
+    <main class="page">
+
+        <!-- LOGO -->
+
+        <h1 class="logo">
+            KABE
+        </h1>
+
+
+        <div class="divider"></div>
+
+
+        <!-- MESSAGE -->
+
+        <div class="message">
+
+            <strong>Kabe.world</strong> is currently under construction.
+
+            Something special is coming soon. ♡
+
+        </div>
+
+
+        <!-- COUNTDOWN -->
+
+        <section class="countdown-section">
+
+            <div class="countdown-title">
+                Something is coming, KABEians... 𐙚
+            </div>
+
+            <div class="countdown-subtitle">
+                You might want to remember this date.
+            </div>
+
+
+            <div class="countdown" id="countdown">
+
+                <div class="countdown-box">
+                    <span class="countdown-number" id="days">
+                        00
+                    </span>
+
+                    <span class="countdown-label">
+                        DAYS
+                    </span>
+                </div>
+
+
+                <div class="countdown-box">
+                    <span class="countdown-number" id="hours">
+                        00
+                    </span>
+
+                    <span class="countdown-label">
+                        HOURS
+                    </span>
+                </div>
+
+
+                <div class="countdown-box">
+                    <span class="countdown-number" id="minutes">
+                        00
+                    </span>
+
+                    <span class="countdown-label">
+                        MINUTES
+                    </span>
+                </div>
+
+
+                <div class="countdown-box">
+                    <span class="countdown-number" id="seconds">
+                        00
+                    </span>
+
+                    <span class="countdown-label">
+                        SECONDS
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="countdown-date">
+
+                <strong>October 24, 2026</strong>
+
+            </div>
+
+
+            <div class="timezone">
+
+                <span>12:00 PM Pacific</span>
+                ·
+                <span>2:00 PM Central</span>
+                ·
+                <span>3:00 PM Eastern</span>
+
+            </div>
+
+
+            <!-- REVEAL MESSAGE -->
+
+            <div class="reveal-message" id="reveal-message">
+
+                <div class="reveal-title">
+                    Welcome home, BLOOMBOWS. 𐙚
+                </div>
+
+                <div class="reveal-subtitle">
+                    The wait is finally over. ♡
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SOCIALS -->
+
+        <section class="socials">
+
+            <div class="social-title">
+                find KABE 𐙚
+            </div>
+
+
+            <div class="social-links">
+
+
+                <!-- INSTAGRAM -->
+
+                <a
+                    class="social-link"
+                    href="https://instagram.com/kabeworldofficial"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="KABE on Instagram"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0-3-3 3 3 0 0 0 3-3Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
+
+                    </svg>
+
+                    <span class="social-username">
+                        @kabeworldofficial
+                    </span>
+
+                </a>
+
+
+                <!-- TIKTOK -->
+
+                <a
+                    class="social-link"
+                    href="https://tiktok.com/@kabeworld"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="KABE on TikTok"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <path d="M16.6 2h3.05c.28 1.72 1.25 3.22 2.65 4.2v3.08a8.15 8.15 0 0 1-2.65-.78v6.75A6.75 6.75 0 1 1 13 8.5v3.18a3.65 3.65 0 1 0 1.55 2.97V2h2.05Z"/>
+
+                    </svg>
+
+                    <span class="social-username">
+                        @kabeworld
+                    </span>
+
+                </a>
+
+
+    </main>
+
+
+    <script>
+
+        /* =========================================
+           COUNTDOWN
+        ========================================= */
+
+        /*
+            October 24, 2026
+            12:00 PM Pacific Daylight Time
+
+            This is:
+            12:00 PM Pacific
+            2:00 PM Central
+            3:00 PM Eastern
+        */
+
+        const revealDate =
+            new Date("2026-10-24T12:00:00-07:00").getTime();
+
+
+        const daysElement =
+            document.getElementById("days");
+
+        const hoursElement =
+            document.getElementById("hours");
+
+        const minutesElement =
+            document.getElementById("minutes");
+
+        const secondsElement =
+            document.getElementById("seconds");
+
+        const countdown =
+            document.getElementById("countdown");
+
+        const countdownDate =
+            document.querySelector(".countdown-date");
+
+        const timezone =
+            document.querySelector(".timezone");
+
+        const revealMessage =
+            document.getElementById("reveal-message");
+
+
+        function updateCountdown() {
+
+            const now = Date.now();
+
+            const difference =
+                revealDate - now;
+
+
+            if (difference <= 0) {
+
+                countdown.style.display = "none";
+
+                countdownDate.style.display = "none";
+
+                timezone.style.display = "none";
+
+                revealMessage.style.display = "block";
+
+                return;
+            }
+
+
+            const days =
+                Math.floor(
+                    difference / (1000 * 60 * 60 * 24)
+                );
+
+
+            const hours =
+                Math.floor(
+                    (difference / (1000 * 60 * 60)) % 24
+                );
+
+
+            const minutes =
+                Math.floor(
+                    (difference / (1000 * 60)) % 60
+                );
+
+
+            const seconds =
+                Math.floor(
+                    (difference / 1000) % 60
+                );
+
+
+            daysElement.textContent =
+                String(days).padStart(2, "0");
+
+
+            hoursElement.textContent =
+                String(hours).padStart(2, "0");
+
+
+            minutesElement.textContent =
+                String(minutes).padStart(2, "0");
+
+
+            secondsElement.textContent =
+                String(seconds).padStart(2, "0");
+        }
+
+
+        updateCountdown();
+
+        setInterval(updateCountdown, 1000);
+
+
+        /* =========================================
+           INTERACTIVE STARFIELD
+        ========================================= */
+
+        const canvas =
+            document.getElementById("stars");
+
+        const ctx =
+            canvas.getContext("2d");
+
+
+        let stars = [];
+
+        let mouseX = -1000;
+        let mouseY = -1000;
+
+
+        function resizeCanvas() {
+
+            canvas.width =
+                window.innerWidth;
+
+            canvas.height =
+                window.innerHeight;
+
+
+            createStars();
+        }
+
+
+        function createStars() {
+
+            stars = [];
+
+            const amount =
+                Math.min(
+                    150,
+                    Math.floor(
+                        (window.innerWidth *
+                        window.innerHeight) / 8000
+                    )
+                );
+
+
+            for (let i = 0; i < amount; i++) {
+
+                stars.push({
+
+                    x:
+                        Math.random() *
+                        canvas.width,
+
+                    y:
+                        Math.random() *
+                        canvas.height,
+
+                    radius:
+                        Math.random() *
+                        1.2 + .3,
+
+                    opacity:
+                        Math.random() *
+                        .55 + .15,
+
+                    speed:
+                        Math.random() *
+                        .003 + .001
+
+                });
+
+            }
+
+        }
+
+
+        function drawStars() {
+
+            ctx.clearRect(
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
+
+
+            for (const star of stars) {
+
+                const distance =
+                    Math.hypot(
+                        star.x - mouseX,
+                        star.y - mouseY
+                    );
+
+
+                const nearby =
+                    Math.max(
+                        0,
+                        1 - distance / 140
+                    );
+
+
+                const opacity =
+                    Math.min(
+                        1,
+                        star.opacity +
+                        nearby * .6
+                    );
+
+
+                ctx.beginPath();
+
+                ctx.arc(
+                    star.x,
+                    star.y,
+                    star.radius +
+                    nearby * .7,
+                    0,
+                    Math.PI * 2
+                );
+
+
+                ctx.fillStyle =
+                    `rgba(255,220,240,${opacity})`;
+
+                ctx.fill();
+
+
+                star.opacity +=
+                    Math.sin(
+                        Date.now() *
+                        star.speed
+                    ) * .0005;
+            }
+
+
+            requestAnimationFrame(drawStars);
+        }
+
+
+        window.addEventListener(
+            "resize",
+            resizeCanvas
+        );
+
+
+        window.addEventListener(
+            "mousemove",
+            function(event) {
+
+                mouseX =
+                    event.clientX;
+
+                mouseY =
+                    event.clientY;
+
+            }
+        );
+
+
+        window.addEventListener(
+            "touchmove",
+            function(event) {
+
+                if (!event.touches.length) {
+                    return;
+                }
+
+                mouseX =
+                    event.touches[0].clientX;
+
+                mouseY =
+                    event.touches[0].clientY;
+
+            },
+            { passive: true }
+        );
+
+
+        resizeCanvas();
+
+        drawStars();
+
+    </script>
+    
+    <script src="/directory.js"></script>
+
+</body>
+</html>
