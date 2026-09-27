@@ -156,6 +156,8 @@
             >
                 <a href="/">Home</a>
                 <a href="/news">News</a>
+                <a href="/live">Live</a>
+                <a href="/broadcast">Broadcast</a>
                 <a href="/music">Music</a>
                 <a href="/careers">Careers</a>
                 <a href="/credits">Credits</a>
