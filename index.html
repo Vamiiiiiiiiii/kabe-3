@@ -223,6 +223,8 @@
             position: relative;
 
             z-index: 4;
+
+            width: 100%;
         }
 
 
@@ -298,6 +300,93 @@
 
             transform:
                 translateY(-2px);
+        }
+
+
+        /* =========================
+           EVENT BANNER
+        ========================= */
+
+        .event-slide {
+            padding:
+                22px 45px 38px;
+        }
+
+
+        .event-banner-image {
+            display: block;
+
+            width: auto;
+
+            max-width: min(
+                430px,
+                78vw
+            );
+
+            height: 105px;
+
+            margin:
+                0 auto 9px;
+
+            object-fit: contain;
+
+            border-radius: 12px;
+
+            filter:
+                drop-shadow(
+                    0 0 15px
+                    rgba(255,145,212,.12)
+                );
+        }
+
+
+        .event-title {
+            margin: 0;
+
+            color: #fff;
+
+            font-family:
+                "DynaPuff",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    17px,
+                    3vw,
+                    24px
+                );
+
+            font-weight: 500;
+
+            line-height: 1.2;
+        }
+
+
+        .event-subtext {
+            max-width: 650px;
+
+            margin:
+                7px auto 0;
+
+            color: #b99aae;
+
+            font-size: 10px;
+
+            line-height: 1.5;
+        }
+
+
+        .event-subtext a {
+            color: #ff91d4;
+
+            text-decoration: none;
+
+            font-weight: 800;
+        }
+
+
+        .event-subtext a:hover {
+            text-decoration: underline;
         }
 
 
@@ -936,6 +1025,33 @@
             }
 
 
+            .event-slide {
+                padding:
+                    18px 18px 35px;
+            }
+
+
+            .event-banner-image {
+                height: 70px;
+
+                max-width: 75vw;
+
+                margin-bottom: 7px;
+            }
+
+
+            .event-title {
+                font-size: 16px;
+            }
+
+
+            .event-subtext {
+                max-width: 330px;
+
+                font-size: 9px;
+            }
+
+
             .updates {
                 grid-template-columns: 1fr;
             }
@@ -1001,6 +1117,8 @@
             <div class="slides">
 
 
+                <!-- SLIDE 1 -->
+
                 <div class="slide active">
 
                     <div class="slide-content">
@@ -1018,6 +1136,8 @@
 
                 </div>
 
+
+                <!-- SLIDE 2 -->
 
                 <div class="slide">
 
@@ -1045,6 +1165,8 @@
                 </div>
 
 
+                <!-- SLIDE 3 -->
+
                 <div class="slide">
 
                     <div class="slide-content">
@@ -1071,6 +1193,43 @@
                 </div>
 
 
+                <!-- SLIDE 4 -->
+
+                <div class="slide event-slide">
+
+                    <div class="slide-content">
+
+                        <img
+                            class="event-banner-image"
+                            src="https://cdn.discordapp.com/attachments/1526824548459348029/1553782600978399322/goose.png?ex=6aba804f&is=6ab92ecf&hm=d4d432b57fbc7b1ea4ac73593252d7bb9324ecc4f1511d63cd96c6767e50b835&"
+                            alt="Folded presents KABE New Years Event"
+                            loading="lazy"
+                        >
+
+
+                        <h1 class="event-title">
+                            Folded presents: KABE New Years Event
+                        </h1>
+
+
+                        <div class="event-subtext">
+
+                            Tune in on
+
+                            <a href="/broadcast">
+                                Kabe.world/broadcast
+                            </a>
+
+                            on December 31st, 2026 at
+                            12 PM Pacific · 2 PM Central · 3 PM Eastern
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
             </div>
 
 
@@ -1091,6 +1250,12 @@
                 <button
                     class="dot"
                     aria-label="Slide 3"
+                ></button>
+
+
+                <button
+                    class="dot"
+                    aria-label="Slide 4"
                 ></button>
 
             </div>
