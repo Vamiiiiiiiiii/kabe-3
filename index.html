@@ -1,32 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>KABE — Official Website</title>
 
-    <title>KABE 𐙚 Official Website</title>
-
-    <meta
-        name="description"
-        content="Welcome to the official KABE website. ♡"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600&family=Nunito:wght@400;500;600;700;800&display=swap"
@@ -34,1947 +15,1261 @@
     >
 
     <style>
-
         * {
             box-sizing: border-box;
         }
-
 
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
             margin: 0;
-
             min-height: 100vh;
-
-            background:
-                radial-gradient(
-                    circle at 50% 0%,
-                    rgba(255,145,212,.08),
-                    transparent 35%
-                ),
-                #000;
-
-            color: #fff;
-
-            font-family:
-                "Nunito",
-                sans-serif;
-
+            background: #050305;
+            color: #f8eaf2;
+            font-family: "Nunito", sans-serif;
             overflow-x: hidden;
         }
 
-
         #stars {
             position: fixed;
-
             inset: 0;
-
             width: 100%;
             height: 100%;
-
             pointer-events: none;
-
             z-index: 0;
         }
 
-
         .page {
             position: relative;
-
             z-index: 1;
-
             width: 100%;
-
             max-width: 1000px;
-
             margin: 0 auto;
-
-            padding:
-                0 22px 20px;
+            padding: 0 22px 20px;
         }
 
+        .fade-in {
+            animation: fadeIn .8s ease both;
+        }
 
-        /* =========================
-           HERO
-        ========================= */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* HERO */
 
         .hero {
             position: relative;
-
             width: 100%;
-
             height: 255px;
-
             margin-top: 8px;
-
-            border-radius: 30px;
-
             overflow: hidden;
 
-            border:
-                1px solid
-                rgba(255,145,212,.14);
+            border: 1px solid rgba(255, 137, 207, .6);
+            border-radius: 30px;
 
             background:
                 radial-gradient(
-                    circle at 15% 20%,
-                    rgba(255,145,212,.18),
-                    transparent 30%
+                    circle at 20% 20%,
+                    rgba(255, 123, 201, .18),
+                    transparent 35%
                 ),
-
                 radial-gradient(
-                    circle at 85% 80%,
-                    rgba(214,174,202,.09),
-                    transparent 30%
+                    circle at 80% 80%,
+                    rgba(255, 55, 168, .12),
+                    transparent 40%
                 ),
-
-                rgba(255,255,255,.018);
+                #080508;
 
             box-shadow:
-                0 25px 80px
-                rgba(0,0,0,.5),
-
-                0 0 50px
-                rgba(255,145,212,.05);
+                0 0 35px rgba(255, 70, 180, .08),
+                inset 0 0 35px rgba(255, 90, 190, .035);
         }
 
-
-        .hero::before {
-            content: "𐙚";
-
+        .hero-decoration {
             position: absolute;
+            z-index: 5;
+            color: #ff9bd8;
+            font-size: 22px;
+            pointer-events: none;
+        }
 
+        .hero-decoration.top {
             top: 18px;
-            left: 25px;
-
-            color:
-                rgba(255,145,212,.45);
-
-            font-size: 24px;
-
-            z-index: 3;
+            left: 22px;
         }
 
-
-        .hero::after {
-            content: "✦";
-
-            position: absolute;
-
-            right: 28px;
+        .hero-decoration.bottom {
+            right: 23px;
             bottom: 18px;
-
-            color:
-                rgba(255,210,237,.4);
-
-            font-size: 20px;
-
-            z-index: 3;
         }
 
-
-        .slides {
+        .carousel {
             position: relative;
-
             width: 100%;
             height: 100%;
         }
 
-
         .slide {
             position: absolute;
-
             inset: 0;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
+
+            padding: 35px 55px;
 
             text-align: center;
 
-            padding: 35px;
-
             opacity: 0;
-
-            transform:
-                scale(1.02);
+            visibility: hidden;
 
             transition:
-                opacity .7s ease,
-                transform .7s ease;
+                opacity .65s ease,
+                visibility .65s ease;
         }
-
 
         .slide.active {
             opacity: 1;
-
-            transform:
-                scale(1);
+            visibility: visible;
         }
-
 
         .slide-content {
-            position: relative;
-
-            z-index: 4;
-
             width: 100%;
+            max-width: 700px;
         }
 
+        .slide-kicker {
+            margin-bottom: 8px;
 
-        .eyebrow {
-            margin-bottom: 9px;
-
-            color: #ff91d4;
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            letter-spacing: 2px;
-
-            text-transform:
-                uppercase;
+            color: #ff8dce;
+            font-family: "DynaPuff", sans-serif;
+            font-size: 11px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
         }
 
+        .slide-title {
+            margin: 0;
 
-        .hero-title {
-            margin:
-                10px 0 0;
-
-            font-family:
-                "DynaPuff",
-                sans-serif;
-
-            font-size:
-                clamp(
-                    24px,
-                    5vw,
-                    42px
-                );
-
+            color: #fff1f8;
+            font-family: "DynaPuff", sans-serif;
+            font-size: clamp(23px, 5vw, 38px);
             font-weight: 500;
-
-            color: #fff;
+            line-height: 1.15;
         }
 
+        .slide-subtext {
+            margin-top: 9px;
 
-        .hero-button {
+            color: #bda9b5;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        .slide-button {
             display: inline-block;
+            margin-top: 15px;
+            padding: 7px 15px;
 
-            margin-top: 18px;
-
-            padding:
-                9px 17px;
-
+            border: 1px solid rgba(255, 141, 206, .5);
             border-radius: 999px;
 
-            color: #fff;
+            color: #ff9bd8;
+            background: rgba(255, 100, 190, .05);
 
-            background:
-                rgba(255,145,212,.11);
-
-            border:
-                1px solid
-                rgba(255,145,212,.18);
-
+            font-size: 10px;
+            font-weight: 800;
             text-decoration: none;
 
-            font-size: 11px;
-
-            font-weight: 800;
-
-            transition: .25s ease;
+            transition:
+                background .2s ease,
+                transform .2s ease,
+                border-color .2s ease;
         }
 
-
-        .hero-button:hover {
-            background:
-                rgba(255,145,212,.2);
-
-            transform:
-                translateY(-2px);
+        .slide-button:hover {
+            background: rgba(255, 100, 190, .12);
+            border-color: rgba(255, 141, 206, .8);
+            transform: translateY(-1px);
         }
 
-
-        /* =========================
-           EVENT SLIDE
-        ========================= */
+        /* EVENT SLIDE */
 
         .event-slide-content {
             display: flex;
-
             flex-direction: column;
-
             align-items: center;
-
             justify-content: center;
 
             width: 100%;
         }
 
+        .event-image-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+            min-height: 1px;
+
+            margin-bottom: 10px;
+        }
 
         .event-image {
             display: block;
 
-            width: min(
-                100%,
-                600px
-            );
-
+            width: min(100%, 600px);
             max-height: 135px;
 
             object-fit: contain;
 
-            margin:
-                0 auto 10px;
-
             border-radius: 12px;
+
+            opacity: 0;
+            transition: opacity .5s ease;
         }
 
+        .event-image.loaded {
+            opacity: 1;
+        }
+
+        .event-image-fallback {
+            display: none;
+
+            color: #806c78;
+            font-size: 9px;
+        }
 
         .event-title {
             margin: 2px 0 4px;
 
             color: #ffdff1;
-
-            font-family:
-                "DynaPuff",
-                sans-serif;
-
-            font-size:
-                clamp(
-                    15px,
-                    3vw,
-                    21px
-                );
-
+            font-family: "DynaPuff", sans-serif;
+            font-size: clamp(15px, 3vw, 21px);
             font-weight: 500;
-
             line-height: 1.25;
         }
-
 
         .event-subtext {
             max-width: 650px;
 
             color: #b99aae;
-
             font-size: 10px;
-
             line-height: 1.55;
         }
 
-
         .event-subtext a {
             color: #ff91d4;
-
             font-weight: 800;
-
             text-decoration: none;
         }
-
 
         .event-subtext a:hover {
             text-decoration: underline;
         }
 
-
-        /* =========================
-           CAROUSEL DOTS
-        ========================= */
+        /* DOTS */
 
         .carousel-dots {
             position: absolute;
+            z-index: 10;
 
             left: 50%;
-            bottom: 17px;
-
-            transform:
-                translateX(-50%);
+            bottom: 14px;
 
             display: flex;
-
             gap: 6px;
 
-            z-index: 10;
+            transform: translateX(-50%);
         }
 
-
-        .dot {
-            width: 6px;
-            height: 6px;
-
-            border: 0;
+        .carousel-dot {
+            width: 5px;
+            height: 5px;
 
             padding: 0;
 
+            border: 0;
             border-radius: 50%;
 
-            background:
-                rgba(255,255,255,.2);
+            background: rgba(255, 185, 225, .28);
 
             cursor: pointer;
 
-            transition: .3s ease;
+            transition:
+                width .25s ease,
+                background .25s ease;
         }
 
-
-        .dot.active {
-            width: 18px;
-
+        .carousel-dot.active {
+            width: 14px;
             border-radius: 999px;
-
-            background:
-                #ff91d4;
-
-            box-shadow:
-                0 0 10px
-                rgba(255,145,212,.5);
+            background: #ff91d4;
         }
 
+        /* SECTIONS */
 
-        /* =========================
-           WELCOME
-        ========================= */
-
-        .welcome {
-            text-align: center;
-
-            margin:
-                58px auto 45px;
-
-            max-width: 650px;
+        .section {
+            margin-top: 42px;
         }
 
+        .section-label {
+            margin-bottom: 6px;
 
-        .section-kicker {
             color: #ff91d4;
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            letter-spacing: 2px;
-
-            text-transform:
-                uppercase;
-
-            margin-bottom: 10px;
+            font-family: "DynaPuff", sans-serif;
+            font-size: 18px;
+            font-weight: 500;
         }
 
-
-        .welcome h2 {
+        .section-title {
             margin: 0;
 
-            font-family:
-                "DynaPuff",
-                sans-serif;
-
-            font-size:
-                clamp(
-                    24px,
-                    5vw,
-                    36px
-                );
-
+            color: #fff2f8;
+            font-family: "DynaPuff", sans-serif;
+            font-size: 25px;
             font-weight: 500;
-
-            color: #ffdff1;
         }
 
+        .section-text {
+            max-width: 720px;
+            margin: 8px 0 0;
 
-        .welcome p {
-            margin:
-                12px auto 0;
-
-            max-width: 560px;
-
-            color: #b99aae;
-
-            font-size: 13px;
-
+            color: #bbaab4;
+            font-size: 12px;
             line-height: 1.7;
         }
 
-
-        /* =========================
-           SECTIONS
-        ========================= */
-
-        .section {
-            margin-top: 55px;
-        }
-
-
-        .section-heading {
-            display: flex;
-
-            align-items: end;
-
-            justify-content:
-                space-between;
-
-            gap: 15px;
-
-            margin-bottom: 18px;
-        }
-
-
-        .section-heading h2 {
-            margin: 0;
-
-            font-family:
-                "DynaPuff",
-                sans-serif;
-
-            font-size: 22px;
-
-            font-weight: 500;
-
-            color: #ffd2ed;
-        }
-
-
-        .section-heading span {
-            color: #9e8493;
-
-            font-size: 10px;
-
-            font-weight: 700;
-        }
-
-
-        /* =========================
-           UPDATES
-        ========================= */
+        /* UPDATE CARDS */
 
         .updates {
             display: grid;
-
-            grid-template-columns:
-                repeat(
-                    2,
-                    minmax(0, 1fr)
-                );
-
-            gap: 15px;
+            gap: 12px;
+            margin-top: 18px;
         }
 
+        .update-card {
+            padding: 17px 18px;
 
-        .update {
-            padding: 23px;
+            border: 1px solid rgba(255, 137, 207, .13);
+            border-radius: 18px;
 
-            border-radius: 22px;
-
-            border:
-                1px solid
-                rgba(255,145,212,.1);
-
-            background:
-                rgba(255,255,255,.018);
-
-            transition: .3s ease;
+            background: rgba(255, 110, 190, .025);
         }
-
-
-        .update:hover {
-            transform:
-                translateY(-4px);
-
-            border-color:
-                rgba(255,145,212,.25);
-
-            background:
-                rgba(255,145,212,.025);
-        }
-
 
         .update-date {
-            color: #9e8493;
-
+            color: #8e7885;
             font-size: 9px;
-
-            font-weight: 800;
-
-            letter-spacing: .5px;
-
-            margin-bottom: 9px;
+            font-weight: 700;
+            letter-spacing: .03em;
         }
 
+        .update-title {
+            margin-top: 6px;
 
-        .update h3 {
-            margin: 0;
-
-            font-family:
-                "DynaPuff",
-                sans-serif;
-
-            color: #fff;
-
-            font-size: 17px;
-
+            color: #f9e9f2;
+            font-family: "DynaPuff", sans-serif;
+            font-size: 16px;
             font-weight: 500;
         }
 
+        .update-body {
+            margin-top: 7px;
 
-        .update p {
-            margin:
-                10px 0 0;
-
-            color: #b99aae;
-
+            color: #b8a4af;
             font-size: 11px;
-
-            line-height: 1.6;
+            line-height: 1.65;
         }
-
 
         .tags {
             display: flex;
-
             flex-wrap: wrap;
-
-            gap: 6px;
-
-            margin-top: 15px;
+            gap: 5px;
+            margin-top: 10px;
         }
 
-
         .tag {
-            padding:
-                5px 9px;
+            padding: 4px 8px;
 
+            border: 1px solid rgba(255, 137, 207, .17);
             border-radius: 999px;
 
-            color: #d6aeca;
-
-            background:
-                rgba(255,145,212,.06);
-
-            border:
-                1px solid
-                rgba(255,145,212,.08);
+            color: #ff9bd8;
+            background: rgba(255, 137, 207, .04);
 
             font-size: 8px;
-
             font-weight: 800;
         }
 
-
-        /* =========================
-           MEMBERS
-        ========================= */
+        /* MEMBERS */
 
         .members {
             display: grid;
-
-            grid-template-columns:
-                repeat(
-                    4,
-                    minmax(0, 1fr)
-                );
-
-            gap: 15px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 18px;
         }
-
 
         .member {
-            padding:
-                32px 15px;
+            padding: 18px 10px;
+
+            border: 1px solid rgba(255, 137, 207, .12);
+            border-radius: 17px;
+
+            background: rgba(255, 110, 190, .025);
 
             text-align: center;
-
-            border-radius: 22px;
-
-            border:
-                1px solid
-                rgba(255,145,212,.1);
-
-            background:
-                rgba(255,255,255,.015);
-
-            transition: .3s ease;
         }
-
-
-        .member:hover {
-            transform:
-                translateY(-5px);
-
-            border-color:
-                rgba(255,145,212,.3);
-        }
-
-
-        .member-profile {
-            width: 72px;
-
-            height: 72px;
-
-            margin:
-                0 auto 16px;
-
-            border-radius: 50%;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            background:
-                radial-gradient(
-                    circle at 35% 30%,
-                    rgba(255,255,255,.18),
-                    rgba(255,145,212,.07)
-                );
-
-            border:
-                1px solid
-                rgba(255,145,212,.16);
-
-            box-shadow:
-                0 0 20px
-                rgba(255,145,212,.06);
-
-            overflow: hidden;
-        }
-
-
-        .member-profile-icon {
-            color: #ff91d4;
-
-            font-size: 28px;
-
-            filter:
-                drop-shadow(
-                    0 0 8px
-                    rgba(255,145,212,.3)
-                );
-        }
-
 
         .member-name {
-            font-family:
-                "DynaPuff",
-                sans-serif;
-
-            font-size: 18px;
-
-            color: #fff;
+            color: #f9eaf2;
+            font-family: "DynaPuff", sans-serif;
+            font-size: 14px;
         }
 
+        .member-role {
+            margin-top: 4px;
 
-        /* =========================
-           MUSIC
-        ========================= */
+            color: #8f7b87;
+            font-size: 8px;
+        }
+
+        /* MUSIC */
 
         .music-card {
-            position: relative;
+            margin-top: 18px;
+            padding: 22px;
 
-            padding: 30px;
+            border: 1px solid rgba(255, 137, 207, .13);
+            border-radius: 20px;
 
-            border-radius: 25px;
-
-            overflow: hidden;
-
-            border:
-                1px solid
-                rgba(255,145,212,.12);
-
-            background:
-                radial-gradient(
-                    circle at 85% 20%,
-                    rgba(255,145,212,.09),
-                    transparent 30%
-                ),
-
-                rgba(255,255,255,.018);
+            background: rgba(255, 110, 190, .025);
         }
 
-
-        .music-card::before {
-            content: "♫";
-
-            position: absolute;
-
-            top: -18px;
-            right: 25px;
-
-            font-family:
-                "DynaPuff",
-                sans-serif;
-
-            font-size: 100px;
-
-            color:
-                rgba(255,145,212,.035);
-        }
-
-
-        .music-label {
+        .music-status {
             color: #ff91d4;
-
             font-size: 9px;
-
             font-weight: 800;
-
-            letter-spacing: 2px;
+            letter-spacing: .08em;
         }
 
+        .music-name {
+            margin-top: 6px;
 
-        .music-title {
-            margin:
-                7px 0 3px;
-
-            font-family:
-                "DynaPuff",
-                sans-serif;
-
-            font-size: 25px;
-
-            color: #fff;
+            color: #fff0f7;
+            font-family: "DynaPuff", sans-serif;
+            font-size: 20px;
         }
 
+        .music-info {
+            margin-top: 4px;
 
-        .music-meta {
-            color: #9e8493;
-
-            font-size: 10px;
+            color: #95808c;
+            font-size: 9px;
         }
-
 
         .track {
-            margin-top: 22px;
+            margin-top: 17px;
+            padding-top: 12px;
 
-            padding:
-                12px 15px;
+            border-top: 1px solid rgba(255, 137, 207, .08);
 
-            border-radius: 14px;
-
-            background:
-                rgba(255,255,255,.025);
-
-            color: #d6aeca;
-
+            color: #bba7b2;
             font-size: 10px;
-
-            font-weight: 700;
         }
 
+        /* EXPLORE */
 
-        /* =========================
-           QUICK LINKS
-        ========================= */
-
-        .quick-links {
+        .explore {
             display: grid;
-
-            grid-template-columns:
-                repeat(
-                    3,
-                    minmax(0, 1fr)
-                );
-
-            gap: 12px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 18px;
         }
 
+        .explore-card {
+            padding: 19px 15px;
 
-        .quick-link {
-            display: flex;
-
-            align-items: center;
-
-            justify-content:
-                space-between;
-
-            padding: 18px;
-
+            border: 1px solid rgba(255, 137, 207, .12);
             border-radius: 18px;
 
-            color: #ffdff1;
+            color: #f9eaf2;
+            background: rgba(255, 110, 190, .025);
 
             text-decoration: none;
 
-            border:
-                1px solid
-                rgba(255,145,212,.09);
-
-            background:
-                rgba(255,255,255,.015);
-
-            font-size: 11px;
-
-            font-weight: 800;
-
-            transition: .25s ease;
+            transition:
+                transform .2s ease,
+                border-color .2s ease;
         }
 
+        .explore-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 137, 207, .32);
+        }
 
-        .quick-link span {
+        .explore-name {
+            font-family: "DynaPuff", sans-serif;
+            font-size: 14px;
+        }
+
+        .explore-description {
+            margin-top: 5px;
+
+            color: #8e7b86;
+            font-size: 9px;
+            line-height: 1.5;
+        }
+
+        /* FINAL MESSAGE */
+
+        .final-message {
+            margin-top: 40px;
+            padding: 5px 0 8px;
+
+            text-align: center;
+        }
+
+        .final-flower {
             color: #ff91d4;
+            font-size: 18px;
+        }
 
+        .final-title {
+            margin-top: 5px;
+
+            color: #ffe9f5;
+            font-family: "DynaPuff", sans-serif;
             font-size: 15px;
         }
 
+        .final-text {
+            margin-top: 4px;
 
-        .quick-link:hover {
-            transform:
-                translateY(-3px);
-
-            border-color:
-                rgba(255,145,212,.25);
-
-            background:
-                rgba(255,145,212,.035);
+            color: #8d7884;
+            font-size: 9px;
         }
 
-
-        /* =========================
-           FINAL MESSAGE
-        ========================= */
-
-        .final-message {
-            text-align: center;
-
-            margin:
-                60px auto 0;
-
-            padding:
-                35px 20px 20px;
-        }
-
-
-        .final-message .flower {
-            color: #ff91d4;
-
-            font-size: 22px;
-
-            margin-bottom: 10px;
-        }
-
-
-        .final-message h2 {
-            margin: 0;
-
-            font-family:
-                "DynaPuff",
-                sans-serif;
-
-            font-size: 25px;
-
-            font-weight: 500;
-
-            color: #ffd2ed;
-        }
-
-
-        .final-message p {
-            margin:
-                9px 0 0;
-
-            color: #9e8493;
-
-            font-size: 11px;
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 700px) {
+        @media (max-width: 600px) {
 
             .page {
-                padding-left: 15px;
-
-                padding-right: 15px;
-
-                padding-bottom: 10px;
+                padding-left: 16px;
+                padding-right: 16px;
             }
-
 
             .hero {
                 height: 205px;
-
                 border-radius: 24px;
             }
 
-
             .slide {
-                padding:
-                    25px 20px;
+                padding: 28px 25px 34px;
             }
 
-
-            .hero-title {
-                font-size: 25px;
+            .slide-title {
+                font-size: 23px;
             }
 
+            .slide-subtext {
+                font-size: 9px;
+            }
 
             .event-image {
-                width: min(
-                    100%,
-                    450px
-                );
-
+                width: min(100%, 450px);
                 max-height: 105px;
-
                 margin-bottom: 7px;
             }
-
 
             .event-title {
                 font-size: 14px;
             }
 
-
             .event-subtext {
                 max-width: 330px;
-
                 font-size: 8px;
-
                 line-height: 1.45;
             }
 
-
-            .updates {
-                grid-template-columns: 1fr;
-            }
-
-
             .members {
-                grid-template-columns:
-                    repeat(
-                        2,
-                        minmax(0, 1fr)
-                    );
+                grid-template-columns: repeat(2, 1fr);
             }
 
-
-            .member {
-                padding:
-                    28px 12px;
-            }
-
-
-            .member-profile {
-                width: 65px;
-
-                height: 65px;
-            }
-
-
-            .member-name {
-                font-size: 16px;
-            }
-
-
-            .quick-links {
+            .explore {
                 grid-template-columns: 1fr;
             }
 
-
-            .welcome {
-                margin-top: 45px;
+            .section {
+                margin-top: 34px;
             }
-
-
-            .final-message {
-                margin-top: 45px;
-
-                padding-top: 25px;
-
-                padding-bottom: 10px;
-            }
-
-
-            .final-message h2 {
-                font-size: 22px;
-            }
-
         }
-
     </style>
-
 </head>
-
 
 <body>
 
-    <canvas id="stars"></canvas>
+<canvas id="stars"></canvas>
 
+<div class="page fade-in">
 
-    <div class="page">
+    <!-- HERO -->
+    <section class="hero">
 
+        <div class="hero-decoration top">𐙚</div>
+        <div class="hero-decoration bottom">✦</div>
 
-        <!-- =========================
-             HERO CAROUSEL
-        ========================= -->
+        <div class="carousel">
 
-        <section class="hero">
+            <!-- SLIDE 1 -->
+            <div class="slide active">
+                <div class="slide-content">
 
-            <div class="slides">
+                    <div class="slide-kicker">
+                        KABE 𐙚 Official Website
+                    </div>
 
+                    <h1 class="slide-title">
+                        Welcome to the garden.
+                    </h1>
 
-                <!-- SLIDE 1 -->
-
-                <div class="slide active">
-
-                    <div class="slide-content">
-
-                        <div class="eyebrow">
-                            KABE 𐙚 Official Website
-                        </div>
-
-
-                        <h1 class="hero-title">
-                            Welcome to the garden. 𐙚
-                        </h1>
-
+                    <div class="slide-subtext">
+                        A little place for everything KABE.
                     </div>
 
                 </div>
+            </div>
 
+            <!-- SLIDE 2 -->
+            <div class="slide">
+                <div class="slide-content">
 
-                <!-- SLIDE 2 -->
-
-                <div class="slide">
-
-                    <div class="slide-content">
-
-                        <div class="eyebrow">
-                            KABE News
-                        </div>
-
-
-                        <h1 class="hero-title">
-                            What's growing?
-                        </h1>
-
-
-                        <a
-                            class="hero-button"
-                            href="/news"
-                        >
-                            Read the latest updates 𐙚
-                        </a>
-
+                    <div class="slide-kicker">
+                        KABE News
                     </div>
 
-                </div>
+                    <h2 class="slide-title">
+                        What's growing?
+                    </h2>
 
-
-                <!-- SLIDE 3 -->
-
-                <div class="slide">
-
-                    <div class="slide-content">
-
-                        <div class="eyebrow">
-                            KABE Music
-                        </div>
-
-
-                        <h1 class="hero-title">
-                            Something is blooming.
-                        </h1>
-
-
-                        <a
-                            class="hero-button"
-                            href="/music"
-                        >
-                            Explore KABE Music ♡
-                        </a>
-
+                    <div class="slide-subtext">
+                        Keep up with the latest KABE updates.
                     </div>
 
+                    <a class="slide-button" href="/news">
+                        READ NEWS
+                    </a>
+
                 </div>
+            </div>
 
+            <!-- SLIDE 3 -->
+            <div class="slide">
+                <div class="slide-content">
 
-                <!-- SLIDE 4 — NEW YEARS EVENT -->
+                    <div class="slide-kicker">
+                        KABE Music
+                    </div>
 
-                <div class="slide">
+                    <h2 class="slide-title">
+                        Something is blooming.
+                    </h2>
 
-                    <div class="event-slide-content">
+                    <div class="slide-subtext">
+                        Discover what's coming next from KABE.
+                    </div>
+
+                    <a class="slide-button" href="/music">
+                        LISTEN
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- SLIDE 4 -->
+            <div class="slide">
+                <div class="event-slide-content">
+
+                    <div class="event-image-wrapper">
+
+                        <!--
+                            The image is intentionally NOT loaded here.
+                            JavaScript adds the src after Slide 3 has appeared.
+                        -->
 
                         <img
+                            id="event-image"
                             class="event-image"
-                            src="/bmedia/goose.png"
                             alt="Folded presents KABE New Years Event"
+                            decoding="async"
                         >
 
-
-                        <div class="event-title">
-                            Folded presents: KABE New Years Event
+                        <div
+                            id="event-image-fallback"
+                            class="event-image-fallback"
+                        >
+                            KABE New Years Event
                         </div>
 
+                    </div>
 
-                        <div class="event-subtext">
+                    <div class="event-title">
+                        Folded presents: KABE New Years Event
+                    </div>
 
-                            Tune in on
-
-                            <a href="/broadcast">
-                                Kabe.world/broadcast
-                            </a>
-
-                            on December 31st, 2026 at
-
-                            12 PM Pacific ·
-                            2 PM Central ·
-                            3 PM Eastern
-
-                        </div>
-
+                    <div class="event-subtext">
+                        Tune in on
+                        <a href="/broadcast">
+                            Kabe.world/broadcast
+                        </a>
+                        on December 31st, 2026 at
+                        12 PM Pacific · 2 PM Central · 3 PM Eastern
                     </div>
 
                 </div>
-
-
             </div>
 
+        </div>
 
-            <!-- DOTS -->
+        <div class="carousel-dots">
 
-            <div class="carousel-dots">
+            <button
+                class="carousel-dot active"
+                aria-label="Slide 1"
+                data-slide="0"
+            ></button>
 
-                <button
-                    class="dot active"
-                    aria-label="Slide 1"
-                ></button>
+            <button
+                class="carousel-dot"
+                aria-label="Slide 2"
+                data-slide="1"
+            ></button>
 
+            <button
+                class="carousel-dot"
+                aria-label="Slide 3"
+                data-slide="2"
+            ></button>
 
-                <button
-                    class="dot"
-                    aria-label="Slide 2"
-                ></button>
+            <button
+                class="carousel-dot"
+                aria-label="Slide 4"
+                data-slide="3"
+            ></button>
 
+        </div>
 
-                <button
-                    class="dot"
-                    aria-label="Slide 3"
-                ></button>
+    </section>
 
 
-                <button
-                    class="dot"
-                    aria-label="Slide 4"
-                ></button>
+    <!-- WELCOME -->
+    <section class="section">
 
-            </div>
+        <div class="section-label">
+            welcome home 𐙚
+        </div>
 
-        </section>
+        <h2 class="section-title">
+            A little garden for KABE.
+        </h2>
 
+        <p class="section-text">
+            Welcome to the official home of KABE. This is where our music,
+            news, projects, and everything growing around KABE comes together.
+        </p>
 
-        <!-- =========================
-             WELCOME
-        ========================= -->
+    </section>
 
-        <section class="welcome">
 
-            <div class="section-kicker">
-                welcome home 𐙚
-            </div>
+    <!-- LATEST UPDATES -->
+    <section class="section">
 
+        <div class="section-label">
+            latest updates 𐙚
+        </div>
 
-            <h2>
-                A little garden for KABE.
-            </h2>
+        <div class="updates">
 
+            <article class="update-card">
 
-            <p>
-                Explore the latest news, music, careers,
-                and everything growing inside the world of KABE. ♡
-            </p>
-
-        </section>
-
-
-        <!-- =========================
-             LATEST UPDATES
-        ========================= -->
-
-        <section class="section">
-
-            <div class="section-heading">
-
-                <h2>
-                    Latest updates
-                </h2>
-
-
-                <span>
-                    from the garden
-                </span>
-
-            </div>
-
-
-            <div class="updates">
-
-
-                <article class="update">
-
-                    <div class="update-date">
-                        September 24, 2026
-                    </div>
-
-
-                    <h3>
-                        KABE is hiring Logo Designers!
-                    </h3>
-
-
-                    <p>
-                        KABE is looking for a creative Logo Designer
-                        to help shape our visual identity and future projects.
-                    </p>
-
-
-                    <div class="tags">
-
-                        <span class="tag">
-                            ✓ Official Announcement
-                        </span>
-
-
-                        <span class="tag">
-                            KABE Careers
-                        </span>
-
-                    </div>
-
-                </article>
-
-
-                <article class="update">
-
-                    <div class="update-date">
-                        September 22, 2026 · 9:43 PM CT
-                    </div>
-
-
-                    <h3>
-                        An update regarding Blossom
-                    </h3>
-
-
-                    <p>
-                        Blossom will be taking an official hiatus from
-                        KABE-related activities due to limited availability online.
-                    </p>
-
-
-                    <div class="tags">
-
-                        <span class="tag">
-                            ✓ Official Announcement
-                        </span>
-
-
-                        <span class="tag">
-                            Hiatus Announcement
-                        </span>
-
-
-                        <span class="tag">
-                            Blossom
-                        </span>
-
-                    </div>
-
-                </article>
-
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             MEMBERS
-        ========================= -->
-
-        <section class="section">
-
-            <div class="section-heading">
-
-                <h2>
-                    Meet KABE
-                </h2>
-
-
-                <span>
-                    four little stars
-                </span>
-
-            </div>
-
-
-            <div class="members">
-
-
-                <div class="member">
-
-                    <div class="member-profile">
-
-                        <div class="member-profile-icon">
-                            𐙚
-                        </div>
-
-                    </div>
-
-
-                    <div class="member-name">
-                        Kalon
-                    </div>
-
+                <div class="update-date">
+                    September 24, 2026
                 </div>
 
-
-                <div class="member">
-
-                    <div class="member-profile">
-
-                        <div class="member-profile-icon">
-                            𐙚
-                        </div>
-
-                    </div>
-
-
-                    <div class="member-name">
-                        Abloom
-                    </div>
-
+                <div class="update-title">
+                    KABE is hiring Logo Designers!
                 </div>
 
+                <div class="update-body">
+                    KABE is looking for a creative Logo Designer to help
+                    develop and maintain visual designs for KABE.
+                </div>
 
-                <div class="member">
+                <div class="tags">
+                    <span class="tag">
+                        ✓ Official Announcement
+                    </span>
 
-                    <div class="member-profile">
+                    <span class="tag">
+                        KABE Careers
+                    </span>
+                </div>
 
-                        <div class="member-profile-icon">
-                            𐙚
-                        </div>
-
-                    </div>
+            </article>
 
 
-                    <div class="member-name">
+            <article class="update-card">
+
+                <div class="update-date">
+                    September 22, 2026 · 9:43 PM CT
+                </div>
+
+                <div class="update-title">
+                    An update regarding Blossom
+                </div>
+
+                <div class="update-body">
+                    KABE would like to share that B, Blossom, will be taking
+                    an official hiatus from KABE-related activities due to
+                    limited availability online. There is currently no
+                    confirmed return date.
+                </div>
+
+                <div class="tags">
+                    <span class="tag">
+                        ✓ Official Announcement
+                    </span>
+
+                    <span class="tag">
+                        Hiatus Announcement
+                    </span>
+
+                    <span class="tag">
                         Blossom
-                    </div>
-
+                    </span>
                 </div>
 
+            </article>
 
-                <div class="member">
+        </div>
 
-                    <div class="member-profile">
-
-                        <div class="member-profile-icon">
-                            𐙚
-                        </div>
-
-                    </div>
+    </section>
 
 
-                    <div class="member-name">
-                        Euphoria
-                    </div>
+    <!-- MEMBERS -->
+    <section class="section">
 
-                </div>
+        <div class="section-label">
+            the members 𐙚
+        </div>
 
+        <div class="members">
 
+            <div class="member">
+                <div class="member-name">Kalon</div>
+                <div class="member-role">Member</div>
             </div>
 
-        </section>
+            <div class="member">
+                <div class="member-name">Abloom</div>
+                <div class="member-role">Member</div>
+            </div>
+
+            <div class="member">
+                <div class="member-name">Blossom</div>
+                <div class="member-role">Member</div>
+            </div>
+
+            <div class="member">
+                <div class="member-name">Euphoria</div>
+                <div class="member-role">Member</div>
+            </div>
+
+        </div>
+
+    </section>
 
 
-        <!-- =========================
-             MUSIC
-        ========================= -->
+    <!-- MUSIC -->
+    <section class="section">
 
-        <section class="section">
+        <div class="section-label">
+            music 𐙚
+        </div>
 
-            <div class="section-heading">
+        <div class="music-card">
 
-                <h2>
+            <div class="music-status">
+                COMING SOON
+            </div>
+
+            <div class="music-name">
+                KABE Debut
+            </div>
+
+            <div class="music-info">
+                Debut Single · 2026
+            </div>
+
+            <div class="track">
+                01 · ███████████ · DEBUT
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPLORE -->
+    <section class="section">
+
+        <div class="section-label">
+            explore 𐙚
+        </div>
+
+        <div class="explore">
+
+            <a class="explore-card" href="/news">
+                <div class="explore-name">
+                    News
+                </div>
+
+                <div class="explore-description">
+                    See the latest updates from KABE.
+                </div>
+            </a>
+
+            <a class="explore-card" href="/music">
+                <div class="explore-name">
                     Music
-                </h2>
-
-
-                <span>
-                    coming soon
-                </span>
-
-            </div>
-
-
-            <div class="music-card">
-
-                <div class="music-label">
-                    COMING SOON
                 </div>
 
-
-                <div class="music-title">
-                    KABE Debut
+                <div class="explore-description">
+                    Explore KABE's music and upcoming releases.
                 </div>
+            </a>
 
-
-                <div class="music-meta">
-                    Debut Single · 2026
-                </div>
-
-
-                <div class="track">
-                    01 · ███████████ · DEBUT
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             EXPLORE
-        ========================= -->
-
-        <section class="section">
-
-            <div class="section-heading">
-
-                <h2>
-                    Explore
-                </h2>
-
-
-                <span>
-                    find your way around
-                </span>
-
-            </div>
-
-
-            <div class="quick-links">
-
-
-                <a
-                    href="/news"
-                    class="quick-link"
-                >
-
-                    KABE News
-
-                    <span>
-                        𐙚
-                    </span>
-
-                </a>
-
-
-                <a
-                    href="/music"
-                    class="quick-link"
-                >
-
-                    KABE Music
-
-                    <span>
-                        ♫
-                    </span>
-
-                </a>
-
-
-                <a
-                    href="/careers"
-                    class="quick-link"
-                >
-
+            <a class="explore-card" href="/careers">
+                <div class="explore-name">
                     Careers
+                </div>
 
-                    <span>
-                        ✦
-                    </span>
+                <div class="explore-description">
+                    Find opportunities to work with KABE.
+                </div>
+            </a>
 
-                </a>
+        </div>
 
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             FINAL MESSAGE
-        ========================= -->
-
-        <section class="final-message">
-
-            <div class="flower">
-                𐙚
-            </div>
+    </section>
 
 
-            <h2>
-                Made with love for KABE.
-            </h2>
+    <!-- FINAL MESSAGE -->
+    <section class="final-message">
+
+        <div class="final-flower">
+            𐙚
+        </div>
+
+        <div class="final-title">
+            Made with love for KABE.
+        </div>
+
+        <div class="final-text">
+            Welcome to our little garden. ♡
+        </div>
+
+    </section>
+
+</div>
 
 
-            <p>
-                Welcome to our little garden. ♡
-            </p>
-
-        </section>
+<script src="/directory.js"></script>
 
 
-    </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* ================================
+       CAROUSEL
+    ================================= */
+
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".carousel-dot");
+
+    let currentSlide = 0;
+    let eventImageStarted = false;
 
 
-    <!-- =========================
-         CAROUSEL JAVASCRIPT
-    ========================= -->
+    /*
+        Load the event image only when the carousel
+        reaches Slide 3 / the event slide.
 
-    <script>
+        The image does NOT exist as a src in the HTML,
+        so the browser will not request it while loading
+        the main page.
+    */
 
-        const slides =
-            document.querySelectorAll(
-                ".slide"
-            );
+    function loadEventImage() {
 
-
-        const dots =
-            document.querySelectorAll(
-                ".dot"
-            );
-
-
-        let currentSlide = 0;
-
-
-        function showSlide(index) {
-
-            slides.forEach(
-                (slide, i) => {
-
-                    slide.classList.toggle(
-                        "active",
-                        i === index
-                    );
-
-                }
-            );
-
-
-            dots.forEach(
-                (dot, i) => {
-
-                    dot.classList.toggle(
-                        "active",
-                        i === index
-                    );
-
-                }
-            );
-
-
-            currentSlide = index;
-
+        if (eventImageStarted) {
+            return;
         }
 
+        eventImageStarted = true;
 
-        dots.forEach(
-            (dot, index) => {
+        const image = document.getElementById("event-image");
+        const fallback = document.getElementById("event-image-fallback");
 
-                dot.addEventListener(
-                    "click",
-                    () => {
+        if (!image) {
+            return;
+        }
 
-                        showSlide(
-                            index
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-
-        setInterval(
-            () => {
-
-                currentSlide =
-                    (
-                        currentSlide + 1
-                    ) %
-                    slides.length;
-
-
-                showSlide(
-                    currentSlide
-                );
-
-            },
-            6000
-        );
-
-    </script>
-
-
-    <!-- =========================
-         INTERACTIVE STARFIELD
-    ========================= -->
-
-    <script>
-
-        const canvas =
-            document.getElementById(
-                "stars"
-            );
-
-
-        const ctx =
-            canvas.getContext(
-                "2d"
-            );
-
-
-        let stars = [];
-
-
-        let mouse = {
-            x: null,
-            y: null
+        image.onload = function () {
+            image.classList.add("loaded");
         };
 
+        image.onerror = function () {
+            image.style.display = "none";
 
-        function resizeCanvas() {
+            if (fallback) {
+                fallback.style.display = "block";
+            }
+        };
 
-            canvas.width =
-                window.innerWidth;
+        /*
+            Only now does the browser request the PNG.
+        */
 
-            canvas.height =
-                window.innerHeight;
+        image.src = "/bmedia/goose.png";
+    }
 
-            createStars();
+
+    function showSlide(index) {
+
+        if (index < 0) {
+            index = slides.length - 1;
+        }
+
+        if (index >= slides.length) {
+            index = 0;
+        }
+
+        currentSlide = index;
+
+
+        slides.forEach(function (slide, i) {
+
+            slide.classList.toggle(
+                "active",
+                i === currentSlide
+            );
+
+        });
+
+
+        dots.forEach(function (dot, i) {
+
+            dot.classList.toggle(
+                "active",
+                i === currentSlide
+            );
+
+        });
+
+
+        /*
+            Slide indexes:
+            0 = Welcome
+            1 = News
+            2 = Music
+            3 = New Years Event
+
+            Once the carousel gets to Slide 3,
+            start loading the event image.
+        */
+
+        if (currentSlide === 3) {
+            loadEventImage();
+        }
+
+    }
+
+
+    dots.forEach(function (dot) {
+
+        dot.addEventListener("click", function () {
+
+            const index = Number(
+                dot.dataset.slide
+            );
+
+            showSlide(index);
+
+        });
+
+    });
+
+
+    setInterval(function () {
+
+        showSlide(currentSlide + 1);
+
+    }, 6000);
+
+
+
+    /* ================================
+       STARFIELD
+    ================================= */
+
+    const canvas = document.getElementById("stars");
+    const ctx = canvas.getContext("2d");
+
+    let stars = [];
+    let mouseX = -1000;
+    let mouseY = -1000;
+
+
+    function resizeCanvas() {
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+    }
+
+
+    function createStars() {
+
+        stars = [];
+
+        const amount = Math.min(
+            150,
+            Math.floor(
+                window.innerWidth *
+                window.innerHeight /
+                7000
+            )
+        );
+
+
+        for (let i = 0; i < amount; i++) {
+
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 1.5 + .3,
+                speed: Math.random() * .15 + .03,
+                opacity: Math.random() * .5 + .15
+            });
 
         }
 
-
-        function createStars() {
-
-            stars = [];
+    }
 
 
-            const amount =
-                Math.min(
-                    150,
-                    Math.floor(
-                        window.innerWidth *
-                        window.innerHeight /
-                        7000
-                    )
-                );
+    function drawStars() {
+
+        ctx.clearRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
 
 
-            for (
-                let i = 0;
-                i < amount;
-                i++
-            ) {
+        stars.forEach(function (star) {
 
-                stars.push({
+            star.y -= star.speed;
 
-                    x:
-                        Math.random() *
-                        canvas.width,
 
-                    y:
-                        Math.random() *
-                        canvas.height,
+            if (star.y < -5) {
+                star.y = canvas.height + 5;
+            }
 
-                    size:
-                        Math.random() *
-                        1.4 +
-                        .3,
 
-                    opacity:
-                        Math.random() *
-                        .55 +
-                        .15,
+            const distance = Math.sqrt(
+                Math.pow(star.x - mouseX, 2) +
+                Math.pow(star.y - mouseY, 2)
+            );
 
-                    speed:
-                        Math.random() *
-                        .15 +
-                        .03
 
-                });
+            let opacity = star.opacity;
+
+
+            if (distance < 100) {
+
+                opacity +=
+                    (1 - distance / 100) * .7;
 
             }
 
-        }
 
+            ctx.beginPath();
 
-        function drawStars() {
-
-            ctx.clearRect(
+            ctx.arc(
+                star.x,
+                star.y,
+                star.size,
                 0,
-                0,
-                canvas.width,
-                canvas.height
+                Math.PI * 2
             );
 
+            ctx.fillStyle =
+                "rgba(255,210,235," +
+                Math.min(opacity, 1) +
+                ")";
 
-            stars.forEach(
-                star => {
+            ctx.fill();
 
-                    star.y -=
-                        star.speed;
-
-
-                    if (
-                        star.y < 0
-                    ) {
-
-                        star.y =
-                            canvas.height;
-
-                    }
+        });
 
 
-                    let opacity =
-                        star.opacity;
+        requestAnimationFrame(drawStars);
+
+    }
 
 
-                    if (
-                        mouse.x !== null &&
-                        mouse.y !== null
-                    ) {
-
-                        const dx =
-                            star.x -
-                            mouse.x;
-
-
-                        const dy =
-                            star.y -
-                            mouse.y;
-
-
-                        const distance =
-                            Math.sqrt(
-                                dx * dx +
-                                dy * dy
-                            );
-
-
-                        if (
-                            distance < 100
-                        ) {
-
-                            opacity =
-                                Math.min(
-                                    1,
-                                    opacity +
-                                    (
-                                        1 -
-                                        distance /
-                                        100
-                                    ) *
-                                    .65
-                                );
-
-                        }
-
-                    }
-
-
-                    ctx.beginPath();
-
-
-                    ctx.arc(
-                        star.x,
-                        star.y,
-                        star.size,
-                        0,
-                        Math.PI * 2
-                    );
-
-
-                    ctx.fillStyle =
-                        `rgba(255,210,237,${opacity})`;
-
-
-                    ctx.fill();
-
-                }
-            );
-
-
-            requestAnimationFrame(
-                drawStars
-            );
-
-        }
-
-
-        window.addEventListener(
-            "resize",
-            resizeCanvas
-        );
-
-
-        window.addEventListener(
-            "mousemove",
-            event => {
-
-                mouse.x =
-                    event.clientX;
-
-                mouse.y =
-                    event.clientY;
-
-            }
-        );
-
-
-        window.addEventListener(
-            "mouseleave",
-            () => {
-
-                mouse.x = null;
-
-                mouse.y = null;
-
-            }
-        );
-
+    window.addEventListener("resize", function () {
 
         resizeCanvas();
+        createStars();
 
-        drawStars();
-
-    </script>
+    });
 
 
-    <!-- =========================
-         KABE DIRECTORY
-    ========================= -->
+    window.addEventListener("mousemove", function (event) {
 
-    <script src="/directory.js"></script>
+        mouseX = event.clientX;
+        mouseY = event.clientY;
 
+    });
+
+
+    window.addEventListener("mouseleave", function () {
+
+        mouseX = -1000;
+        mouseY = -1000;
+
+    });
+
+
+    resizeCanvas();
+    createStars();
+    drawStars();
+
+});
+</script>
 
 </body>
-
 </html>
