@@ -52,7 +52,7 @@
             width: 100%;
             max-width: 1000px;
             margin: 0 auto;
-            padding: 0 22px 0;
+            padding: 0 22px;
         }
 
         /* HERO */
@@ -170,7 +170,7 @@
             bottom: 15px;
         }
 
-        /* EVENT SLIDE */
+        /* EVENT BANNER */
 
         .event-slide {
             position: relative;
@@ -412,18 +412,23 @@
         .members {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 10px;
+            gap: 12px;
 
             margin-top: 18px;
         }
 
         .member {
-            padding: 15px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            padding: 18px 10px;
 
             border: 1px solid rgba(255, 145, 212, .12);
-            border-radius: 15px;
+            border-radius: 18px;
 
-            background: rgba(255, 255, 255, .018);
+            background: rgba(255, 255, 255, .02);
 
             text-align: center;
 
@@ -431,24 +436,57 @@
         }
 
         .member:hover {
-            border-color: rgba(255, 145, 212, .25);
-            background: rgba(255, 145, 212, .035);
+            transform: translateY(-2px);
+
+            border-color: rgba(255, 145, 212, .28);
+            background: rgba(255, 145, 212, .04);
         }
 
-        .member-flower {
-            display: block;
+        .member-profile {
+            width: 72px;
+            height: 72px;
 
-            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 9px;
+
+            border: 1px solid rgba(255, 145, 212, .35);
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 35% 30%,
+                    rgba(255, 145, 212, .18),
+                    transparent 60%
+                ),
+                #100911;
 
             color: #ff91d4;
-            font-size: 12px;
+
+            font-family: "DynaPuff", sans-serif;
+            font-size: 25px;
+
+            overflow: hidden;
+        }
+
+        .member-profile img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            border-radius: 50%;
+
+            object-fit: cover;
         }
 
         .member-name {
             color: #fff;
 
             font-family: "DynaPuff", sans-serif;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 500;
         }
 
@@ -560,8 +598,8 @@
         /* FINAL MESSAGE */
 
         .final-message {
-            margin-top: 34px;
-            padding: 0 10px 4px;
+            margin-top: 30px;
+            padding: 0 10px 0;
 
             text-align: center;
         }
@@ -632,6 +670,17 @@
 
             .members {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .member {
+                padding: 15px 8px;
+            }
+
+            .member-profile {
+                width: 64px;
+                height: 64px;
+                font-size: 22px;
             }
 
             .explore-grid {
@@ -639,7 +688,7 @@
             }
 
             .final-message {
-                margin-top: 28px;
+                margin-top: 25px;
             }
         }
     </style>
@@ -660,6 +709,8 @@
 
             <div class="slides" id="slides">
 
+                <!-- SLIDE 1 -->
+
                 <div class="slide">
                     <div class="slide-content">
 
@@ -674,6 +725,8 @@
                     </div>
                 </div>
 
+
+                <!-- SLIDE 2 -->
 
                 <div class="slide">
                     <div class="slide-content">
@@ -697,6 +750,8 @@
                 </div>
 
 
+                <!-- SLIDE 3 -->
+
                 <div class="slide">
                     <div class="slide-content">
 
@@ -719,7 +774,7 @@
                 </div>
 
 
-                <!-- EVENT BANNER -->
+                <!-- SLIDE 4 -->
 
                 <div class="slide event-slide">
 
@@ -750,6 +805,8 @@
 
             </div>
 
+
+            <!-- DOTS -->
 
             <div class="dots">
 
@@ -904,23 +961,54 @@
             <div class="members">
 
                 <div class="member">
-                    <span class="member-flower">𐙚</span>
-                    <div class="member-name">Kalon</div>
+
+                    <div class="member-profile">
+                        𐙚
+                    </div>
+
+                    <div class="member-name">
+                        Kalon
+                    </div>
+
                 </div>
 
-                <div class="member">
-                    <span class="member-flower">𐙚</span>
-                    <div class="member-name">Abloom</div>
-                </div>
 
                 <div class="member">
-                    <span class="member-flower">𐙚</span>
-                    <div class="member-name">Blossom</div>
+
+                    <div class="member-profile">
+                        𐙚
+                    </div>
+
+                    <div class="member-name">
+                        Abloom
+                    </div>
+
                 </div>
 
+
                 <div class="member">
-                    <span class="member-flower">𐙚</span>
-                    <div class="member-name">Euphoria</div>
+
+                    <div class="member-profile">
+                        𐙚
+                    </div>
+
+                    <div class="member-name">
+                        Blossom
+                    </div>
+
+                </div>
+
+
+                <div class="member">
+
+                    <div class="member-profile">
+                        𐙚
+                    </div>
+
+                    <div class="member-name">
+                        Euphoria
+                    </div>
+
                 </div>
 
             </div>
@@ -1144,6 +1232,7 @@
                     `rgba(255, 185, 225, ${opacity})`;
 
                 ctx.fill();
+
             }
 
             requestAnimationFrame(drawStars);
