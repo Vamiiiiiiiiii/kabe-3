@@ -86,12 +86,11 @@
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
             gap: 4px;
 
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
 
             border:
                 1px solid
@@ -127,6 +126,8 @@
 
             border-radius: 999px;
 
+            white-space: nowrap;
+
             transition: .25s ease;
         }
 
@@ -151,6 +152,8 @@
             padding: 8px 14px;
 
             margin-right: 2px;
+
+            white-space: nowrap;
         }
 
 
@@ -172,7 +175,7 @@
             margin: 0 auto;
 
             padding:
-                130px 22px 40px;
+                110px 22px 40px;
 
             text-align: center;
 
@@ -328,7 +331,6 @@
             display: inline-flex;
 
             align-items: center;
-
             justify-content: center;
 
             margin-top: 28px;
@@ -407,34 +409,13 @@
         @media (max-width: 600px) {
 
             .top-nav {
-                top: 8px;
-
-                max-width:
-                    calc(100% - 14px);
-
-                padding: 7px 8px;
-            }
-
-
-            .top-nav a {
-                padding:
-                    7px 9px;
-
-                font-size: 9px;
-            }
-
-
-            .nav-logo {
-                padding:
-                    7px 9px;
-
-                font-size: 11px;
+                display: none;
             }
 
 
             .page {
                 padding:
-                    120px 18px 35px;
+                    35px 18px 35px;
             }
 
 
@@ -455,19 +436,30 @@
         }
 
 
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
         @media (max-width: 380px) {
 
-            .top-nav a {
-                padding-left: 7px;
-
-                padding-right: 7px;
+            .error-code {
+                font-size: 100px;
             }
 
 
-            .nav-logo {
-                padding-left: 7px;
+            .title {
+                font-size: 20px;
+            }
 
-                padding-right: 7px;
+
+            .message {
+                font-size: 13px;
+            }
+
+
+            .home-button {
+                padding:
+                    12px 21px;
             }
 
         }
@@ -478,6 +470,7 @@
 
 
 <body>
+
 
     <canvas id="stars"></canvas>
 
@@ -610,7 +603,105 @@
 
             "Somebody tell the page to come home.",
 
-            "The internet looked at this page and said 'girl, no.'"
+            "The internet looked at this page and said 'girl, no.'",
+
+            "This page bloomed somewhere else.",
+
+            "The page is taking a very mysterious little break.",
+
+            "KABE searched the garden. Nothing.",
+
+            "You found the secret page. Unfortunately, it is empty.",
+
+            "This page went outside and forgot its keys.",
+
+            "The page is somewhere between loading and existing.",
+
+            "Oopsie. This flower never bloomed.",
+
+            "The page got lost in the KABE garden.",
+
+            "404. Even the stars don't know where this page went.",
+
+            "We tried refreshing it. It chose peace.",
+
+            "This page has officially entered its disappearing era.",
+
+            "The page is hiding. Please respect its privacy. 𐙚",
+
+            "This URL is giving absolutely nothing.",
+
+            "The page clocked out early today.",
+
+            "The page has left the building. No forwarding address.",
+
+            "We found the stars, but not the page.",
+
+            "This page is somewhere having a main-character moment.",
+
+            "The internet put this page on read.",
+
+            "404. KABE's garden has one missing flower.",
+
+            "This page was here a second ago. Probably.",
+
+            "The page said 'brb' and never came back.",
+
+            "Someone misplaced this little corner of the internet.",
+
+            "The page is currently lost in thought.",
+
+            "No page here. Just vibes. ♡",
+
+            "This page forgot to RSVP.",
+
+            "The URL walked in the wrong direction.",
+
+            "The page has gone missing. The stars are investigating.",
+
+            "This page couldn't find its way home.",
+
+            "404. The garden gate is closed for this page.",
+
+            "This page is taking the scenic route.",
+
+            "The page has been spotted nowhere nearby.",
+
+            "We checked. We double-checked. Still no page.",
+
+            "This page is currently on a tiny vacation.",
+
+            "The page disappeared faster than our motivation.",
+
+            "KABE called. The page didn't answer.",
+
+            "This page is apparently allergic to existing.",
+
+            "404. Please send flowers.",
+
+            "The page is currently somewhere it shouldn't be.",
+
+            "This is definitely not the page. Cute though. 𐙚",
+
+            "The page got distracted by the stars.",
+
+            "Something bloomed here. It wasn't the page.",
+
+            "The page is currently unavailable for mysterious reasons.",
+
+            "We lost the page. If found, please return it to KABE.",
+
+            "This page has entered the void.",
+
+            "The garden is open. This page isn't here.",
+
+            "404. A little oopsie happened.",
+
+            "This page simply chose not to participate.",
+
+            "The page went missing and left no note.",
+
+            "We would tell you where the page is, but we have absolutely no idea."
 
         ];
 
