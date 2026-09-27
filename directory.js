@@ -2,21 +2,18 @@
 
     function createDirectory() {
 
-        /* Remove any existing directory */
         const oldDirectory = document.querySelector(".website-directory");
 
         if (oldDirectory) {
             oldDirectory.remove();
         }
 
-        /* Remove old directory styles */
         const oldStyle = document.getElementById("kabe-directory-style");
 
         if (oldStyle) {
             oldStyle.remove();
         }
 
-        /* Directory styles */
         const style = document.createElement("style");
 
         style.id = "kabe-directory-style";
@@ -49,19 +46,16 @@
             }
 
             .directory-links {
-                width: 100%;
-
                 display: grid;
                 grid-template-columns: repeat(5, minmax(0, 1fr));
 
                 gap: 7px;
 
+                width: 100%;
                 margin: 0 auto 20px;
             }
 
             .directory-links a {
-                width: 100%;
-
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -82,17 +76,12 @@
                 text-decoration: none;
                 white-space: nowrap;
 
-                transition:
-                    background .2s ease,
-                    color .2s ease,
-                    border-color .2s ease,
-                    transform .2s ease;
+                transition: .2s ease;
             }
 
             .directory-links a:hover {
                 background: #ff91d4;
                 border-color: #ff91d4;
-
                 color: #080508;
 
                 transform: translateY(-1px);
@@ -103,8 +92,8 @@
                 align-items: center;
                 justify-content: center;
 
-                flex-wrap: wrap;
                 gap: 10px;
+                flex-wrap: wrap;
 
                 margin-bottom: 13px;
             }
@@ -116,8 +105,6 @@
                 font-weight: 700;
 
                 text-decoration: none;
-
-                transition: color .2s ease;
             }
 
             .directory-socials a:hover {
@@ -126,9 +113,7 @@
 
             .directory-footer {
                 color: #756670;
-
                 font-size: 9px;
-                line-height: 1.5;
             }
 
             .directory-footer span {
@@ -136,82 +121,24 @@
             }
 
 
-            /* MOBILE */
+            /* NO NAVIGATION ON MOBILE */
 
             @media (max-width: 700px) {
 
-                .website-directory {
-                    width: 100%;
-
-                    margin: 25px 0 0;
-
-                    padding: 21px 8px 25px;
-                }
-
-                .directory-title {
-                    margin-bottom: 11px;
-
-                    font-size: 15px;
-                }
-
                 .directory-links {
-                    width: 100%;
-
-                    grid-template-columns: repeat(5, minmax(0, 1fr));
-
-                    gap: 4px;
-
-                    margin-bottom: 18px;
+                    display: none;
                 }
-
-                .directory-links a {
-                    min-width: 0;
-
-                    padding: 8px 2px;
-
-                    font-size: 8px;
-                }
-
-                .directory-socials {
-                    gap: 9px;
-                }
-
-                .directory-socials a {
-                    font-size: 8px;
-                }
-
-                .directory-footer {
-                    font-size: 8px;
-                }
-            }
-
-
-            /* VERY SMALL PHONES */
-
-            @media (max-width: 370px) {
 
                 .website-directory {
-                    padding-left: 5px;
-                    padding-right: 5px;
+                    margin-top: 25px;
+                    padding: 21px 10px 25px;
                 }
 
-                .directory-links {
-                    gap: 2px;
-                }
-
-                .directory-links a {
-                    padding: 8px 1px;
-
-                    font-size: 7px;
-                }
             }
 
         `;
 
         document.head.appendChild(style);
-
-
-        /* Create directory */
 
         const directory = document.createElement("footer");
 
@@ -227,27 +154,11 @@
                 class="directory-links"
                 aria-label="KABE navigation"
             >
-
-                <a href="/">
-                    Home
-                </a>
-
-                <a href="/news">
-                    News
-                </a>
-
-                <a href="/music">
-                    Music
-                </a>
-
-                <a href="/careers">
-                    Careers
-                </a>
-
-                <a href="/credits">
-                    Credits
-                </a>
-
+                <a href="/">Home</a>
+                <a href="/news">News</a>
+                <a href="/music">Music</a>
+                <a href="/careers">Careers</a>
+                <a href="/credits">Credits</a>
             </nav>
 
             <div class="directory-socials">
@@ -276,28 +187,13 @@
 
         `;
 
-
-        /*
-         * Put the directory at the very end of the page.
-         * This works even when the script loads after DOMContentLoaded.
-         */
         document.body.appendChild(directory);
     }
 
-
-    /* Initialize safely on every page */
-
     if (document.readyState === "loading") {
-
-        document.addEventListener(
-            "DOMContentLoaded",
-            createDirectory
-        );
-
+        document.addEventListener("DOMContentLoaded", createDirectory);
     } else {
-
         createDirectory();
-
     }
 
 })();
