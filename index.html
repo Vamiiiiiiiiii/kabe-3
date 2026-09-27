@@ -205,7 +205,7 @@
             transform: translateY(-1px);
         }
 
-        /* EVENT */
+        /* EVENT SLIDE */
 
         .event-slide-content {
             width: 100%;
@@ -217,36 +217,34 @@
             justify-content: center;
         }
 
-        .event-image-box {
+        .event-image-container {
             width: 100%;
-            min-height: 70px;
+            min-height: 1px;
 
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
 
-            margin-bottom: 8px;
+            margin-bottom: 9px;
         }
 
         .event-image {
-            display: none;
+            display: block;
 
             width: min(100%, 600px);
             max-height: 135px;
 
             object-fit: contain;
+
             border-radius: 12px;
+
+            opacity: 0;
+
+            transition: opacity .5s ease;
         }
 
-        .event-image.loaded {
-            display: block;
-        }
-
-        .event-image-loading {
-            display: block;
-
-            width: 100%;
-            height: 1px;
+        .event-image.visible {
+            opacity: 1;
         }
 
         .event-title {
@@ -582,11 +580,6 @@
                 font-size: 9px;
             }
 
-            .event-image-box {
-                min-height: 55px;
-                margin-bottom: 6px;
-            }
-
             .event-image {
                 width: min(100%, 450px);
                 max-height: 105px;
@@ -715,21 +708,10 @@
 
                 <div class="event-slide-content">
 
-                    <div class="event-image-box">
-
-                        <img
-                            id="event-image"
-                            class="event-image"
-                            alt="Folded presents KABE New Years Event"
-                            decoding="async"
-                        >
-
-                        <div
-                            id="event-image-loading"
-                            class="event-image-loading"
-                        ></div>
-
-                    </div>
+                    <div
+                        id="event-image-container"
+                        class="event-image-container"
+                    ></div>
 
                     <div class="event-title">
                         Folded presents: KABE New Years Event
@@ -1032,44 +1014,61 @@ document.addEventListener("DOMContentLoaded", function () {
        CAROUSEL
     ========================================== */
 
-    const slides = document.querySelectorAll(".slide");
-    const dots = document.querySelectorAll(".carousel-dot");
+    const slides =
+        document.querySelectorAll(".slide");
+
+    const dots =
+        document.querySelectorAll(".carousel-dot");
 
     let currentSlide = 0;
 
-    let eventImageLoaded = false;
+    let imageRequested = false;
 
 
     /*
-        IMPORTANT:
+        The PNG does not exist anywhere in the HTML.
 
-        The PNG is NOT loaded when the page starts.
-
-        It only gets requested after the carousel
-        reaches Slide 4.
-
-        This means goose.png cannot prevent the
-        homepage from loading.
+        This function is only called after the carousel
+        reaches the fourth slide.
     */
 
-    function loadEventImage() {
+    function createEventImage() {
 
-        if (eventImageLoaded) {
+        if (imageRequested) {
             return;
         }
 
-        eventImageLoaded = true;
+        imageRequested = true;
 
-        const image = document.getElementById("event-image");
+        const container =
+            document.getElementById(
+                "event-image-container"
+            );
 
-        if (!image) {
+        if (!container) {
             return;
         }
+
+
+        const image =
+            document.createElement("img");
+
+
+        image.className =
+            "event-image";
+
+
+        image.alt =
+            "Folded presents KABE New Years Event";
+
+
+        image.decoding =
+            "async";
 
 
         image.onload = function () {
 
-            image.classList.add("loaded");
+            image.classList.add("visible");
 
         };
 
@@ -1077,37 +1076,40 @@ document.addEventListener("DOMContentLoaded", function () {
         image.onerror = function () {
 
             /*
-                If Wasmer cannot find the image,
-                simply leave the event text visible.
+                Do nothing.
 
-                Nothing else on the page is affected.
+                The event title and subtext remain visible
+                even if the PNG cannot be found.
             */
 
-            image.removeAttribute("src");
+            image.remove();
 
         };
 
 
-        /*
-            This is the ONLY place where the PNG
-            path is used.
+        container.appendChild(image);
 
-            It is a web path, NOT a Windows path.
+
+        /*
+            The request does not happen until this line.
+
+            The Windows path is intentionally NOT used.
         */
 
-        image.src = "/bmedia/goose.png";
+        image.src =
+            "/bmedia/goose.png";
 
     }
 
 
     function showSlide(index) {
 
-        if (index < 0) {
-            index = slides.length - 1;
-        }
-
         if (index >= slides.length) {
             index = 0;
+        }
+
+        if (index < 0) {
+            index = slides.length - 1;
         }
 
         currentSlide = index;
@@ -1134,12 +1136,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-            Once Slide 4 is reached, begin downloading
-            the PNG in the background.
+            Load the PNG only after the carousel
+            reaches the event slide.
         */
 
         if (currentSlide === 3) {
-            loadEventImage();
+            createEventImage();
         }
 
     }
@@ -1147,42 +1149,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
     dots.forEach(function (dot) {
 
-        dot.addEventListener("click", function () {
+        dot.addEventListener(
+            "click",
+            function () {
 
-            showSlide(
-                Number(dot.dataset.slide)
-            );
+                showSlide(
+                    Number(dot.dataset.slide)
+                );
 
-        });
+            }
+        );
 
     });
 
 
     setInterval(function () {
 
-        showSlide(currentSlide + 1);
+        showSlide(
+            currentSlide + 1
+        );
 
     }, 6000);
-
 
 
     /* ==========================================
        STARFIELD
     ========================================== */
 
-    const canvas = document.getElementById("stars");
-    const ctx = canvas.getContext("2d");
+    const canvas =
+        document.getElementById("stars");
+
+    const ctx =
+        canvas.getContext("2d");
+
 
     let stars = [];
 
     let mouseX = -1000;
+
     let mouseY = -1000;
 
 
     function resizeCanvas() {
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.width =
+            window.innerWidth;
+
+        canvas.height =
+            window.innerHeight;
 
     }
 
@@ -1191,32 +1205,45 @@ document.addEventListener("DOMContentLoaded", function () {
 
         stars = [];
 
-        const amount = Math.min(
-            150,
-            Math.floor(
-                window.innerWidth *
-                window.innerHeight /
-                7000
-            )
-        );
+
+        const amount =
+            Math.min(
+                150,
+                Math.floor(
+                    window.innerWidth *
+                    window.innerHeight /
+                    7000
+                )
+            );
 
 
-        for (let i = 0; i < amount; i++) {
+        for (
+            let i = 0;
+            i < amount;
+            i++
+        ) {
 
             stars.push({
 
-                x: Math.random() * canvas.width,
+                x:
+                    Math.random() *
+                    canvas.width,
 
-                y: Math.random() * canvas.height,
+                y:
+                    Math.random() *
+                    canvas.height,
 
                 size:
-                    Math.random() * 1.5 + .3,
+                    Math.random() *
+                    1.5 + .3,
 
                 speed:
-                    Math.random() * .15 + .03,
+                    Math.random() *
+                    .15 + .03,
 
                 opacity:
-                    Math.random() * .5 + .15
+                    Math.random() *
+                    .5 + .15
 
             });
 
@@ -1248,24 +1275,26 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
-            const distance = Math.sqrt(
+            const distance =
+                Math.sqrt(
 
-                Math.pow(
-                    star.x - mouseX,
-                    2
-                )
+                    Math.pow(
+                        star.x - mouseX,
+                        2
+                    )
 
-                +
+                    +
 
-                Math.pow(
-                    star.y - mouseY,
-                    2
-                )
+                    Math.pow(
+                        star.y - mouseY,
+                        2
+                    )
 
-            );
+                );
 
 
-            let opacity = star.opacity;
+            let opacity =
+                star.opacity;
 
 
             if (distance < 100) {
@@ -1278,6 +1307,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             ctx.beginPath();
 
+
             ctx.arc(
                 star.x,
                 star.y,
@@ -1289,7 +1319,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             ctx.fillStyle =
                 "rgba(255,210,235," +
-                Math.min(opacity, 1) +
+                Math.min(
+                    opacity,
+                    1
+                ) +
                 ")";
 
 
@@ -1298,7 +1331,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
-        requestAnimationFrame(drawStars);
+        requestAnimationFrame(
+            drawStars
+        );
 
     }
 
@@ -1308,6 +1343,7 @@ document.addEventListener("DOMContentLoaded", function () {
         function () {
 
             resizeCanvas();
+
             createStars();
 
         }
@@ -1318,8 +1354,11 @@ document.addEventListener("DOMContentLoaded", function () {
         "mousemove",
         function (event) {
 
-            mouseX = event.clientX;
-            mouseY = event.clientY;
+            mouseX =
+                event.clientX;
+
+            mouseY =
+                event.clientY;
 
         }
     );
@@ -1330,6 +1369,7 @@ document.addEventListener("DOMContentLoaded", function () {
         function () {
 
             mouseX = -1000;
+
             mouseY = -1000;
 
         }
@@ -1337,7 +1377,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     resizeCanvas();
+
     createStars();
+
     drawStars();
 
 });
