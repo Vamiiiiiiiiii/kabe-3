@@ -12,10 +12,15 @@
 
     <title>KABE 𐙚 Official Website</title>
 
+    <meta
+        name="description"
+        content="Welcome to the official KABE website. ♡"
+    >
 
-    <!-- FONTS -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
     <link
         rel="preconnect"
@@ -33,8 +38,6 @@
 
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
 
@@ -44,31 +47,150 @@
 
 
         body {
-            background: #000;
-            color: #ffdff1;
+            margin: 0;
+
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(255,145,212,.08),
+                    transparent 35%
+                ),
+                #000;
+
+            color: #fff;
+
             font-family: "Nunito", sans-serif;
+
             overflow-x: hidden;
         }
 
 
+        /* =========================
+           STARFIELD
+        ========================= */
+
         #stars {
             position: fixed;
+
             inset: 0;
+
             width: 100%;
             height: 100%;
+
             pointer-events: none;
+
             z-index: 0;
         }
 
 
-        main {
+        /* =========================
+           PAGE
+        ========================= */
+
+        .page {
             position: relative;
+
             z-index: 1;
+
+            width: 100%;
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            padding: 0 22px 80px;
         }
 
 
         /* =========================
-           BANNER
+           NAVIGATION
+        ========================= */
+
+        .top-nav {
+            position: sticky;
+
+            top: 14px;
+
+            z-index: 20;
+
+            width: fit-content;
+
+            max-width: calc(100% - 20px);
+
+            margin: 14px auto 28px;
+
+            padding: 9px 10px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 4px;
+
+            flex-wrap: wrap;
+
+            border: 1px solid rgba(255,145,212,.13);
+
+            border-radius: 999px;
+
+            background:
+                rgba(0,0,0,.72);
+
+            backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 10px 40px rgba(0,0,0,.35),
+                0 0 30px rgba(255,145,212,.04);
+        }
+
+
+        .top-nav a {
+            color: #d6aeca;
+
+            text-decoration: none;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            padding: 8px 14px;
+
+            border-radius: 999px;
+
+            transition: .25s ease;
+        }
+
+
+        .top-nav a:hover,
+        .top-nav a.active {
+            color: #fff;
+
+            background: rgba(255,145,212,.11);
+
+            box-shadow:
+                inset 0 0 15px rgba(255,145,212,.04);
+        }
+
+
+        .nav-logo {
+            font-family: "DynaPuff", sans-serif;
+
+            color: #ffd2ed;
+
+            font-size: 13px;
+
+            padding: 8px 14px;
+
+            margin-right: 2px;
+        }
+
+
+        /* =========================
+           HERO
         ========================= */
 
         .hero {
@@ -76,193 +198,244 @@
 
             width: 100%;
 
-            height: 300px;
+            height: 255px;
+
+            margin-top: 8px;
+
+            border-radius: 30px;
 
             overflow: hidden;
+
+            border: 1px solid rgba(255,145,212,.14);
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(255,145,212,.18),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(214,174,202,.09),
+                    transparent 30%
+                ),
+                rgba(255,255,255,.018);
+
+            box-shadow:
+                0 25px 80px rgba(0,0,0,.5),
+                0 0 50px rgba(255,145,212,.05);
+        }
+
+
+        .hero::before {
+            content: "𐙚";
+
+            position: absolute;
+
+            top: 18px;
+            left: 25px;
+
+            color: rgba(255,145,212,.45);
+
+            font-size: 24px;
+
+            z-index: 3;
+        }
+
+
+        .hero::after {
+            content: "✦";
+
+            position: absolute;
+
+            right: 28px;
+            bottom: 18px;
+
+            color: rgba(255,210,237,.4);
+
+            font-size: 20px;
+
+            z-index: 3;
+        }
+
+
+        .slides {
+            position: relative;
+
+            width: 100%;
+            height: 100%;
+        }
+
+
+        .slide {
+            position: absolute;
+
+            inset: 0;
 
             display: flex;
 
             align-items: center;
 
             justify-content: center;
-        }
 
+            text-align: center;
 
-        .hero-carousel {
-            position: absolute;
-
-            inset: 0;
-
-            width: 100%;
-            height: 100%;
-        }
-
-
-        .hero-slide {
-            position: absolute;
-
-            inset: 0;
-
-            width: 100%;
-            height: 100%;
+            padding: 35px;
 
             opacity: 0;
 
+            transform: scale(1.02);
+
             transition:
-                opacity .7s ease;
+                opacity .7s ease,
+                transform .7s ease;
         }
 
 
-        .hero-slide.active {
+        .slide.active {
             opacity: 1;
+
+            transform: scale(1);
         }
 
 
-        .hero-slide-image {
-            position: absolute;
+        .slide-content {
+            position: relative;
 
-            inset: 0;
-
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
+            z-index: 4;
         }
 
 
-        .hero-slide-dark {
-            position: absolute;
-
-            inset: 0;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(0,0,0,.75),
-                    rgba(0,0,0,.25),
-                    rgba(0,0,0,.70)
-                );
-        }
-
-
-        .hero-slide-content {
-            position: absolute;
-
-            left: 7%;
-
-            top: 50%;
-
-            transform: translateY(-50%);
-
-            max-width: 600px;
-
-            text-align: left;
-        }
-
-
-        .hero-slide-label {
-            font-size: 9px;
-
-            font-weight: 800;
-
-            letter-spacing: 3px;
+        .eyebrow {
+            margin-bottom: 9px;
 
             color: #ff91d4;
 
-            margin-bottom: 8px;
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
         }
 
 
-        .hero-slide-title {
+        .logo {
+            margin: 0;
+
             font-family: "DynaPuff", sans-serif;
 
-            font-size:
-                clamp(28px, 5vw, 52px);
+            font-size: clamp(42px, 8vw, 72px);
 
-            line-height: 1.05;
+            line-height: .95;
 
-            color: #fff;
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff,
+                    #ffd2ed,
+                    #ff91d4
+                );
 
-            margin-bottom: 10px;
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+
+            filter:
+                drop-shadow(0 0 18px rgba(255,145,212,.16));
         }
 
 
-        .hero-slide-text {
-            max-width: 450px;
+        .hero-title {
+            margin: 10px 0 0;
+
+            font-family: "DynaPuff", sans-serif;
+
+            font-size: clamp(24px, 5vw, 42px);
+
+            font-weight: 500;
+
+            color: #fff;
+        }
+
+
+        .hero-small {
+            margin-top: 8px;
+
+            color: #d6aeca;
 
             font-size: 12px;
 
-            line-height: 1.5;
-
-            color: #ffdff1;
-
-            margin-bottom: 15px;
+            font-weight: 700;
         }
 
 
         .hero-button {
-            display: inline-flex;
+            display: inline-block;
 
-            align-items: center;
+            margin-top: 18px;
 
-            justify-content: center;
-
-            padding: 8px 17px;
+            padding: 9px 17px;
 
             border-radius: 999px;
 
-            background: #ffd2ed;
+            color: #fff;
 
-            color: #000;
+            background: rgba(255,145,212,.11);
+
+            border: 1px solid rgba(255,145,212,.18);
 
             text-decoration: none;
 
-            font-size: 9px;
+            font-size: 11px;
 
             font-weight: 800;
 
-            transition: .3s ease;
+            transition: .25s ease;
         }
 
 
         .hero-button:hover {
-            background: #ff91d4;
+            background: rgba(255,145,212,.2);
 
             transform: translateY(-2px);
         }
 
 
         /* =========================
-           DOTS
+           CAROUSEL DOTS
         ========================= */
 
-        .hero-dots {
+        .carousel-dots {
             position: absolute;
 
             left: 50%;
-
-            bottom: 14px;
+            bottom: 17px;
 
             transform: translateX(-50%);
-
-            z-index: 10;
 
             display: flex;
 
             gap: 6px;
+
+            z-index: 10;
         }
 
 
-        .hero-dot {
+        .dot {
             width: 6px;
             height: 6px;
 
-            border: none;
+            border: 0;
+
+            padding: 0;
 
             border-radius: 50%;
 
-            background:
-                rgba(255,255,255,.4);
+            background: rgba(255,255,255,.2);
 
             cursor: pointer;
 
@@ -270,12 +443,15 @@
         }
 
 
-        .hero-dot.active {
-            width: 20px;
+        .dot.active {
+            width: 18px;
 
             border-radius: 999px;
 
             background: #ff91d4;
+
+            box-shadow:
+                0 0 10px rgba(255,145,212,.5);
         }
 
 
@@ -284,98 +460,96 @@
         ========================= */
 
         .welcome {
-            max-width: 850px;
-
-            margin: 0 auto;
-
-            padding:
-                45px 20px 20px;
-
             text-align: center;
+
+            margin: 58px auto 45px;
+
+            max-width: 650px;
         }
 
 
-        .welcome h1 {
+        .section-kicker {
+            color: #ff91d4;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+
+        .welcome h2 {
+            margin: 0;
+
             font-family: "DynaPuff", sans-serif;
 
-            font-size:
-                clamp(28px, 5vw, 44px);
+            font-size: clamp(24px, 5vw, 36px);
 
             font-weight: 500;
 
-            color: #fff;
-
-            line-height: 1.1;
-
-            margin-bottom: 7px;
-        }
-
-
-        .welcome h1 span {
-            background:
-                linear-gradient(
-                    90deg,
-                    #ffd2ed,
-                    #ff91d4,
-                    #ffdff1
-                );
-
-            -webkit-background-clip: text;
-
-            -webkit-text-fill-color: transparent;
-
-            background-clip: text;
+            color: #ffdff1;
         }
 
 
         .welcome p {
-            color: #d6aeca;
+            margin: 12px auto 0;
 
-            font-size: 11px;
+            max-width: 560px;
+
+            color: #b99aae;
+
+            font-size: 13px;
+
+            line-height: 1.7;
         }
 
 
         /* =========================
-           SECTIONS
+           SECTION
         ========================= */
 
         .section {
-            width: 100%;
-
-            max-width: 1050px;
-
-            margin: 0 auto;
-
-            padding:
-                50px 20px;
+            margin-top: 55px;
         }
 
 
         .section-heading {
-            text-align: center;
+            display: flex;
 
-            margin-bottom: 28px;
+            align-items: end;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 18px;
         }
 
 
         .section-heading h2 {
+            margin: 0;
+
             font-family: "DynaPuff", sans-serif;
 
-            font-size:
-                clamp(27px, 5vw, 39px);
+            font-size: 22px;
 
             font-weight: 500;
 
-            color: #fff;
-
-            margin-bottom: 7px;
+            color: #ffd2ed;
         }
 
 
-        .section-heading p {
-            color: #d6aeca;
+        .section-heading span {
+            color: #9e8493;
 
-            font-size: 11px;
+            font-size: 10px;
+
+            font-weight: 700;
         }
 
 
@@ -393,64 +567,62 @@
         }
 
 
-        .update-card {
-            padding: 22px;
+        .update {
+            padding: 23px;
 
-            border-radius: 18px;
+            border-radius: 22px;
 
-            border:
-                1px solid
-                rgba(255,145,212,.12);
+            border: 1px solid rgba(255,145,212,.1);
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,145,212,.06),
-                    rgba(255,255,255,.015)
-                );
+            background: rgba(255,255,255,.018);
 
             transition: .3s ease;
         }
 
 
-        .update-card:hover {
-            transform: translateY(-3px);
+        .update:hover {
+            transform: translateY(-4px);
 
-            border-color:
-                rgba(255,145,212,.3);
+            border-color: rgba(255,145,212,.25);
+
+            background: rgba(255,145,212,.025);
         }
 
 
         .update-date {
+            color: #9e8493;
+
             font-size: 9px;
 
-            font-weight: 700;
+            font-weight: 800;
 
-            color: #d6aeca;
+            letter-spacing: .5px;
 
-            margin-bottom: 10px;
+            margin-bottom: 9px;
         }
 
 
-        .update-title {
-            font-family: "DynaPuff", sans-serif;
+        .update h3 {
+            margin: 0;
 
-            font-size: 19px;
+            font-family: "DynaPuff", sans-serif;
 
             color: #fff;
 
-            margin-bottom: 10px;
+            font-size: 17px;
+
+            font-weight: 500;
         }
 
 
-        .update-text {
+        .update p {
+            margin: 10px 0 0;
+
+            color: #b99aae;
+
             font-size: 11px;
 
             line-height: 1.6;
-
-            color: #d6aeca;
-
-            margin-bottom: 14px;
         }
 
 
@@ -459,19 +631,22 @@
 
             flex-wrap: wrap;
 
-            gap: 5px;
+            gap: 6px;
+
+            margin-top: 15px;
         }
 
 
         .tag {
-            padding: 5px 8px;
+            padding: 5px 9px;
 
             border-radius: 999px;
 
-            background:
-                rgba(255,145,212,.08);
+            color: #d6aeca;
 
-            color: #ffd2ed;
+            background: rgba(255,145,212,.06);
+
+            border: 1px solid rgba(255,145,212,.08);
 
             font-size: 8px;
 
@@ -489,49 +664,78 @@
             grid-template-columns:
                 repeat(4, minmax(0, 1fr));
 
-            gap: 10px;
+            gap: 15px;
         }
 
 
         .member {
-            padding: 23px 10px;
+            padding: 32px 15px;
 
             text-align: center;
 
-            border-radius: 17px;
+            border-radius: 22px;
 
-            border:
-                1px solid
-                rgba(255,145,212,.1);
+            border: 1px solid rgba(255,145,212,.1);
 
-            background:
-                rgba(255,255,255,.015);
+            background: rgba(255,255,255,.015);
 
             transition: .3s ease;
         }
 
 
         .member:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
 
-            border-color:
-                rgba(255,145,212,.3);
+            border-color: rgba(255,145,212,.3);
         }
 
 
-        .member-star {
+        /* LITTLE PROFILE AREA */
+
+        .member-profile {
+            width: 72px;
+            height: 72px;
+
+            margin: 0 auto 16px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                radial-gradient(
+                    circle at 35% 30%,
+                    rgba(255,255,255,.18),
+                    rgba(255,145,212,.07)
+                );
+
+            border: 1px solid rgba(255,145,212,.16);
+
+            box-shadow:
+                0 0 20px rgba(255,145,212,.06);
+
+            overflow: hidden;
+        }
+
+
+        .member-profile-icon {
             color: #ff91d4;
 
-            font-size: 17px;
+            font-size: 28px;
 
-            margin-bottom: 9px;
+            filter:
+                drop-shadow(0 0 8px rgba(255,145,212,.3));
         }
 
 
         .member-name {
             font-family: "DynaPuff", sans-serif;
 
-            font-size: 15px;
+            font-size: 18px;
 
             color: #fff;
         }
@@ -542,76 +746,85 @@
         ========================= */
 
         .music-card {
-            max-width: 650px;
+            position: relative;
 
-            margin: 0 auto;
+            padding: 30px;
 
-            padding: 28px;
+            border-radius: 25px;
 
-            text-align: center;
+            overflow: hidden;
 
-            border-radius: 20px;
-
-            border:
-                1px solid
-                rgba(255,145,212,.14);
+            border: 1px solid rgba(255,145,212,.12);
 
             background:
                 radial-gradient(
-                    circle at top,
-                    rgba(255,145,212,.11),
-                    transparent 60%
+                    circle at 85% 20%,
+                    rgba(255,145,212,.09),
+                    transparent 30%
                 ),
-                #080808;
+                rgba(255,255,255,.018);
+        }
+
+
+        .music-card::before {
+            content: "♫";
+
+            position: absolute;
+
+            top: -18px;
+            right: 25px;
+
+            font-family: "DynaPuff", sans-serif;
+
+            font-size: 100px;
+
+            color: rgba(255,145,212,.035);
         }
 
 
         .music-label {
-            font-size: 8px;
+            color: #ff91d4;
+
+            font-size: 9px;
 
             font-weight: 800;
 
-            letter-spacing: 3px;
-
-            color: #ff91d4;
-
-            margin-bottom: 10px;
+            letter-spacing: 2px;
         }
 
 
         .music-title {
+            margin: 7px 0 3px;
+
             font-family: "DynaPuff", sans-serif;
 
-            font-size: 28px;
+            font-size: 25px;
 
             color: #fff;
-
-            margin-bottom: 6px;
         }
 
 
         .music-meta {
-            font-size: 9px;
+            color: #9e8493;
 
-            color: #d6aeca;
-
-            margin-bottom: 18px;
+            font-size: 10px;
         }
 
 
         .track {
-            padding: 11px 14px;
+            margin-top: 22px;
 
-            border-radius: 12px;
+            padding: 12px 15px;
 
-            background:
-                rgba(255,145,212,.05);
+            border-radius: 14px;
 
-            text-align: left;
+            background: rgba(255,255,255,.025);
 
-            color: #ffdff1;
+            color: #d6aeca;
 
             font-size: 10px;
+
+            font-weight: 700;
         }
 
 
@@ -625,76 +838,96 @@
             grid-template-columns:
                 repeat(3, minmax(0, 1fr));
 
-            gap: 10px;
+            gap: 12px;
         }
 
 
         .quick-link {
-            min-height: 70px;
-
             display: flex;
 
             align-items: center;
 
-            justify-content: center;
+            justify-content: space-between;
 
-            border-radius: 16px;
+            padding: 18px;
 
-            border:
-                1px solid
-                rgba(255,145,212,.1);
-
-            background:
-                rgba(255,255,255,.015);
+            border-radius: 18px;
 
             color: #ffdff1;
 
             text-decoration: none;
 
-            font-family: "DynaPuff", sans-serif;
+            border: 1px solid rgba(255,145,212,.09);
 
-            font-size: 14px;
+            background: rgba(255,255,255,.015);
 
-            transition: .3s ease;
+            font-size: 11px;
+
+            font-weight: 800;
+
+            transition: .25s ease;
+        }
+
+
+        .quick-link span {
+            color: #ff91d4;
+
+            font-size: 15px;
         }
 
 
         .quick-link:hover {
-            color: #ff91d4;
-
             transform: translateY(-3px);
 
-            border-color:
-                rgba(255,145,212,.3);
+            border-color: rgba(255,145,212,.25);
+
+            background: rgba(255,145,212,.035);
         }
 
 
         /* =========================
-           END
+           FINAL MESSAGE
         ========================= */
 
-        .ending {
+        .final-message {
             text-align: center;
 
-            padding:
-                45px 20px 55px;
+            margin: 85px auto 10px;
+
+            padding: 45px 20px;
+
+            border-top: 1px solid rgba(255,145,212,.08);
+
+            border-bottom: 1px solid rgba(255,145,212,.08);
         }
 
 
-        .ending h2 {
+        .final-message .flower {
+            color: #ff91d4;
+
+            font-size: 22px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .final-message h2 {
+            margin: 0;
+
             font-family: "DynaPuff", sans-serif;
 
-            font-size:
-                clamp(24px, 5vw, 36px);
+            font-size: 25px;
 
-            color: #fff;
+            font-weight: 500;
 
-            margin-bottom: 7px;
+            color: #ffd2ed;
         }
 
 
-        .ending p {
-            color: #d6aeca;
+        .final-message p {
+            margin: 9px 0 0;
+
+            color: #9e8493;
 
             font-size: 11px;
         }
@@ -706,55 +939,57 @@
 
         @media (max-width: 700px) {
 
+            .page {
+                padding-left: 15px;
+
+                padding-right: 15px;
+            }
+
+
+            .top-nav {
+                top: 8px;
+
+                margin-top: 8px;
+
+                margin-bottom: 20px;
+
+                max-width: 100%;
+            }
+
+
+            .top-nav a {
+                padding: 7px 9px;
+
+                font-size: 9px;
+            }
+
+
+            .nav-logo {
+                padding: 7px 9px;
+
+                font-size: 11px;
+            }
+
+
             .hero {
-                height: 210px;
+                height: 205px;
+
+                border-radius: 24px;
             }
 
 
-            .hero-slide-content {
-                left: 22px;
-
-                right: 22px;
-
-                top: 50%;
-
-                max-width: none;
+            .slide {
+                padding: 25px 20px;
             }
 
 
-            .hero-slide-title {
-                font-size: 26px;
+            .hero-title {
+                font-size: 25px;
             }
 
 
-            .hero-slide-text {
-                display: none;
-            }
-
-
-            .hero-slide-label {
-                font-size: 8px;
-
-                margin-bottom: 6px;
-            }
-
-
-            .hero-button {
-                padding:
-                    7px 14px;
-
-                font-size: 8px;
-            }
-
-
-            .hero-dots {
-                bottom: 9px;
-            }
-
-
-            .welcome {
-                padding:
-                    35px 20px 15px;
+            .hero-small {
+                font-size: 10px;
             }
 
 
@@ -769,18 +1004,50 @@
             }
 
 
+            .member {
+                padding: 28px 12px;
+            }
+
+
+            .member-profile {
+                width: 65px;
+                height: 65px;
+            }
+
+
+            .member-name {
+                font-size: 16px;
+            }
+
+
             .quick-links {
                 grid-template-columns: 1fr;
             }
 
 
-            .section {
-                padding:
-                    42px 17px;
+            .welcome {
+                margin-top: 45px;
             }
 
         }
 
+
+        @media (max-width: 380px) {
+
+            .top-nav a {
+                padding-left: 7px;
+
+                padding-right: 7px;
+            }
+
+
+            .nav-logo {
+                padding-left: 7px;
+
+                padding-right: 7px;
+            }
+
+        }
 
     </style>
 
@@ -790,681 +1057,627 @@
 <body>
 
 
-<canvas id="stars"></canvas>
+    <canvas id="stars"></canvas>
 
 
-<main>
+    <div class="page">
 
 
-    <!-- =========================
-         SHORT WIDE BANNER
-    ========================= -->
+        <!-- NAVIGATION -->
 
-    <section class="hero">
+        <nav class="top-nav">
 
+            <div class="nav-logo">
+                KABE 𐙚
+            </div>
 
-        <div class="hero-carousel">
-
-
-            <!-- SLIDE 1 -->
-
-            <div
-                class="hero-slide active"
-                data-slide="0"
+            <a
+                href="/"
+                class="active"
             >
+                Home
+            </a>
 
-                <img
-                    class="hero-slide-image"
-                    src="/images/kabe-banner.jpg"
-                    alt="KABE"
-                >
+            <a href="/news">
+                News
+            </a>
+
+            <a href="/music">
+                Music
+            </a>
+
+            <a href="/careers">
+                Careers
+            </a>
+
+            <a href="/credits">
+                Credits
+            </a>
+
+        </nav>
 
 
-                <div class="hero-slide-dark"></div>
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="slides">
 
 
-                <div class="hero-slide-content">
+                <div class="slide active">
 
-                    <div class="hero-slide-label">
-                        KABE 𐙚
+                    <div class="slide-content">
+
+                        <div class="eyebrow">
+                            KABE 𐙚 Official Website
+                        </div>
+
+                        <h1 class="hero-title">
+                            Welcome to the garden. 𐙚
+                        </h1>
+
                     </div>
 
+                </div>
 
-                    <h2 class="hero-slide-title">
-                        Welcome to the garden.
-                    </h2>
+
+                <div class="slide">
+
+                    <div class="slide-content">
+
+                        <div class="eyebrow">
+                            KABE News
+                        </div>
+
+                        <h1 class="hero-title">
+                            What's growing?
+                        </h1>
+
+                        <a
+                            class="hero-button"
+                            href="/news"
+                        >
+                            Read the latest updates 𐙚
+                        </a>
+
+                    </div>
 
                 </div>
+
+
+                <div class="slide">
+
+                    <div class="slide-content">
+
+                        <div class="eyebrow">
+                            KABE Music
+                        </div>
+
+                        <h1 class="hero-title">
+                            Something is blooming.
+                        </h1>
+
+                        <a
+                            class="hero-button"
+                            href="/music"
+                        >
+                            Explore KABE Music ♡
+                        </a>
+
+                    </div>
+
+                </div>
+
 
             </div>
 
 
-            <!-- SLIDE 2 -->
+            <div class="carousel-dots">
 
-            <div
-                class="hero-slide"
-                data-slide="1"
-            >
+                <button
+                    class="dot active"
+                    aria-label="Slide 1"
+                ></button>
 
-                <div class="hero-slide-dark"></div>
+                <button
+                    class="dot"
+                    aria-label="Slide 2"
+                ></button>
 
-
-                <div class="hero-slide-content">
-
-                    <div class="hero-slide-label">
-                        KABE NEWS
-                    </div>
-
-
-                    <h2 class="hero-slide-title">
-                        What's growing?
-                    </h2>
-
-
-                    <a
-                        href="/news"
-                        class="hero-button"
-                    >
-                        VIEW NEWS 𐙚
-                    </a>
-
-                </div>
+                <button
+                    class="dot"
+                    aria-label="Slide 3"
+                ></button>
 
             </div>
 
-
-            <!-- SLIDE 3 -->
-
-            <div
-                class="hero-slide"
-                data-slide="2"
-            >
-
-                <div class="hero-slide-dark"></div>
+        </section>
 
 
-                <div class="hero-slide-content">
+        <!-- WELCOME -->
 
-                    <div class="hero-slide-label">
-                        KABE MUSIC
-                    </div>
+        <section class="welcome">
 
-
-                    <h2 class="hero-slide-title">
-                        Something is coming.
-                    </h2>
-
-
-                    <a
-                        href="/music"
-                        class="hero-button"
-                    >
-                        EXPLORE MUSIC 𐙚
-                    </a>
-
-                </div>
-
+            <div class="section-kicker">
+                welcome home 𐙚
             </div>
-
-
-        </div>
-
-
-        <div class="hero-dots">
-
-            <button
-                class="hero-dot active"
-                data-slide="0"
-                aria-label="Slide 1"
-            ></button>
-
-
-            <button
-                class="hero-dot"
-                data-slide="1"
-                aria-label="Slide 2"
-            ></button>
-
-
-            <button
-                class="hero-dot"
-                data-slide="2"
-                aria-label="Slide 3"
-            ></button>
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- =========================
-         WELCOME
-    ========================= -->
-
-    <section class="welcome">
-
-        <h1>
-            Welcome to
-            <span>
-                the garden.
-            </span>
-            𐙚
-        </h1>
-
-
-        <p>
-            Everything KABE, all in one place. ♡
-        </p>
-
-    </section>
-
-
-
-    <!-- =========================
-         UPDATES
-    ========================= -->
-
-    <section class="section">
-
-
-        <div class="section-heading">
 
             <h2>
-                Latest updates 𐙚
+                A little garden for KABE.
             </h2>
 
-
             <p>
-                Everything happening around KABE.
+                Explore the latest news, music, careers,
+                and everything growing inside the world of KABE. ♡
             </p>
 
-        </div>
+        </section>
 
 
-        <div class="updates">
+        <!-- UPDATES -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Latest updates
+                </h2>
+
+                <span>
+                    from the garden
+                </span>
+
+            </div>
 
 
-            <article class="update-card">
+            <div class="updates">
 
-                <div class="update-date">
-                    September 24, 2026
+
+                <article class="update">
+
+                    <div class="update-date">
+                        September 24, 2026
+                    </div>
+
+                    <h3>
+                        KABE is hiring Logo Designers!
+                    </h3>
+
+                    <p>
+                        KABE is looking for a creative Logo Designer
+                        to help shape our visual identity and future projects.
+                    </p>
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            ✓ Official Announcement
+                        </span>
+
+                        <span class="tag">
+                            KABE Careers
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article class="update">
+
+                    <div class="update-date">
+                        September 22, 2026 · 9:43 PM CT
+                    </div>
+
+                    <h3>
+                        An update regarding Blossom
+                    </h3>
+
+                    <p>
+                        Blossom will be taking an official hiatus from
+                        KABE-related activities due to limited availability online.
+                    </p>
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            ✓ Official Announcement
+                        </span>
+
+                        <span class="tag">
+                            Hiatus Announcement
+                        </span>
+
+                        <span class="tag">
+                            Blossom
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- MEMBERS -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Meet KABE
+                </h2>
+
+                <span>
+                    four little stars
+                </span>
+
+            </div>
+
+
+            <div class="members">
+
+
+                <div class="member">
+
+                    <div class="member-profile">
+
+                        <div class="member-profile-icon">
+                            𐙚
+                        </div>
+
+                    </div>
+
+                    <div class="member-name">
+                        Kalon
+                    </div>
+
                 </div>
 
 
-                <h3 class="update-title">
-                    KABE is hiring Logo Designers!
-                </h3>
+                <div class="member">
 
+                    <div class="member-profile">
 
-                <p class="update-text">
-                    KABE is currently looking for a creative
-                    Logo Designer to help develop and maintain
-                    our visual identity.
-                </p>
+                        <div class="member-profile-icon">
+                            𐙚
+                        </div>
 
+                    </div>
 
-                <div class="tags">
-
-                    <span class="tag">
-                        ✓ Official Announcement
-                    </span>
-
-
-                    <span class="tag">
-                        KABE Careers
-                    </span>
+                    <div class="member-name">
+                        Abloom
+                    </div>
 
                 </div>
 
-            </article>
 
+                <div class="member">
 
+                    <div class="member-profile">
 
-            <article class="update-card">
+                        <div class="member-profile-icon">
+                            𐙚
+                        </div>
 
-                <div class="update-date">
-                    September 22, 2026 · 9:43 PM CT
-                </div>
+                    </div>
 
-
-                <h3 class="update-title">
-                    An update regarding Blossom
-                </h3>
-
-
-                <p class="update-text">
-                    Blossom will be taking an official hiatus
-                    from KABE-related activities due to limited
-                    availability online. There is currently
-                    no confirmed return date.
-                </p>
-
-
-                <div class="tags">
-
-                    <span class="tag">
-                        ✓ Official Announcement
-                    </span>
-
-
-                    <span class="tag">
-                        Hiatus Announcement
-                    </span>
-
-
-                    <span class="tag">
+                    <div class="member-name">
                         Blossom
+                    </div>
+
+                </div>
+
+
+                <div class="member">
+
+                    <div class="member-profile">
+
+                        <div class="member-profile-icon">
+                            𐙚
+                        </div>
+
+                    </div>
+
+                    <div class="member-name">
+                        Euphoria
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- MUSIC -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Music
+                </h2>
+
+                <span>
+                    coming soon
+                </span>
+
+            </div>
+
+
+            <div class="music-card">
+
+                <div class="music-label">
+                    COMING SOON
+                </div>
+
+                <div class="music-title">
+                    KABE Debut
+                </div>
+
+                <div class="music-meta">
+                    Debut Single · 2026
+                </div>
+
+                <div class="track">
+                    01 · ███████████ · DEBUT
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK LINKS -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Explore
+                </h2>
+
+                <span>
+                    find your way around
+                </span>
+
+            </div>
+
+
+            <div class="quick-links">
+
+                <a
+                    href="/news"
+                    class="quick-link"
+                >
+                    KABE News
+
+                    <span>
+                        𐙚
                     </span>
-
-                </div>
-
-            </article>
+                </a>
 
 
-        </div>
+                <a
+                    href="/music"
+                    class="quick-link"
+                >
+                    KABE Music
 
-    </section>
+                    <span>
+                        ♫
+                    </span>
+                </a>
 
 
+                <a
+                    href="/careers"
+                    class="quick-link"
+                >
+                    Careers
 
-    <!-- =========================
-         MEMBERS
-    ========================= -->
+                    <span>
+                        ✦
+                    </span>
+                </a>
 
-    <section class="section">
+            </div>
+
+        </section>
 
 
-        <div class="section-heading">
+        <!-- FINAL MESSAGE -->
+
+        <section class="final-message">
+
+            <div class="flower">
+                𐙚
+            </div>
 
             <h2>
-                Meet KABE 𐙚
+                Made with love for KABE.
             </h2>
-
 
             <p>
-                Four names. One garden.
+                Welcome to our little garden. ♡
             </p>
 
-        </div>
+        </section>
 
 
-        <div class="members">
+    </div>
 
 
-            <div class="member">
+    <script>
 
-                <div class="member-star">
-                    𐙚
-                </div>
+        /* =========================
+           CAROUSEL
+        ========================= */
 
-                <div class="member-name">
-                    Kalon
-                </div>
+        const slides =
+            document.querySelectorAll(".slide");
 
-            </div>
+        const dots =
+            document.querySelectorAll(".dot");
 
+        let currentSlide = 0;
 
-            <div class="member">
 
-                <div class="member-star">
-                    𐙚
-                </div>
+        function showSlide(index) {
 
-                <div class="member-name">
-                    Abloom
-                </div>
-
-            </div>
-
-
-            <div class="member">
-
-                <div class="member-star">
-                    𐙚
-                </div>
-
-                <div class="member-name">
-                    Blossom
-                </div>
-
-            </div>
-
-
-            <div class="member">
-
-                <div class="member-star">
-                    𐙚
-                </div>
-
-                <div class="member-name">
-                    Euphoria
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         MUSIC
-    ========================= -->
-
-    <section class="section">
-
-
-        <div class="section-heading">
-
-            <h2>
-                KABE Music
-            </h2>
-
-
-            <p>
-                Something is growing.
-            </p>
-
-        </div>
-
-
-        <div class="music-card">
-
-            <div class="music-label">
-                COMING SOON
-            </div>
-
-
-            <h3 class="music-title">
-                KABE Debut
-            </h3>
-
-
-            <div class="music-meta">
-                Debut Single · 2026
-            </div>
-
-
-            <div class="track">
-                01 · ███████████ · DEBUT
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         QUICK LINKS
-    ========================= -->
-
-    <section class="section">
-
-
-        <div class="section-heading">
-
-            <h2>
-                Explore KABE 𐙚
-            </h2>
-
-        </div>
-
-
-        <div class="quick-links">
-
-
-            <a
-                href="/news"
-                class="quick-link"
-            >
-                News 𐙚
-            </a>
-
-
-            <a
-                href="/music"
-                class="quick-link"
-            >
-                Music 𐙚
-            </a>
-
-
-            <a
-                href="/careers"
-                class="quick-link"
-            >
-                Careers 𐙚
-            </a>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         END
-    ========================= -->
-
-    <section class="ending">
-
-        <h2>
-            Made with love for KABE. 𐙚
-        </h2>
-
-
-        <p>
-            Welcome to our little garden. ♡
-        </p>
-
-    </section>
-
-
-</main>
-
-
-
-<script>
-
-
-    /* =========================
-       CAROUSEL
-    ========================= */
-
-    const slides =
-        document.querySelectorAll(
-            ".hero-slide"
-        );
-
-
-    const dots =
-        document.querySelectorAll(
-            ".hero-dot"
-        );
-
-
-    let currentSlide = 0;
-
-
-    function showSlide(index) {
-
-        currentSlide = index;
-
-
-        slides.forEach(
-            (slide, i) => {
+            slides.forEach((slide, i) => {
 
                 slide.classList.toggle(
                     "active",
                     i === index
                 );
 
-            }
-        );
+            });
 
 
-        dots.forEach(
-            (dot, i) => {
+            dots.forEach((dot, i) => {
 
                 dot.classList.toggle(
                     "active",
                     i === index
                 );
 
-            }
-        );
+            });
 
-    }
+            currentSlide = index;
+
+        }
 
 
-    dots.forEach(
-        (dot) => {
+        dots.forEach((dot, index) => {
 
             dot.addEventListener(
                 "click",
-                () => {
-
-                    showSlide(
-                        Number(
-                            dot.dataset.slide
-                        )
-                    );
-
-                }
+                () => showSlide(index)
             );
 
-        }
-    );
+        });
 
 
-    setInterval(
-        () => {
+        setInterval(() => {
 
             currentSlide =
-                (
-                    currentSlide + 1
-                ) % slides.length;
+                (currentSlide + 1) % slides.length;
+
+            showSlide(currentSlide);
+
+        }, 6000);
 
 
-            showSlide(
-                currentSlide
-            );
+        /* =========================
+           STARFIELD
+        ========================= */
 
-        },
-        6000
-    );
+        const canvas =
+            document.getElementById("stars");
 
-
-
-    /* =========================
-       STARFIELD
-    ========================= */
-
-    const canvas =
-        document.getElementById(
-            "stars"
-        );
+        const ctx =
+            canvas.getContext("2d");
 
 
-    const ctx =
-        canvas.getContext(
-            "2d"
-        );
+        let stars = [];
+
+        let mouse = {
+            x: null,
+            y: null
+        };
 
 
-    let stars = [];
+        function resizeCanvas() {
 
+            canvas.width =
+                window.innerWidth;
 
-    let mouse = {
-        x: null,
-        y: null
-    };
+            canvas.height =
+                window.innerHeight;
 
-
-    function resizeCanvas() {
-
-        canvas.width =
-            window.innerWidth;
-
-        canvas.height =
-            window.innerHeight;
-
-    }
-
-
-    function createStars() {
-
-        stars = [];
-
-
-        const amount =
-            Math.min(
-                180,
-
-                Math.floor(
-                    window.innerWidth *
-                    window.innerHeight /
-                    7000
-                )
-            );
-
-
-        for (
-            let i = 0;
-            i < amount;
-            i++
-        ) {
-
-            stars.push({
-
-                x:
-                    Math.random() *
-                    canvas.width,
-
-                y:
-                    Math.random() *
-                    canvas.height,
-
-                radius:
-                    Math.random() *
-                    1.3 + .2,
-
-                alpha:
-                    Math.random() *
-                    .6 + .2,
-
-                speed:
-                    Math.random() *
-                    .002 + .001
-
-            });
+            createStars();
 
         }
 
-    }
+
+        function createStars() {
+
+            stars = [];
+
+            const amount =
+                Math.min(
+                    150,
+                    Math.floor(
+                        window.innerWidth *
+                        window.innerHeight /
+                        7000
+                    )
+                );
 
 
-    function drawStars() {
+            for (let i = 0; i < amount; i++) {
 
-        ctx.clearRect(
-            0,
-            0,
-            canvas.width,
-            canvas.height
-        );
+                stars.push({
+
+                    x:
+                        Math.random() *
+                        canvas.width,
+
+                    y:
+                        Math.random() *
+                        canvas.height,
+
+                    size:
+                        Math.random() * 1.4 + .3,
+
+                    opacity:
+                        Math.random() * .55 + .15,
+
+                    speed:
+                        Math.random() * .15 + .03
+
+                });
+
+            }
+
+        }
 
 
-        stars.forEach(
-            (star) => {
+        function drawStars() {
 
-                let brightness =
-                    star.alpha;
+            ctx.clearRect(
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
+
+
+            stars.forEach(star => {
+
+                star.y -= star.speed;
+
+
+                if (star.y < 0) {
+
+                    star.y =
+                        canvas.height;
+
+                }
+
+
+                let opacity =
+                    star.opacity;
 
 
                 if (
@@ -1473,14 +1686,10 @@
                 ) {
 
                     const dx =
-                        star.x -
-                        mouse.x;
-
+                        star.x - mouse.x;
 
                     const dy =
-                        star.y -
-                        mouse.y;
-
+                        star.y - mouse.y;
 
                     const distance =
                         Math.sqrt(
@@ -1489,16 +1698,13 @@
                         );
 
 
-                    if (
-                        distance < 130
-                    ) {
+                    if (distance < 100) {
 
-                        brightness +=
-                            (
-                                1 -
-                                distance /
-                                130
-                            ) * .7;
+                        opacity = Math.min(
+                            1,
+                            opacity +
+                            (1 - distance / 100) * .65
+                        );
 
                     }
 
@@ -1507,101 +1713,69 @@
 
                 ctx.beginPath();
 
-
                 ctx.arc(
                     star.x,
                     star.y,
-                    star.radius,
+                    star.size,
                     0,
                     Math.PI * 2
                 );
 
-
                 ctx.fillStyle =
-                    `rgba(
-                        255,
-                        255,
-                        255,
-                        ${brightness}
-                    )`;
-
+                    `rgba(255,210,237,${opacity})`;
 
                 ctx.fill();
 
-
-                star.alpha +=
-                    star.speed;
+            });
 
 
-                if (
-                    star.alpha > .9 ||
-                    star.alpha < .2
-                ) {
+            requestAnimationFrame(
+                drawStars
+            );
 
-                    star.speed *= -1;
+        }
 
-                }
+
+        window.addEventListener(
+            "resize",
+            resizeCanvas
+        );
+
+
+        window.addEventListener(
+            "mousemove",
+            event => {
+
+                mouse.x =
+                    event.clientX;
+
+                mouse.y =
+                    event.clientY;
 
             }
         );
 
 
-        requestAnimationFrame(
-            drawStars
+        window.addEventListener(
+            "mouseleave",
+            () => {
+
+                mouse.x = null;
+
+                mouse.y = null;
+
+            }
         );
 
-    }
+
+        resizeCanvas();
+
+        drawStars();
+
+    </script>
 
 
-    window.addEventListener(
-        "resize",
-        () => {
-
-            resizeCanvas();
-
-            createStars();
-
-        }
-    );
-
-
-    window.addEventListener(
-        "mousemove",
-        (event) => {
-
-            mouse.x =
-                event.clientX;
-
-            mouse.y =
-                event.clientY;
-
-        }
-    );
-
-
-    window.addEventListener(
-        "mouseleave",
-        () => {
-
-            mouse.x = null;
-
-            mouse.y = null;
-
-        }
-    );
-
-
-    resizeCanvas();
-
-    createStars();
-
-    drawStars();
-
-
-</script>
-
-
-<script src="/directory.js"></script>
+    <script src="/directory.js"></script>
 
 
 </body>
